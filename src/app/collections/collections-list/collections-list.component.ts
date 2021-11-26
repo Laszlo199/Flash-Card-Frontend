@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DECKS} from "../shared/fake-decks";
 import {DeckDto} from "../shared/deck.dto";
 import {DeckService} from "../shared/deck.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-collections-list',
@@ -10,12 +11,17 @@ import {DeckService} from "../shared/deck.service";
 })
 export class CollectionsListComponent implements OnInit {
   searchPhrase: string | undefined;
-  decks: DeckDto[] | undefined;
+  fakeDecks: DeckDto[] | undefined;
+  decks$: Observable<DeckDto[]> | undefined;
 
   constructor(private service: DeckService) { }
 
   ngOnInit(): void {
-    this.decks = this.service.getDecks()
+    this.fakeDecks = this.service.getDecks();
+    this.loadDecks();
   }
 
+  private loadDecks() {
+    this.decks$ = this.service.getByUserId(1);
+  }
 }

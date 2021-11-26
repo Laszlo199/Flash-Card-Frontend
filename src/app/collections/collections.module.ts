@@ -5,6 +5,7 @@ import { CollectionsRoutingModule } from './collections-routing.module';
 import { CollectionsListComponent } from './collections-list/collections-list.component';
 import {FormsModule} from "@angular/forms";
 import { CollectionCardComponent } from './collection-card/collection-card.component';
+import { HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CollectionCardComponent } from './collection-card/collection-card.compo
   imports: [
     CommonModule,
     CollectionsRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ]
 })
 export class CollectionsModule { }

@@ -5,7 +5,8 @@
   </div>
   <br>
   <br>
-  <div class="decks-list">
+  <div class="decks-list" *ngIf="decks$ | async as decks">
+    <!--ng-container *ngFor="let deck of fakeDecks"-->
     <ng-container *ngFor="let deck of decks">
       <app-collection-card class="card" [deck]="deck"></app-collection-card>
     </ng-container>

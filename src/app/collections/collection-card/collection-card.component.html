@@ -3,7 +3,7 @@
   <p class="description">{{ (deck.description.length>70)?
     ((deck.description | slice:0:70)+'...')
     : (deck.description)}}</p>
-  <p class="number">{{deck.numberOfCards}} cards</p>
+  <p class="number">{{deck.numberOfCards==1 ? (deck.numberOfCards+" card") : (deck.numberOfCards+" cards")}}</p>
   <p class="public">{{deck.isPublic ? "public" : "private"}}</p>
   <p class="practise-btn">practise</p>
 </div>
