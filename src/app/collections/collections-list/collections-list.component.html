@@ -1,0 +1,14 @@
+<div class="collections">
+  <h1>My collections</h1>
+  <div class="searchbar">
+    <input class="search" placeholder="search..." [(ngModel)]="searchPhrase">
+  </div>
+  <br>
+  <br>
+  <div class="decks-list">
+    <ng-container *ngFor="let deck of decks">
+      <app-collection-card class="card" [deck]="deck"></app-collection-card>
+    </ng-container>
+  </div>
+</div>
+
