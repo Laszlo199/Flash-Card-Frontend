@@ -22,6 +22,11 @@ export class CollectionsListComponent implements OnInit {
   }
 
   private loadDecks() {
-    this.decks$ = this.service.getByUserId(1);
+    this.decks$ = this.service.getByUserId(1, "");
+  }
+
+  searchDecks() {
+    if(this.searchPhrase && this.searchPhrase!="")
+      this.decks$ = this.service.getByUserId(1, this.searchPhrase);
   }
 }

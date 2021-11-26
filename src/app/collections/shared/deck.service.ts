@@ -15,7 +15,7 @@ export class DeckService {
     return DECKS;
   }
 
-  getByUserId(userId: number): Observable<DeckDto[]> {
-    return this._http.get<DeckDto[]>("https://localhost:5001/Decks/GetByUserId/"+userId);
+  getByUserId(userId: number, search: string): Observable<DeckDto[]> {
+    return this._http.get<DeckDto[]>("https://localhost:5001/Decks/GetByUserId/"+userId+"?search="+search);
   }
 }

@@ -1,7 +1,7 @@
 <div class="collections">
   <h1>My collections</h1>
   <div class="searchbar">
-    <input class="search" placeholder="search..." [(ngModel)]="searchPhrase">
+    <input class="search" placeholder="search..." [(ngModel)]="searchPhrase" (keyup)="searchDecks()">
   </div>
   <br>
   <br>
