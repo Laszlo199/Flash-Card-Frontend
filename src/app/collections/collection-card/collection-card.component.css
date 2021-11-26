@@ -1,0 +1,40 @@
+.card {
+  width: 100%;
+  height: 180px;
+  padding: 20px;
+
+  border-radius: 15px;
+
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+}
+
+p {
+  text-align: left;
+  margin-block: 7px;
+  background-color: white;
+}
+
+.title {
+  font-weight: bolder;
+  font-size: 1.5rem;
+  padding: 0px;
+  margin-block: 0px;
+}
+
+.description {
+}
+
+.number {
+  margin-top: 20px;
+}
+
+.public {
+  color: #6C6C6C;
+}
+
+.practise-btn {
+  cursor: pointer;
+  color: mediumpurple;
+}

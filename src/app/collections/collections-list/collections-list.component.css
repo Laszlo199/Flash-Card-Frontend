@@ -1,0 +1,33 @@
+.collections {
+  text-align: center;
+  margin-top: 15vh;
+}
+
+.decks-list {
+  height: 60vh;
+  display: grid;
+  grid-template-columns: 300px 300px 300px ;
+  grid-gap: 30px;
+  justify-content: center;
+  overflow-y:auto
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search {
+  padding: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 15px;
+  border-color: #D2D2DD;
+  text-align: left;
+  width: 300px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  margin-bottom: 5px;
+}
+
+
