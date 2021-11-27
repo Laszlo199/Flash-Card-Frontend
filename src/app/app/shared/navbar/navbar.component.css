@@ -1,0 +1,17 @@
+.nav-list {
+  list-style-type: none;
+  margin: 0;
+  margin-right: 70px;
+
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-list-el{
+  padding-top: 40px;
+}
+
+
+
+
