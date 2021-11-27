@@ -1,0 +1,45 @@
+.introduction-container{
+  padding: 40px;
+  padding-right: 80px;
+  padding-left: 80px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.introduction-container-el{
+  flex: 1; /* additionally, equal width */
+  min-height: 400px;
+  padding: 1em;
+  border: solid;
+
+}
+
+.video1{
+  size: 2000px;
+  position: absolute;
+}
+
+.section-1-container{
+  border: solid saddlebrown;
+  padding: 15px;
+  padding-right: 80px;
+  padding-left: 80px;
+  min-height: 300px;
+
+}
+
+.section-1-container-banner1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.section-1-container-banner{
+  border: solid;
+}
+
+.main-container{
+
+}
