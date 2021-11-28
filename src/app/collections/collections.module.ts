@@ -6,12 +6,18 @@ import { CollectionsListComponent } from './collections-list/collections-list.co
 import {FormsModule} from "@angular/forms";
 import { CollectionCardComponent } from './collection-card/collection-card.component';
 import { HttpClientModule} from "@angular/common/http";
+import { CollectionDetailsComponent } from './collection-details/collection-details.component';
+import { CardComponent } from './card/card.component';
+import { NewCardComponent } from './new-card/new-card.component';
 
 
 @NgModule({
   declarations: [
     CollectionsListComponent,
-    CollectionCardComponent
+    CollectionCardComponent,
+    CollectionDetailsComponent,
+    CardComponent,
+    NewCardComponent
   ],
   imports: [
     CommonModule,

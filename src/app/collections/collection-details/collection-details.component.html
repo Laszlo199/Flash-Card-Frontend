@@ -1,0 +1,26 @@
+<div *ngIf="id">
+<div class="container" *ngIf="deck$ | async as deck">
+  <div clas="header">
+    <div class="item">
+      <h1>{{deck.name}}</h1></div>
+    <div class="item">
+      <div class="practise">
+        <div id="circle" class="practise-btn">
+          <div id="triangle-right"></div>
+        </div>
+        <div class="practise-btn">practise</div>
+      </div>
+    </div>
+  </div>
+  <p class="description">{{deck.description}}</p>
+  <div class="cards-list">
+    <ng-container>
+      <div *ngFor="let card of deck.cards">
+        <app-card class="card" [card]="card"></app-card>
+      </div>
+      <app-new-card class="card" [deckId]="deck.id"></app-new-card>
+    </ng-container>
+  </div>
+</div>
+</div>
+

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {DECKS} from "../shared/fake-decks";
-import {DeckDto} from "../shared/deck.dto";
+import {DecksDto} from "../shared/dtos/decks.dto";
 import {DeckService} from "../shared/deck.service";
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-collections-list',
@@ -11,10 +12,10 @@ import {Observable} from "rxjs";
 })
 export class CollectionsListComponent implements OnInit {
   searchPhrase: string | undefined;
-  fakeDecks: DeckDto[] | undefined;
-  decks$: Observable<DeckDto[]> | undefined;
+  fakeDecks: DecksDto[] | undefined;
+  decks$: Observable<DecksDto[]> | undefined;
 
-  constructor(private service: DeckService) { }
+  constructor(private service: DeckService, private router: Router) { }
 
   ngOnInit(): void {
     this.fakeDecks = this.service.getDecks();
@@ -28,5 +29,14 @@ export class CollectionsListComponent implements OnInit {
   searchDecks() {
     if(this.searchPhrase && this.searchPhrase!="")
       this.decks$ = this.service.getByUserId(1, this.searchPhrase);
+  }
+
+  goToCollection(id: number) {
+    this.router.navigateByUrl("/collections/"+id)
+  }
+
+  resetDecks() {
+    if(!this.searchPhrase || this.searchPhrase=="")
+      this.loadDecks()
   }
 }
