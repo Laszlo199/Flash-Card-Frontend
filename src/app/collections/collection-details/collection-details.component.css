@@ -1,6 +1,25 @@
 .container {
   text-align: center;
   margin-top: 10vh;
+
+  position: relative;
+}
+
+.side-box {
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: left;
+  padding: 10px;
+
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.side-box p {
+  background-color: white;
+  cursor: pointer;
 }
 
 .header {

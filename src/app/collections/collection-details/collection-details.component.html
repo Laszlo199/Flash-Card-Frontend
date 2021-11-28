@@ -1,5 +1,6 @@
-<div *ngIf="id">
+<div *ngIf="deckId">
 <div class="container" *ngIf="deck$ | async as deck">
+
   <div clas="header">
     <div class="item">
       <h1>{{deck.name}}</h1></div>
@@ -11,8 +12,21 @@
         <div class="practise-btn">practise</div>
       </div>
     </div>
+    <p class="description">{{deck.description}}</p>
+    <div class="side-box">
+      <p>Sort by: </p>
+      <p (click)="sort('correctness_desc')"
+        [ngStyle]="sortOrder=='correctness_desc'? {'color' : 'mediumpurple'} : {'color' : '#6C6C6C'}">
+        best answered</p>
+      <p (click)="sort('correctness_asc')"
+         [ngStyle]="sortOrder=='correctness_asc'? {'color' : 'mediumpurple'} : {'color' : '#6C6C6C'}">
+        worst answered</p>
+      <p (click)="sort('question_asc')"
+         [ngStyle]="sortOrder=='question_asc'? {'color' : 'mediumpurple'} : {'color' : '#6C6C6C'}">
+        alphabetically</p>
+    </div>
   </div>
-  <p class="description">{{deck.description}}</p>
+
   <div class="cards-list">
     <ng-container>
       <div *ngFor="let card of deck.cards">

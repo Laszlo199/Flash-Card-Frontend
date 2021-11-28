@@ -32,8 +32,11 @@ export class DeckService {
     return this._http.get<DecksDto[]>("https://localhost:5001/Decks/GetByUserId/"+userId+"?search="+search);
   }
 
-  getByDeckId(id: number): Observable<DeckDto> {
-    return this._http.get<DeckDto>("https://localhost:5001/Decks/GetById/"+id);
+  getByDeckId(id: number, sortOrder: string): Observable<DeckDto> {
+    let url =
+      sortOrder==""?
+        "https://localhost:5001/Decks/GetById/"+id : "https://localhost:5001/Decks/GetById/"+id+"?sortOrder="+sortOrder;
+    return this._http.get<DeckDto>(url);
   }
 
   addCard(newCard: PostCardDto): Observable<CardDto> {

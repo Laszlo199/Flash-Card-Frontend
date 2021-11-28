@@ -11,8 +11,9 @@ import {CardDto} from "../shared/dtos/card/card.dto";
   styleUrls: ['./collection-details.component.css']
 })
 export class CollectionDetailsComponent implements OnInit {
-  id: number | undefined;
+  deckId: number | undefined;
   deck$: Observable<DeckDto> | undefined;
+  sortOrder: string = "";
 
   private newCardSubscription: Subscription;
 
@@ -20,14 +21,20 @@ export class CollectionDetailsComponent implements OnInit {
 
     this.newCardSubscription = this.service.getUpdate()
       .subscribe((id: number) => {
-        this.deck$ = this.service.getByDeckId(id);
+        this.deck$ = this.service.getByDeckId(id, this.sortOrder);
     });
   }
 
   ngOnInit(): void {
     // @ts-ignore
-    this.id = +this.route.snapshot.paramMap.get('id');
-    this.deck$ = this.service.getByDeckId(this.id);
+    this.deckId = +this.route.snapshot.paramMap.get('id');
+    this.deck$ = this.service.getByDeckId(this.deckId, "");
   }
 
+  sort(orderBy: string) {
+    if(this.deckId) {
+      this.sortOrder = orderBy;
+      this.deck$ = this.service.getByDeckId(this.deckId, this.sortOrder);
+    }
+  }
 }
