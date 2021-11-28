@@ -1,6 +1,6 @@
-.decks-list {
-  height: 60vh;
-  display: grid;
+.decks-list {;
+  /*height: 5vh;*/
+  display: inline-grid;
   /* width: max-content;*/
   grid-template-columns: 300px 300px 300px ;
   grid-gap: 30px;

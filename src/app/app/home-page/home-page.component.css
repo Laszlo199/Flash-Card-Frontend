@@ -1,7 +1,7 @@
 .introduction-container{
-  padding: 40px;
-  padding-right: 80px;
-  padding-left: 80px;
+  padding-top: 40px;
+  padding-right: 12%;
+  padding-left: 12% ;
   display: flex;
   justify-content: space-between;
 
@@ -9,23 +9,26 @@
 
 .introduction-container-el{
   flex: 1; /* additionally, equal width */
-  min-height: 400px;
+  min-height: 300px;
   padding: 1em;
+  padding-top: 20px;
   border: solid;
+  min-width: 200px;
 
 }
 
 .video1{
-  size: 2000px;
-  position: absolute;
+  /*size: 2000px;
+  position: absolute;*/
 }
 
+/*here we have our collections + banner*/
 .section-1-container{
   border: solid saddlebrown;
-  padding: 15px;
-  padding-right: 80px;
-  padding-left: 80px;
-  min-height: 300px;
+  padding-top: 100px;
+  padding-right: 12%;
+  padding-left: 12% ;
+  padding-bottom: 80px;
 
 }
 
@@ -33,14 +36,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .section-3-container-banner{
   border: solid;
   padding: 20px;
-
-
 }
 
 .aboutUsText{
