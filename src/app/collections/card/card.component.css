@@ -9,6 +9,9 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
   position: relative;
+
+  display: block;
+  text-align: left;
 }
 
 p {
@@ -34,15 +37,68 @@ p {
   width: 25px;
   height: 25px;
 
-  position:absolute;
+  position: absolute;
   bottom: 10px;
   right: 10px;
 
   cursor: pointer;
 
-  opacity: 0.5;
+  opacity: 0.3;
+}
+
+.edit-icon {
+  width: 25px;
+  height: 25px;
+
+  position: absolute;
+  bottom: 10px;
+  right: 45px;
+
+  cursor: pointer;
+
+  opacity: 0.3;
 }
 
 .delete-icon:hover {
   opacity: 1;
+}
+
+.edit-icon:hover {
+  opacity: 1;
+}
+
+input {
+  border-bottom: 2px solid #D2D2DD;
+  border-top: 0;
+  border-inline: 0;
+  text-align: left;
+  background-color: white;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.btn {
+  padding: 8px;
+  width: 50px;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.cancel-btn {
+  padding: 8px;
+  width: 50px;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #D2D2DD;
+  cursor: pointer;
+
+  position: absolute;
+  bottom: 0px;
+  left: 90px;
+  margin-bottom: 4px;
 }

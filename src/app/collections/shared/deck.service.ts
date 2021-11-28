@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import {DecksDto} from "./dtos/decks.dto";
+import {DecksDto} from "./dtos/deck/decks.dto";
 import {DECKS} from "./fake-decks";
 import {HttpClient} from "@angular/common/http";
 import {Observable, Subject} from "rxjs";
-import {DeckDto} from "./dtos/deck.dto";
-import {PostCardDto} from "./dtos/post-card.dto";
-import {CardDto} from "./dtos/card.dto";
+import {DeckDto} from "./dtos/deck/deck.dto";
+import {PostCardDto} from "./dtos/card/post-card.dto";
+import {CardDto} from "./dtos/card/card.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -42,5 +42,9 @@ export class DeckService {
 
   deleteCard(id: number) {
     return this._http.delete<CardDto>("https://localhost:5001/api/Cards/"+id);
+  }
+
+  updateCard(newCard: CardDto): Observable<CardDto> {
+    return this._http.put<CardDto>("https://localhost:5001/api/Cards", newCard);
   }
 }

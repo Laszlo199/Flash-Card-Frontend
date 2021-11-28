@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DECKS} from "../shared/fake-decks";
-import {DecksDto} from "../shared/dtos/decks.dto";
+import {DecksDto} from "../shared/dtos/deck/decks.dto";
 import {DeckService} from "../shared/deck.service";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";

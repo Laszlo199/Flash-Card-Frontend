@@ -1,4 +1,4 @@
-import {CardDto} from "./card.dto";
+import {CardDto} from "../card/card.dto";
 
 export interface DeckDto {
   "id": number,

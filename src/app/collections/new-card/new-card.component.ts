@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DeckService} from "../shared/deck.service";
-import {PostCardDto} from "../shared/dtos/post-card.dto";
+import {PostCardDto} from "../shared/dtos/card/post-card.dto";
 
 @Component({
   selector: 'app-new-card',

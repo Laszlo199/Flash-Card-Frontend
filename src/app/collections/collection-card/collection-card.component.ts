@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DecksDto} from "../shared/dtos/decks.dto";
+import {DecksDto} from "../shared/dtos/deck/decks.dto";
 
 @Component({
   selector: 'app-collection-card',
