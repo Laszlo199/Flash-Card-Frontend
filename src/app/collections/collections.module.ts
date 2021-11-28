@@ -9,15 +9,18 @@ import { HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
-  declarations: [
-    CollectionsListComponent,
-    CollectionCardComponent
-  ],
-  imports: [
-    CommonModule,
-    CollectionsRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ]
+    declarations: [
+        CollectionsListComponent,
+        CollectionCardComponent
+    ],
+    exports: [
+        CollectionCardComponent
+    ],
+    imports: [
+        CommonModule,
+        CollectionsRoutingModule,
+        FormsModule,
+        HttpClientModule
+    ]
 })
 export class CollectionsModule { }
