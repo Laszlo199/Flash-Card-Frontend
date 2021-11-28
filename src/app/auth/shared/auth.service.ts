@@ -6,6 +6,7 @@ import {LoginDto} from "./login.dto";
 import {environment} from "../../../environments/environment";
 import {tap} from "rxjs/operators";
 
+const jwtToken = 'jwtToken';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,5 +23,9 @@ export class AuthService {
         }
       })
     )
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem(jwtToken);
   }
 }

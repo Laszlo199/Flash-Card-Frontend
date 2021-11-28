@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
 import { LoginDto } from '../shared/login.dto';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-login',
@@ -13,10 +14,18 @@ loginForm = this.fb.group({
   email:[''],
   password:['']
 });
+  private unsub: Subscription | undefined;
+
   constructor(private fb: FormBuilder,
               private _auth: AuthService) { }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+    if(this.unsub) {
+      this.unsub.unsubscribe();
+    }
   }
 
   login() {
