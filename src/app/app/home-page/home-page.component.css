@@ -36,6 +36,25 @@
 
 }
 
+.section-3-container-banner{
+  border: solid;
+  padding: 20px;
+
+
+}
+
+.aboutUsText{
+  padding-right: 26%;
+  padding-left: 26%;
+}
+
+.section-3-container-banner1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
 .section-1-container-banner{
   border: solid;
 }
