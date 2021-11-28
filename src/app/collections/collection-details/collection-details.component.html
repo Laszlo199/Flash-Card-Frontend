@@ -16,7 +16,7 @@
   <div class="cards-list">
     <ng-container>
       <div *ngFor="let card of deck.cards">
-        <app-card class="card" [card]="card"></app-card>
+        <app-card class="card" [card]="card" [deckId]="deck.id"></app-card>
       </div>
       <app-new-card class="card" [deckId]="deck.id"></app-new-card>
     </ng-container>

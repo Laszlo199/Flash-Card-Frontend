@@ -8,6 +8,7 @@
   background-color: white;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
+  position: relative;
 }
 
 p {
@@ -27,4 +28,21 @@ p {
 
 .correct {
   color: #6C6C6C;
+}
+
+.delete-icon {
+  width: 25px;
+  height: 25px;
+
+  position:absolute;
+  bottom: 10px;
+  right: 10px;
+
+  cursor: pointer;
+
+  opacity: 0.5;
+}
+
+.delete-icon:hover {
+  opacity: 1;
 }

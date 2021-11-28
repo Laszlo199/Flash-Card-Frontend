@@ -39,4 +39,8 @@ export class DeckService {
   addCard(newCard: PostCardDto): Observable<CardDto> {
     return this._http.post<CardDto>("https://localhost:5001/api/Cards", newCard);
   }
+
+  deleteCard(id: number) {
+    return this._http.delete<CardDto>("https://localhost:5001/api/Cards/"+id);
+  }
 }
