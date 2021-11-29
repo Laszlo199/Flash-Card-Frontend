@@ -14,7 +14,7 @@
   min-height: 300px;
   padding: 1em;
   padding-top: 20px;
-  border: solid;
+  /*border: solid;*/
   min-width: 200px;
 
 }
@@ -42,7 +42,7 @@
 
 /*here we have our collections + banner*/
 .section-1-container{
-  border: solid saddlebrown;
+ /* border: solid saddlebrown;*/
   padding-top: 100px;
   padding-right: 12%;
   padding-left: 12% ;
@@ -57,7 +57,7 @@
 }
 
 .section-3-container-banner{
-  border: solid;
+  /*border: solid;*/
   padding: 20px;
 }
 
@@ -74,7 +74,7 @@
 }
 
 .section-1-container-banner{
-  border: solid;
+ /* border: solid;*/
 }
 
 .main-container{
