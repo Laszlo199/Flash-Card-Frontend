@@ -19,6 +19,9 @@ import { NewCardComponent } from './new-card/new-card.component';
     CardComponent,
     NewCardComponent
   ],
+  exports: [
+    CollectionCardComponent
+  ],
   imports: [
     CommonModule,
     CollectionsRoutingModule,
