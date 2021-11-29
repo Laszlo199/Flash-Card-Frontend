@@ -25,6 +25,13 @@ export class AuthService {
     )
   }
 
+  register(loginDto: LoginDto)
+  {
+    return this._http.post(environment.api+'/api/Auth/Register',loginDto)
+  }
+
+
+
   getToken(): string | null {
     return localStorage.getItem(jwtToken);
   }
