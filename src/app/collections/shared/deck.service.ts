@@ -50,5 +50,4 @@ export class DeckService {
   updateCard(newCard: CardDto): Observable<CardDto> {
     return this._http.put<CardDto>("https://localhost:5001/api/Cards", newCard);
   }
-
 }

@@ -6,7 +6,6 @@
 .decks-list {
   height: 60vh;
   display: grid;
- /* width: max-content;*/
   grid-template-columns: 300px 300px 300px ;
   grid-gap: 30px;
   justify-content: center;
