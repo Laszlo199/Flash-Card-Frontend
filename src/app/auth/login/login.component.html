@@ -1,8 +1,14 @@
+<div class="background">
+  <h1 class = "loginText"> Login</h1>
+<div class="LoginP">
 <form [formGroup]="loginForm" (ngSubmit)="login()">
-  <label for="email">Email: </label>
-  <input id="email" type="text" formControlName="email">
+  <label class="emailT" for="email">Email: </label>
+  <input class="emailField" id="email" type="text" formControlName="email">
 
-  <label for="password">Password: </label>
-  <input id="password" type="password" formControlName="password">
-  <button type="submit">Login</button>
+  <label class="password" for="password">Password: </label>
+  <input class="passwordField" id="password" type="password" formControlName="password">
+  <button class="loginButton" id="login"type="submit">Login</button>
 </form>
+</div>
+</div>
+
