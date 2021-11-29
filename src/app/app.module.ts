@@ -11,6 +11,7 @@ import { PopularDecksComponent } from './home-page/popular-decks/popular-decks.c
 import {CollectionsModule} from "./collections/collections.module";
 import {HomePageModule} from "./home-page/home-page.module";
 
+
 @NgModule({
   declarations: [
     AppComponent

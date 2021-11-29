@@ -10,7 +10,8 @@
   grid-template-columns: 300px 300px 300px ;
   grid-gap: 30px;
   justify-content: center;
-  overflow-y:auto
+  overflow-y:auto;
+  align-items: start;
 }
 
 .card {
