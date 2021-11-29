@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DECKS} from "../shared/fake-decks";
-import {DeckDto} from "../shared/deck.dto";
+import {DecksDto} from "../shared/decks.dto";
 import {DeckService} from "../shared/deck.service";
 import {Observable} from "rxjs";
 
@@ -11,8 +11,8 @@ import {Observable} from "rxjs";
 })
 export class CollectionsListComponent implements OnInit {
   searchPhrase: string | undefined;
-  fakeDecks: DeckDto[] | undefined;
-  decks$: Observable<DeckDto[]> | undefined;
+  fakeDecks: DecksDto[] | undefined;
+  decks$: Observable<DecksDto[]> | undefined;
 
   constructor(private service: DeckService) { }
 

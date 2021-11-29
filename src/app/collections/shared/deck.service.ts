@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {DeckDto} from "./deck.dto";
+import {DecksDto} from "./decks.dto";
 import {DECKS} from "./fake-decks";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
@@ -11,16 +11,12 @@ export class DeckService {
 
   constructor(private _http: HttpClient) { }
 
-  getDecks(): DeckDto[] {
+  getDecks(): DecksDto[] {
     return DECKS;
   }
 
-  getByUserId(userId: number, search: string): Observable<DeckDto[]> {
-    return this._http.get<DeckDto[]>("https://localhost:5001/Decks/GetByUserId/"+userId+"?search="+search);
-  }
-
-  getAllPublic(): Observable<DeckDto[]>{
-    return this._http.get<DeckDto[]>("https://localhost:5001/Decks/GetAllPublic/")
+  getByUserId(userId: number, search: string): Observable<DecksDto[]> {
+    return this._http.get<DecksDto[]>("https://localhost:5001/Decks/GetByUserId/"+userId+"?search="+search);
   }
 
 }
