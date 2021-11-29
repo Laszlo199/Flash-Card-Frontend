@@ -1,6 +1,6 @@
-import {DeckDto} from "./deck.dto";
+import {DecksDto} from "./dtos/deck/decks.dto";
 
-export const DECKS: DeckDto[] = [
+export const DECKS: DecksDto[] = [
   {
     id: 1,
     name: "Maths",
