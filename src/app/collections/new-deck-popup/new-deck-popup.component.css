@@ -123,12 +123,13 @@ input:checked + .slider:before {
   padding: 10px;
 }
 
-.btn {
+.save-btn {
   padding: 8px;
   width: 50px;
   color: white;
   border-radius: 5px;
   text-align: center;
+  cursor: pointer;
 
 }
 
@@ -140,5 +141,8 @@ input:checked + .slider:before {
   text-align: center;
   background-color: #D2D2DD;
   cursor: pointer;
+}
 
+.cancel-btn:hover {
+  background-color: #6C6C6C;
 }

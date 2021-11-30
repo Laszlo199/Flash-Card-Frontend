@@ -4,6 +4,7 @@ import {DeckDto} from "../shared/dtos/deck/deck.dto";
 import {Observable, Subscription} from "rxjs";
 import {CardService} from "../shared/card.service";
 import {DeckService} from "../shared/deck.service";
+import {PutDeckDto} from "../shared/dtos/deck/put-deck.dto";
 
 @Component({
   selector: 'app-collection-details',
@@ -17,6 +18,11 @@ export class CollectionDetailsComponent implements OnInit {
 
   private newCardSubscription: Subscription;
 
+  editDeckMode: boolean = false;
+  newTitle: string = "";
+  newDescription: string = "";
+  isPublic: boolean = false;
+
   constructor(private route: ActivatedRoute, private cardService: CardService,
               private deckService: DeckService, private router: Router) {
 
@@ -29,13 +35,19 @@ export class CollectionDetailsComponent implements OnInit {
   ngOnInit(): void {
     // @ts-ignore
     this.deckId = +this.route.snapshot.paramMap.get('id');
-    this.deck$ = this.cardService.getByDeckId(this.deckId, "");
+    this.loadDeck("");
+  }
+
+  private loadDeck(sortOrder: string) {
+    if (this.deckId) {
+      this.deck$ = this.cardService.getByDeckId(this.deckId, sortOrder);
+    }
   }
 
   sort(orderBy: string) {
     if(this.deckId) {
       this.sortOrder = orderBy;
-      this.deck$ = this.cardService.getByDeckId(this.deckId, this.sortOrder);
+      this.loadDeck(this.sortOrder);
     }
   }
 
@@ -50,5 +62,36 @@ export class CollectionDetailsComponent implements OnInit {
 
   backToCollections() {
     this.router.navigateByUrl("/collections");
+  }
+
+  editDeck(name: string, description: string, isPublic: boolean) {
+    this.editDeckMode = true;
+
+    this.newTitle = name;
+    this.newDescription = description;
+    this.isPublic = isPublic
+  }
+
+  cancelEdit() {
+    this.editDeckMode = false;
+  }
+
+  saveEdit() {
+    if(this.deckId) {
+      let deck: PutDeckDto = {
+        "id": this.deckId,
+        "name": this.newTitle,
+        "description": this.newDescription,
+        "isPublic": this.isPublic
+      }
+
+      this.deckService.updateDeck(deck)
+        .subscribe(data=> {
+          this.loadDeck(this.sortOrder);
+          this.editDeckMode=false;
+        })
+    }
+
+
   }
 }

@@ -4,6 +4,8 @@ import {DECKS} from "./fake-decks";
 import {HttpClient} from "@angular/common/http";
 import {Observable, Subject} from "rxjs";
 import {PostDeckDto} from "./dtos/deck/post-deck.dto";
+import {CardDto} from "./dtos/card/card.dto";
+import {PutDeckDto} from "./dtos/deck/put-deck.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +38,9 @@ export class DeckService {
 
   deleteDeck(deckId: number) {
     return this._http.delete<any>("https://localhost:5001/Decks/"+deckId);
+  }
+
+  updateDeck(newDeck: PutDeckDto) {
+    return this._http.put<any>("https://localhost:5001/Decks", newDeck);
   }
 }
