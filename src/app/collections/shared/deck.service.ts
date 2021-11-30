@@ -3,9 +3,7 @@ import {DecksDto} from "./dtos/deck/decks.dto";
 import {DECKS} from "./fake-decks";
 import {HttpClient} from "@angular/common/http";
 import {Observable, Subject} from "rxjs";
-import {DeckDto} from "./dtos/deck/deck.dto";
-import {PostCardDto} from "./dtos/card/post-card.dto";
-import {CardDto} from "./dtos/card/card.dto";
+import {PostDeckDto} from "./dtos/deck/post-deck.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +14,8 @@ export class DeckService {
 
   private subject = new Subject<any>();
 
-  sendUpdate(deckId: number) {
-    this.subject.next(deckId);
+  sendUpdate(deckCreated: boolean) {
+    this.subject.next(deckCreated);
   }
 
   getUpdate(): Observable<any> {
@@ -32,23 +30,11 @@ export class DeckService {
     return this._http.get<DecksDto[]>("https://localhost:5001/Decks/GetByUserId/"+userId+"?search="+search);
   }
 
-  getByDeckId(id: number, sortOrder: string): Observable<DeckDto> {
-    let url =
-      sortOrder==""?
-        "https://localhost:5001/Decks/GetById/"+id : "https://localhost:5001/Decks/GetById/"+id+"?sortOrder="+sortOrder;
-    return this._http.get<DeckDto>(url);
+  createDeck(deck: PostDeckDto): Observable<DecksDto> {
+    return this._http.post<DecksDto>("https://localhost:5001/Decks", deck);
   }
 
-  addCard(newCard: PostCardDto): Observable<CardDto> {
-    return this._http.post<CardDto>("https://localhost:5001/api/Cards", newCard);
+  deleteDeck(deckId: number) {
+    return this._http.delete<any>("https://localhost:5001/Decks/"+deckId);
   }
-
-  deleteCard(id: number) {
-    return this._http.delete<CardDto>("https://localhost:5001/api/Cards/"+id);
-  }
-
-  updateCard(newCard: CardDto): Observable<CardDto> {
-    return this._http.put<CardDto>("https://localhost:5001/api/Cards", newCard);
-  }
-
 }

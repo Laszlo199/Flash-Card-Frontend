@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DeckService} from "../shared/deck.service";
 import {PostCardDto} from "../shared/dtos/card/post-card.dto";
+import {CardService} from "../shared/card.service";
 
 @Component({
   selector: 'app-new-card',
@@ -13,7 +13,7 @@ export class NewCardComponent implements OnInit {
 
   @Input() deckId: number | undefined;
 
-  constructor(private service: DeckService) { }
+  constructor(private service: CardService) { }
 
   ngOnInit(): void {
   }

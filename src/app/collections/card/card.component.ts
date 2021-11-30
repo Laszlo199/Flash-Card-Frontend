@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {CardDto} from "../shared/dtos/card/card.dto";
 import {DeckService} from "../shared/deck.service";
 import {PostCardDto} from "../shared/dtos/card/post-card.dto";
+import {CardService} from "../shared/card.service";
 
 @Component({
   selector: 'app-card',
@@ -16,7 +17,7 @@ export class CardComponent implements OnInit {
   newQuestion: string | undefined;
   newAnswer: string | undefined;
 
-  constructor(private service: DeckService) { }
+  constructor(private service: CardService) { }
 
   ngOnInit(): void {
     if(this.card) {

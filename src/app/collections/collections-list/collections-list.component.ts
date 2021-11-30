@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {DECKS} from "../shared/fake-decks";
 import {DecksDto} from "../shared/dtos/deck/decks.dto";
 import {DeckService} from "../shared/deck.service";
-import {Observable} from "rxjs";
+import {Observable, Subscription} from "rxjs";
 import {Router} from "@angular/router";
 
 @Component({
@@ -15,7 +14,18 @@ export class CollectionsListComponent implements OnInit {
   fakeDecks: DecksDto[] | undefined;
   decks$: Observable<DecksDto[]> | undefined;
 
-  constructor(private service: DeckService, private router: Router) { }
+  popupShown: boolean = false;
+  private newDeckSubscription: Subscription;
+
+  constructor(private service: DeckService, private router: Router) {
+    this.newDeckSubscription = this.service.getUpdate()
+      .subscribe((deckCreated: boolean) => {
+        this.closePopup();
+        if(deckCreated) {
+          this.loadDecks();
+        }
+      });
+  }
 
   ngOnInit(): void {
     this.fakeDecks = this.service.getDecks();
@@ -38,5 +48,13 @@ export class CollectionsListComponent implements OnInit {
   resetDecks() {
     if(!this.searchPhrase || this.searchPhrase=="")
       this.loadDecks()
+  }
+
+  openPopup() {
+    this.popupShown = true;
+  }
+
+  closePopup() {
+    this.popupShown = false;
   }
 }

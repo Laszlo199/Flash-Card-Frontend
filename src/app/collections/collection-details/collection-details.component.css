@@ -5,6 +5,17 @@
   position: relative;
 }
 
+.back-link {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.back-link:hover {
+  color: mediumpurple;
+}
+
 .side-box {
   position: absolute;
   right: 0;
@@ -20,6 +31,27 @@
 .side-box p {
   background-color: white;
   cursor: pointer;
+}
+
+.delete {
+  cursor: pointer;
+  background-color: white;
+}
+
+.delete-item {
+  display: inline-block;
+  background-color: white;
+}
+
+.delete-icon {
+  width: 25px;
+  height: 25px;
+
+  opacity: 0.3;
+}
+
+.delete-icon:hover {
+  opacity: 1;
 }
 
 .header {

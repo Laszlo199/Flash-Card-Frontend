@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {DeckService} from "../shared/deck.service";
+import {ActivatedRoute, Router} from "@angular/router";
 import {DeckDto} from "../shared/dtos/deck/deck.dto";
 import {Observable, Subscription} from "rxjs";
-import {CardDto} from "../shared/dtos/card/card.dto";
+import {CardService} from "../shared/card.service";
+import {DeckService} from "../shared/deck.service";
 
 @Component({
   selector: 'app-collection-details',
@@ -17,24 +17,38 @@ export class CollectionDetailsComponent implements OnInit {
 
   private newCardSubscription: Subscription;
 
-  constructor(private route: ActivatedRoute, private service: DeckService) {
+  constructor(private route: ActivatedRoute, private cardService: CardService,
+              private deckService: DeckService, private router: Router) {
 
-    this.newCardSubscription = this.service.getUpdate()
+    this.newCardSubscription = this.cardService.getUpdate()
       .subscribe((id: number) => {
-        this.deck$ = this.service.getByDeckId(id, this.sortOrder);
+        this.deck$ = this.cardService.getByDeckId(id, this.sortOrder);
     });
   }
 
   ngOnInit(): void {
     // @ts-ignore
     this.deckId = +this.route.snapshot.paramMap.get('id');
-    this.deck$ = this.service.getByDeckId(this.deckId, "");
+    this.deck$ = this.cardService.getByDeckId(this.deckId, "");
   }
 
   sort(orderBy: string) {
     if(this.deckId) {
       this.sortOrder = orderBy;
-      this.deck$ = this.service.getByDeckId(this.deckId, this.sortOrder);
+      this.deck$ = this.cardService.getByDeckId(this.deckId, this.sortOrder);
     }
+  }
+
+  deleteDeck() {
+    if(confirm("Are you sure you want to delete this collection?") && this.deckId) {
+      this.deckService.deleteDeck(this.deckId)
+        .subscribe(data=> {
+          this.router.navigateByUrl("/collections");
+        })
+    }
+  }
+
+  backToCollections() {
+    this.router.navigateByUrl("/collections");
   }
 }
