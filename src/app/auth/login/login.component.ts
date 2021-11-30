@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
 import { LoginDto } from '../shared/login.dto';
 import {Subscription} from "rxjs";
@@ -11,8 +11,16 @@ import {Subscription} from "rxjs";
 })
 export class LoginComponent implements OnInit {
 loginForm = this.fb.group({
-  email:[''],
-  password:['']
+  email: new FormControl(
+    '',
+    [
+      Validators.required,
+    ]
+  ),
+  password: new FormControl(
+    '',
+    Validators.required
+  ),
 });
   private unsub: Subscription | undefined;
 
@@ -36,4 +44,7 @@ loginForm = this.fb.group({
       });
 
   }
+
+  get email() {return this.loginForm.get('email')}
+  get password() {return this.loginForm.get('password')}
 }
