@@ -46,6 +46,10 @@ p {
   opacity: 0.3;
 }
 
+.delete-icon:hover {
+  opacity: 1;
+}
+
 .edit-icon {
   width: 25px;
   height: 25px;
@@ -57,10 +61,6 @@ p {
   cursor: pointer;
 
   opacity: 0.3;
-}
-
-.delete-icon:hover {
-  opacity: 1;
 }
 
 .edit-icon:hover {

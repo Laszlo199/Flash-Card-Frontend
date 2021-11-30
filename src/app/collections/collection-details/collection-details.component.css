@@ -5,6 +5,17 @@
   position: relative;
 }
 
+.back-link {
+  position: absolute;
+  left: 10px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.back-link:hover {
+  color: mediumpurple;
+}
+
 .side-box {
   position: absolute;
   right: 0;
@@ -22,8 +33,108 @@
   cursor: pointer;
 }
 
-.header {
+.delete {
+  cursor: pointer;
+  background-color: white;
+}
 
+.delete-item {
+  display: inline-block;
+  background-color: white;
+}
+
+.delete-icon {
+  width: 25px;
+  height: 25px;
+
+  opacity: 0.3;
+}
+
+.delete-icon:hover {
+  opacity: 1;
+}
+
+.edit {
+  cursor: pointer;
+  background-color: white;
+}
+
+.edit-item {
+  display: inline-block;
+  background-color: white;
+}
+
+.edit-icon {
+  width: 25px;
+  height: 25px;
+
+  opacity: 0.3;
+}
+
+.edit-icon:hover {
+  opacity: 1;
+}
+
+.header-editMode {
+  text-align: center;
+  display: block;
+  margin-bottom: 50px;
+}
+
+input {
+  border-top: 0;
+  border-inline: 0;
+  text-align: left;
+  background-color: #F5F6FA;
+  width: 50%;
+  margin: 10px;
+}
+
+.input-title {
+  font-size: 1.5rem;
+}
+
+.input-description {
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.checkbox {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: 15px;
+}
+
+.save-btn {
+  padding: 8px;
+  width: 50px;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.cancel-btn {
+  padding: 8px;
+  width: 50px;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #D2D2DD;
+  cursor: pointer;
+}
+
+.button {
+  display: inline-block;
+  margin: 10px;
+}
+
+
+.header {
+  margin-bottom: 2rem;
 }
 
 .item {
@@ -82,9 +193,16 @@
 }
 
 .description {
-  margin-bottom: 4rem;
-  margin-top: 0;
-  padding-top: 0;
+  margin-block: 0;
+  padding-block: 0;
+}
+
+.itm {
+  display: inline-block;
+  margin-inline: 10px;
+  margin-block: 0;
+  padding-block: 0;
+  color: #6C6C6C;
 }
 
 .cards-list {

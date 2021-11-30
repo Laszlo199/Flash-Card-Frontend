@@ -9,6 +9,7 @@ import { HttpClientModule} from "@angular/common/http";
 import { CollectionDetailsComponent } from './collection-details/collection-details.component';
 import { CardComponent } from './card/card.component';
 import { NewCardComponent } from './new-card/new-card.component';
+import { NewDeckPopupComponent } from './new-deck-popup/new-deck-popup.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { NewCardComponent } from './new-card/new-card.component';
     CollectionCardComponent,
     CollectionDetailsComponent,
     CardComponent,
-    NewCardComponent
+    NewCardComponent,
+    NewDeckPopupComponent
   ],
   exports: [
     CollectionCardComponent
