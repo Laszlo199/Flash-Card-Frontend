@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
 import { LoginDto } from '../shared/login.dto';
 import {Observable, Subscription} from "rxjs";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,8 @@ import {Observable, Subscription} from "rxjs";
 })
 export class LoginComponent implements OnInit {
 
-loginForm = this.fb.group({
+loginForm = this._fb.group({
+
   email: new FormControl(
     '',
     [
@@ -25,10 +27,12 @@ loginForm = this.fb.group({
   ),
   errorText:['']
 });
+
   private unsub: Subscription | undefined;
 
-  constructor(private fb: FormBuilder,
-              private _auth: AuthService) { }
+  constructor(private _fb: FormBuilder,
+              private _auth: AuthService,
+              private _router: Router) { }
 
   ngOnInit(): void {
   }
@@ -45,7 +49,8 @@ loginForm = this.fb.group({
       .subscribe((response) =>{
         console.log('Test van toka');
         if (response && response.jwt != null){
-          console.log(response.jwt);
+          console.log('Token: ',response.jwt);
+          this._router.navigateByUrl('collections');
         }else if (response && response.jwt == null){
           console.log('No token');
           this.errorText?.setValue('Wrong email or password');

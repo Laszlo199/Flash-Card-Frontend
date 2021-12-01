@@ -16,7 +16,7 @@ import {AuthInterceptor} from "./auth/interceptores/auth.interceptor";
     HttpClientModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })
