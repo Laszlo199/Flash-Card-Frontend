@@ -1,0 +1,50 @@
+.container{
+
+}
+
+.flashcard{
+  width: 100%;
+  margin: 0;
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+}
+
+.control{
+  /*position: absolute;
+  right: 50%;
+  transform: translateX(50%);*/
+}
+
+.link{
+  width: 100%;
+}
+
+.rotateBtn{
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.rotateCont{
+  padding-top: 84px;
+}
+
+.aa{
+  padding-bottom: 70px;
+}
+
+.prevbut{
+  position: absolute;
+ right: 30%;
+ transform: translateX(50%);
+}
+
+.nextbut{
+  position: absolute;
+  right: 70%;
+  transform: translateX(50%);
+}

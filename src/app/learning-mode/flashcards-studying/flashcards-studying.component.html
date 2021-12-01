@@ -1,8 +1,30 @@
-<div *ngIf="flashcards$  as collection ">
+<!--<div *ngIf="flashcards$  as collection ">
   <button (click)="previews()">Previews</button>
   <button (click)="next()">Next</button>
   <button (click)="rotate()"> Rotate </button>
   <app-flashcard [question]="question" [flashcard]="flash"></app-flashcard>
 </div>
 
-<div class="back-link" (click)="backToCollections()">Back to collections</div>
+<div class="back-link" (click)="backToCollections()">Back to collections</div>-->
+
+<div class="container">
+  <div class="link">
+    <h2 class="back-link" (click)="backToCollections()"> Back to collections</h2>
+  </div>
+  <div class="flashcard">
+    <div class="aa">
+      <app-flashcard [question]="question" [flashcard]="flash"></app-flashcard>
+    </div>
+
+    <div class="control">
+      <div>
+        <button class="prevbut" (click)="previews()">Previews</button>
+        <button class="nextbut" (click)="next()">Next</button>
+      </div>
+    </div>
+    <div class="rotateCont">
+    <button class="rotateBtn" (click)="rotate()"> Rotate </button>
+    </div>
+  </div>
+
+</div>
