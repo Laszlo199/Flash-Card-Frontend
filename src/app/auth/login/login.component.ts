@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
 import { LoginDto } from '../shared/login.dto';
-import {Subscription} from "rxjs";
+import {Observable, Subscription} from "rxjs";
+
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,7 @@ import {Subscription} from "rxjs";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
 loginForm = this.fb.group({
   email: new FormControl(
     '',
@@ -21,6 +23,7 @@ loginForm = this.fb.group({
     '',
     Validators.required
   ),
+  errorText:['']
 });
   private unsub: Subscription | undefined;
 
@@ -39,12 +42,21 @@ loginForm = this.fb.group({
   login() {
     const loginDto = this.loginForm.value as LoginDto;
     this._auth.login(loginDto)
-      .subscribe(token => {
-        console.log('Token: ', token)
-      });
-
+      .subscribe((response) =>{
+        console.log('Test van toka');
+        if (response && response.jwt != null){
+          console.log(response.jwt);
+        }else if (response && response.jwt == null){
+          console.log('No token');
+          this.errorText?.setValue('Wrong email or password');
+          this.errorText?.disable();
+        }
+        });
   }
 
   get email() {return this.loginForm.get('email')}
   get password() {return this.loginForm.get('password')}
-}
+  get errorText(){return this.loginForm.get('errorText')}
+
+  }
+

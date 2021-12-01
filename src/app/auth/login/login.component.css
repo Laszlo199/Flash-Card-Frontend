@@ -110,4 +110,12 @@
   margin: 5px;
   color: red;
 }
+input[type="errorText"]{
+  border: none;
+  background: transparent;
+  color: #E62C03;
+}
+.errorText{
+  pointer-events: none;
+}
 

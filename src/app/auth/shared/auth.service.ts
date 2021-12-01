@@ -20,6 +20,8 @@ export class AuthService {
       tap(token =>{
         if(token && token.jwt){
           localStorage.setItem('jwtToken', token.jwt);
+        }else {
+          console.error()
         }
       })
     )
