@@ -39,12 +39,12 @@
 
 .prevbut{
   position: absolute;
- right: 30%;
+ right: 70%;
  transform: translateX(50%);
 }
 
 .nextbut{
   position: absolute;
-  right: 70%;
+  right: 30%;
   transform: translateX(50%);
 }
