@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {CollectionsModule} from "./collections/collections.module";
 import {HomePageModule} from "./home-page/home-page.module";
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({

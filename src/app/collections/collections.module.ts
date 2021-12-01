@@ -27,8 +27,7 @@ import { NewDeckPopupComponent } from './new-deck-popup/new-deck-popup.component
   imports: [
     CommonModule,
     CollectionsRoutingModule,
-    FormsModule,
-    HttpClientModule
+    FormsModule
   ]
 })
 export class CollectionsModule { }
