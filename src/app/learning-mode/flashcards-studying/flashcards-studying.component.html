@@ -1,6 +1,7 @@
 <div *ngIf="flashcards$  as collection ">
-  <button (click)="next()">Next</button>
   <button (click)="previews()">Previews</button>
-  <app-flashcard [flashcard]="flash"></app-flashcard>
+  <button (click)="next()">Next</button>
+  <button (click)="rotate()"> Rotate </button>
+  <app-flashcard [question]="question" [flashcard]="flash"></app-flashcard>
 
 </div>

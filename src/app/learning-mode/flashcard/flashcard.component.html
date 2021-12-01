@@ -1,4 +1,4 @@
 <div class="card" *ngIf="flashcard">
-  <p class="question" >{{flashcard.question}}</p>
-  <p class="answer" >{{flashcard.answer}}</p>
+  <p class="question" *ngIf="question" >Question: {{flashcard.question}}</p>
+  <p class="answer" *ngIf="!question">Answer: {{flashcard.answer}}</p>
 </div>

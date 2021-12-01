@@ -7,7 +7,8 @@ import {FlashcardDto} from "../shared/dtos/flashcard-dto";
   styleUrls: ['./flashcard.component.css']
 })
 export class FlashcardComponent implements OnInit {
-  @Input() flashcard: FlashcardDto |undefined;
+  @Input() flashcard: FlashcardDto | undefined;
+  @Input() question: boolean | undefined ;
 
 
   constructor() { }
