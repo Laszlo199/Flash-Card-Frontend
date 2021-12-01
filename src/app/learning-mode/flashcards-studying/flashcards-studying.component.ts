@@ -18,6 +18,7 @@ export class FlashcardsStudyingComponent implements OnInit {
  flashcards$: Array<FlashcardDto> | undefined;
  private counter: number =0;
   flash: FlashcardDto | undefined;
+  private length: number =0;
 
   constructor( private route: ActivatedRoute
                ,private _flashcardsService: FlashcardsLearningModeService) {
@@ -26,7 +27,8 @@ export class FlashcardsStudyingComponent implements OnInit {
     this.collection$ = this._flashcardsService.getCollection(this.deckId).subscribe(
       s => {
         this.flashcards$ = s.cards;
-        this.flash = this.flashcards$[0] //works
+        this.flash = this.flashcards$[0]
+        this.length = this.flashcards$.length;
       }
     );
 
@@ -38,11 +40,13 @@ export class FlashcardsStudyingComponent implements OnInit {
   }
 
   next(): void {
-      this.flash = this.flashcards$?.[++this.counter]; //fucking doesnt work
+    if(this.flashcards$?.[this.counter+1])
+      this.flash = this.flashcards$?.[++this.counter];
   }
 
   previews(): void {
-    this.flash = this.flashcards$?.[--this.counter]; //fucking doesnt work
+    if(this.flashcards$?.[this.counter-1])
+      this.flash = this.flashcards$?.[--this.counter];
   }
 
 }
