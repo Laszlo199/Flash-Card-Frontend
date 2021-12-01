@@ -1,0 +1,26 @@
+*{
+  background: #e5b038;
+}
+
+.card{
+  border-radius: 15px;
+  width: 600px;
+  height: 370px;
+  position: relative;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.shadow{
+  padding: 10px 10px 20px 10px;
+  border: 1px solid #BFBFBF;
+  box-shadow: 10px 10px 5px #aaaaaa;
+}
+
+
+. answer, question{
+  margin: 0;
+}

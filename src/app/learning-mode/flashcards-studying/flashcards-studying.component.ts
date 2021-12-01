@@ -1,10 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FlashcardsLearningModeService} from "../shared/flashcards-learning-mode.service";
-import {CardDto} from "../../collections/shared/dtos/card/card.dto";
-import {CollectionDto} from "../shared/dtos/collection-dto";
 import {FlashcardDto} from "../shared/dtos/flashcard-dto";
-import {ActivatedRoute} from "@angular/router";
-import {Observable, Subscription} from "rxjs";
+import {ActivatedRoute, Router} from "@angular/router";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-flashcards-studying',
@@ -21,7 +19,8 @@ export class FlashcardsStudyingComponent implements OnInit {
   question: boolean = false;
 
   constructor( private route: ActivatedRoute
-               ,private _flashcardsService: FlashcardsLearningModeService) {
+               ,private _flashcardsService: FlashcardsLearningModeService,
+               private router: Router) {
     // @ts-ignore
     this.deckId = +this.route.snapshot.paramMap.get('id');
     this.collection$ = this._flashcardsService.getCollection(this.deckId).subscribe(
@@ -55,4 +54,7 @@ export class FlashcardsStudyingComponent implements OnInit {
       this.question = true;
   }
 
+  backToCollections() {
+    this.router.navigateByUrl("/collections");
+  }
 }
