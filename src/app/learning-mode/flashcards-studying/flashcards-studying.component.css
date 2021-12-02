@@ -24,27 +24,168 @@
 }
 
 .rotateBtn{
-  position: absolute;
-  right: 50%;
-  transform: translateX(50%);
+   position: absolute;
+   right: 50%;
+   transform: translateX(50%);
+ }
+/*rotate button*/
+.rotateBtn{
+  background-color: transparent;
+  width: 200px;
+  padding: 20px;
+  broder: 2px solid #000000;
+  color: black;
+
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
 }
 
+.rotateBtn:hover{
+  background-color: #FFFFFF;
+  border: none;
+  box-shadow: 1px 1px 5px;
+  color: rgb(0, 0, 0);
+}
+
+.rotateBtn:active{
+  transform: translateX(54%);
+
+}
+
+.prevbut:active{
+  transform: translateY(1px);
+  /*transition: 1.0s;*/
+}
+
+.nextbut:active{
+  transform: translateY(1px);
+ /* transition: 1.0s;*/
+}
+
+
+/*rotate button*/
+
 .rotateCont{
-  padding-top: 84px;
+  margin: 5px;
+  padding-top: 100px;
 }
 
 .aa{
   padding-bottom: 70px;
 }
 
-.prevbut{
-  position: absolute;
- right: 70%;
- transform: translateX(50%);
-}
+
+
+/*next but*/
+
 
 .nextbut{
   position: absolute;
   right: 30%;
   transform: translateX(50%);
 }
+.nextbut span{
+  background-color: #1e1e1e;
+}
+
+.nextbut {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #1e1e1e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+
+
+.nextbut span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.nextbut span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.nextbut:hover span {
+  padding-right: 25px;
+}
+
+.nextbut:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/*next button*/
+
+/*previews button*/
+.prevbut{
+  position: absolute;
+  right: 70%;
+  transform: translateX(50%);
+}
+
+.prevbut span{
+  background-color: #1e1e1e;
+}
+
+.prevbut{
+display: inline-block;
+border-radius: 4px;
+background-color: #1e1e1e;
+border: none;
+color: #FFFFFF;
+text-align: center;
+font-size: 28px;
+padding: 20px;
+width: 200px;
+transition: all 0.5s;
+cursor: pointer;
+margin: 5px;
+}
+
+.prevbut span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.prevbut span:after {
+  content: '\00AB';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.prevbut:hover span {
+  padding-left: 25px;
+}
+
+.prevbut:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+/*previews button*/
+
+/* rotate button*/
+
+/*rotate button*/
+
