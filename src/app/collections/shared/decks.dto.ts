@@ -1,4 +1,4 @@
-export interface DeckDto {
+export interface DecksDto {
   id: number,
   name: string,
   description: string,

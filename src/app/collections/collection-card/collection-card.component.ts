@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DeckDto} from "../shared/deck.dto";
+import {DecksDto} from "../shared/dtos/deck/decks.dto";
+
 
 @Component({
   selector: 'app-collection-card',
@@ -8,7 +9,7 @@ import {DeckDto} from "../shared/deck.dto";
 })
 export class CollectionCardComponent implements OnInit {
 
-  @Input() deck?: DeckDto;
+  @Input() deck?: DecksDto;
 
   constructor() { }
 

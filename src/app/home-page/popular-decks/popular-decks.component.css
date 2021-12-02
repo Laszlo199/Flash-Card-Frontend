@@ -1,0 +1,15 @@
+.decks-list {;
+  /*height: 5vh;*/
+  display: inline-grid;
+  /* width: max-content;*/
+  grid-template-columns: 300px 300px 300px ;
+  grid-gap: 30px;
+  justify-content: center;
+  overflow-y:auto
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

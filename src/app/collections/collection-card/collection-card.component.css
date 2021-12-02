@@ -8,6 +8,7 @@
   background-color: white;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
+  cursor: pointer;
 }
 
 p {
@@ -35,6 +36,52 @@ p {
 }
 
 .practise-btn {
-  cursor: pointer;
+  display: inline-block;
+  width: 100px;
   color: mediumpurple;
+  background-color: white;
+  margin-left: 5px;
+}
+
+#circle {
+  position: relative;
+
+  width: 1rem;
+  height: 1rem;
+  padding: 5px;
+
+  border-radius: 50%;
+
+  background: mediumpurple;
+  color: white;
+}
+
+#triangle-right {
+  position: absolute;
+
+  width: 0;
+  height: 0;
+  border-top: 0.5rem solid transparent;
+  border-left: 1rem solid white;
+  border-bottom: 0.5rem solid transparent;
+  border-radius: 4px;
+  background-color: mediumpurple;
+}
+
+.practise {
+  text-align: left;
+  background-color: white;
+  width: 150px;
+}
+
+.practise:hover #triangle-right{
+  background-color: rebeccapurple;
+}
+
+.practise:hover #circle{
+  background-color: rebeccapurple;
+}
+
+.practise:hover .practise-btn{
+  color: rebeccapurple;
 }

@@ -1,0 +1,8 @@
+<div class="card">
+  <input class="question" placeholder="Question..." [(ngModel)]="question">
+  <input class="answer" placeholder="Answer..." [(ngModel)]="answer">
+  <p class="btn"
+     [ngStyle]="(question && answer)? {'background-color' : 'mediumpurple', 'cursor' : 'pointer'} : {'background-color' : '#d2d2dd', 'cursor' : 'default'}"
+     (click)="addCard()">add</p>
+</div>
+

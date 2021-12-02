@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {DECKS} from "../shared/fake-decks";
-import {DeckDto} from "../shared/deck.dto";
+import {DecksDto} from "../shared/dtos/deck/decks.dto";
 import {DeckService} from "../shared/deck.service";
-import {Observable} from "rxjs";
+import {Observable, Subscription} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-collections-list',
@@ -11,10 +11,21 @@ import {Observable} from "rxjs";
 })
 export class CollectionsListComponent implements OnInit {
   searchPhrase: string | undefined;
-  fakeDecks: DeckDto[] | undefined;
-  decks$: Observable<DeckDto[]> | undefined;
+  fakeDecks: DecksDto[] | undefined;
+  decks$: Observable<DecksDto[]> | undefined;
 
-  constructor(private service: DeckService) { }
+  popupShown: boolean = false;
+  private newDeckSubscription: Subscription;
+
+  constructor(private service: DeckService, private router: Router) {
+    this.newDeckSubscription = this.service.getUpdate()
+      .subscribe((deckCreated: boolean) => {
+        this.closePopup();
+        if(deckCreated) {
+          this.loadDecks();
+        }
+      });
+  }
 
   ngOnInit(): void {
     this.fakeDecks = this.service.getDecks();
@@ -28,5 +39,22 @@ export class CollectionsListComponent implements OnInit {
   searchDecks() {
     if(this.searchPhrase && this.searchPhrase!="")
       this.decks$ = this.service.getByUserId(1, this.searchPhrase);
+  }
+
+  goToCollection(id: number) {
+    this.router.navigateByUrl("/collections/"+id)
+  }
+
+  resetDecks() {
+    if(!this.searchPhrase || this.searchPhrase=="")
+      this.loadDecks()
+  }
+
+  openPopup() {
+    this.popupShown = true;
+  }
+
+  closePopup() {
+    this.popupShown = false;
   }
 }

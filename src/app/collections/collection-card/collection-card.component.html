@@ -5,5 +5,10 @@
     : (deck.description)}}</p>
   <p class="number">{{deck.numberOfCards==1 ? (deck.numberOfCards+" card") : (deck.numberOfCards+" cards")}}</p>
   <p class="public">{{deck.isPublic ? "public" : "private"}}</p>
-  <p class="practise-btn">practise</p>
+  <div class="practise">
+    <div id="circle" class="practise-btn">
+      <div id="triangle-right"></div>
+    </div>
+    <div class="practise-btn"><p>practise</p></div>
+  </div>
 </div>

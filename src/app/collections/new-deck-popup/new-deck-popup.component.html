@@ -1,0 +1,35 @@
+<div class="window">
+  <h1>Creating a new deck</h1>
+  <div>
+    <input class="input-name" placeholder="Name..." [(ngModel)]="name">
+  </div>
+  <div>
+    <input placeholder="Description..." [(ngModel)]="description">
+  </div>
+
+  <div class="public-group">
+    <div class="public-toggle">
+      <!-- Rounded switch -->
+      <label class="switch">
+        <input type="checkbox" [checked]="isPublic" (change)="isPublic=!isPublic">
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div class="public-toggle">
+      <p>public</p>
+    </div>
+    <p class="public-info">this deck will be {{isPublic? 'public' : 'private'}}</p>
+  </div>
+
+  <div class="buttons">
+    <p class="save-btn"
+       [ngStyle]="(name)? {'background-color' : 'mediumpurple', 'cursor' : 'pointer'} : {'background-color' : '#d2d2dd', 'cursor' : 'default'}"
+       (click)="createNew()">save</p>
+  </div>
+  <div class="buttons">
+    <p class="cancel-btn"
+       (click)="cancel()">cancel</p>
+  </div>
+
+</div>
+

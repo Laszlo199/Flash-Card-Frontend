@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+
 const routes: Routes = [
   {
     path: "collections",
@@ -11,7 +12,13 @@ const routes: Routes = [
     path: "auth",
     loadChildren: () => import('./auth/auth.module')
       .then(f=>f.AuthModule)
+  },
+  {
+    path: "home",
+    loadChildren: () => import('./home-page/home-page.module')
+      .then(f=>f.HomePageModule),
   }
+
 ];
 
 @NgModule({

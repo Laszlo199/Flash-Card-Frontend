@@ -1,0 +1,222 @@
+.container {
+  text-align: center;
+  margin-top: 10vh;
+
+  position: relative;
+}
+
+.back-link {
+  position: absolute;
+  left: 10px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.back-link:hover {
+  color: mediumpurple;
+}
+
+.side-box {
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: left;
+  padding: 10px;
+
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.side-box p {
+  background-color: white;
+  cursor: pointer;
+}
+
+.delete {
+  cursor: pointer;
+  background-color: white;
+}
+
+.delete-item {
+  display: inline-block;
+  background-color: white;
+}
+
+.delete-icon {
+  width: 25px;
+  height: 25px;
+
+  opacity: 0.3;
+}
+
+.delete-icon:hover {
+  opacity: 1;
+}
+
+.edit {
+  cursor: pointer;
+  background-color: white;
+}
+
+.edit-item {
+  display: inline-block;
+  background-color: white;
+}
+
+.edit-icon {
+  width: 25px;
+  height: 25px;
+
+  opacity: 0.3;
+}
+
+.edit-icon:hover {
+  opacity: 1;
+}
+
+.header-editMode {
+  text-align: center;
+  display: block;
+  margin-bottom: 50px;
+}
+
+input {
+  border-top: 0;
+  border-inline: 0;
+  text-align: left;
+  background-color: #F5F6FA;
+  width: 50%;
+  margin: 10px;
+}
+
+.input-title {
+  font-size: 1.5rem;
+}
+
+.input-description {
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.checkbox {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: 15px;
+}
+
+.save-btn {
+  padding: 8px;
+  width: 50px;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.cancel-btn {
+  padding: 8px;
+  width: 50px;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #D2D2DD;
+  cursor: pointer;
+}
+
+.button {
+  display: inline-block;
+  margin: 10px;
+}
+
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.item {
+  display: inline-block;
+}
+
+.practise-btn {
+  display: inline-block;
+  width: 100px;
+  color: mediumpurple;
+  padding: 0;
+  margin: 0;
+}
+
+#circle {
+  position: relative;
+
+  width: 1rem;
+  height: 1rem;
+  padding: 5px;
+
+  border-radius: 50%;
+
+  background: mediumpurple;
+}
+
+#triangle-right {
+  position: absolute;
+
+  width: 0;
+  height: 0;
+  border-top: 0.5rem solid transparent;
+  border-left: 1rem solid white;
+  border-bottom: 0.5rem solid transparent;
+  border-radius: 4px;
+  background-color: mediumpurple;
+}
+
+.practise {
+  text-align: left;
+  width: 150px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.practise:hover #triangle-right{
+  background-color: rebeccapurple;
+}
+
+.practise:hover #circle{
+  background-color: rebeccapurple;
+}
+
+.practise:hover .practise-btn{
+  color: rebeccapurple;
+}
+
+.description {
+  margin-block: 0;
+  padding-block: 0;
+}
+
+.itm {
+  display: inline-block;
+  margin-inline: 10px;
+  margin-block: 0;
+  padding-block: 0;
+  color: #6C6C6C;
+}
+
+.cards-list {
+  height: 65vh;
+  display: grid;
+  grid-template-columns: 300px 300px 300px ;
+  grid-gap: 30px;
+  justify-content: center;
+  overflow-y:auto;
+  align-items: start;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

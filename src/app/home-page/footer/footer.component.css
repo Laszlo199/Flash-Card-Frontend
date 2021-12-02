@@ -1,0 +1,53 @@
+.general{
+  width: 97%;
+  height: auto;
+  padding-top: 40px;
+  border-top: solid grey 1px;
+  display: flex;
+}
+
+div{
+
+}
+
+.log{
+  padding-top: 6px;
+  width: 50px;
+  height: auto;
+}
+
+.logo{
+  margin-top: 5px;
+
+}
+
+.first{
+  padding-right: 5px;
+}
+
+.list{
+  list-style-type: none;
+  padding-left: 5px;
+}
+
+.list2{
+  padding-top: 10px;
+  display: flex; list-style-type: none;
+
+}
+
+
+.el1{
+  list-style-type: none;
+  padding-left: 14px;
+}
+
+.info{
+
+}
+
+.social-media{
+  padding-top: 11px;
+  position: absolute;
+  right: 20px;
+}
