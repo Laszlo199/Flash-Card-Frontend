@@ -94,4 +94,8 @@ export class CollectionDetailsComponent implements OnInit {
 
 
   }
+
+  goToTestMode() {
+    this.router.navigateByUrl("/test-mode/"+this.deckId);
+  }
 }

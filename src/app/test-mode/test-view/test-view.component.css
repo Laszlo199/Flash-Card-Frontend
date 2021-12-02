@@ -1,0 +1,175 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+
+  position: relative;
+}
+
+.top-left {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.top-right {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.content {
+  position: absolute;
+  top: 15vh;
+  left: 30vw;
+}
+
+.card {
+  width: 40vw;
+  height: 40vh;
+  padding-top: 20px;
+
+  border-radius: 15px;
+
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  text-align: center;
+
+  display: block;
+}
+
+.item {
+  display: inline-block;
+}
+
+input {
+  font-size: 1rem;
+  background-color: white;
+  padding: 10px;
+  margin-top: 1vw;
+  margin-right: 1vw;
+  width: 34vw;
+  border-radius: 10px;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.button {
+  color: white;
+  background-color: mediumpurple;
+  padding: 10px;
+  border-radius: 10px;
+  width: 3vw;
+  text-align: center;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rebeccapurple;
+}
+
+h1 {
+  font-size: 2rem;
+  background-color: white;
+  margin-top: 15vh;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.answer {
+  background-color: white;
+  margin-bottom: 0;
+  position: relative;
+
+  animation-name: answer;
+  animation-duration: 1s;
+}
+
+@keyframes answer {
+  from {top: -20px; opacity: 0;}
+  to {top: 0;opacity: 100;}
+}
+
+
+.feedback-bar {
+  padding-inline: 0;
+  width: 100%;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  position: relative;
+  top: 3rem;
+  display: flex;
+  justify-content: space-between;
+
+  animation-name: feedback-bar;
+  animation-duration: 2s;
+}
+
+@keyframes feedback-bar {
+  0%{opacity: 0;}
+  50%{opacity: 0;}
+  100% {opacity: 100;}
+}
+
+.itm {
+  display: inline-block;
+  vertical-align: center;
+  padding-inline: 10px;
+}
+
+.next {
+  text-align: right;
+  color: black;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.next:hover {
+  color: #444444;
+}
+
+.feedback {
+  text-align: left;
+  font-size: 1.5rem;
+  color: white;
+}
+
+img {
+  width: 3vw;
+}
+
+p {
+  background-color: transparent;
+}
+
+div {
+  background-color: transparent;
+}
+
+.opt {
+  display: inline-block;
+  margin-inline: 10px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.opt p{
+  padding: 10px;
+  background-color: mediumpurple;
+  border-radius: 10px;
+}
+
+.opt p:hover {
+  color: white;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+}
