@@ -1,0 +1,48 @@
+* {
+  margin-inline: auto;
+}
+
+.view {
+  text-align: center;
+  margin-top: 3rem;
+  display: block;
+}
+
+h3 {
+  color: rebeccapurple;
+}
+
+ul {
+  list-style: none;
+  display:flex;
+  justify-content: center;
+}
+
+li {
+  display: list-item;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  width: 15vw;
+  font-size: 1rem;
+}
+
+.question {
+  background-color: white;
+}
+
+.button {
+  width: 100px;
+  padding: 10px;
+  color: white;
+  font-size: 2rem;
+  background-color: mediumpurple;
+  transition: background-color 2s;
+  transition-timing-function: ease;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.button:hover {
+  background-color: rebeccapurple;
+}

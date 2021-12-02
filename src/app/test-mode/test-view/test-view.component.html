@@ -1,0 +1,47 @@
+<div class="container" *ngIf="deck && cards">
+  <div class="top-left">
+    <p>practising {{deck.name}}</p>
+    <a routerLink="/collections/{{deckId}}">leave</a>
+  </div>
+
+  <div class="top-right">
+    <p>cards: {{currentCardIndex + 1}}/{{cards.length}}</p>
+    <p>correct: {{correct}}</p>
+    <p>wrong: {{wrong}}</p>
+    <p>skipped: {{skipped}}</p>
+  </div>
+
+  <div class="content">
+    <div class="card">
+      <h1>{{cards[currentCardIndex].question}}</h1>
+      <div *ngIf="checked">
+        <h3 class="answer">{{cards[currentCardIndex].answer}}</h3>
+        <div class="feedback-bar"
+             [ngStyle]="answeredCorrectly? {'background-color' : 'mediumseagreen'} : {'background-color' : 'palevioletred'}">
+          <p class="itm feedback">
+            {{answeredCorrectly? 'That is correct!' : 'Oops, you got it wrong...'}}</p>
+          <p class="itm next" (click)="nextQuestion()">
+            {{currentCardIndex+1==cards.length? 'finish >' : 'next >'}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="options">
+      <div class="skip opt" title="card isn't considered either correct nor wrong" (click)="skip()">
+        <p>skip</p>
+      </div>
+
+      <div class="hint opt" title="shows first letter of an answer" (click)="showHint()">
+        <p>hint</p>
+      </div>
+    </div>
+
+    <input class="item" placeholder="answer..." [(ngModel)]="answer" (keydown.enter)="checkAnswer()">
+    <p class="item button" (click)="checkAnswer()">check</p>
+  </div>
+
+
+
+
+
+</div>
