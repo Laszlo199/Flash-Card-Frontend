@@ -1,0 +1,32 @@
+<div class="background">
+  <h1 class = "loginText"> Login</h1>
+<div class="LoginP">
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+
+  <input class="emailField" placeholder="Email" id="email" type="text" formControlName="email">
+  <div *ngIf="email && email.invalid && (email.dirty || email.touched)"
+       class="alert alert-danger">
+    <div *ngIf="email.errors?.required">
+      Email is required.
+    </div>
+  </div>
+
+  <input class="passwordField" placeholder="Password" id="password" type="password" formControlName="password">
+  <div *ngIf="password && password.invalid && (password.dirty || password.touched)"
+       class="alert alert-danger">
+    <div *ngIf="password.errors?.required">
+      Password is required.
+    </div>
+  </div>
+
+
+
+  <button class="loginButton" id="login" type="submit">Login</button>
+  <input class="errorText" id="errorText" type="errorText" formControlName="errorText">
+  <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a routerLink="/auth/register" href="#!" style="color: #393f81;">Register here</a></p>
+
+
+</form>
+</div>
+</div>
+
