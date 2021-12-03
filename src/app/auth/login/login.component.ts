@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
 import { LoginDto } from '../shared/login.dto';
-import {Observable, Subscription} from "rxjs";
 import { Router } from '@angular/router';
 
 
@@ -11,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit{
 
 loginForm = this._fb.group({
 
@@ -28,7 +27,7 @@ loginForm = this._fb.group({
   errorText:['']
 });
 
-  private unsub: Subscription | undefined;
+
 
   constructor(private _fb: FormBuilder,
               private _auth: AuthService,
@@ -37,17 +36,13 @@ loginForm = this._fb.group({
   ngOnInit(): void {
   }
 
-  ngOnDestroy(): void {
-    if(this.unsub) {
-      this.unsub.unsubscribe();
-    }
-  }
+
 
   login() {
     const loginDto = this.loginForm.value as LoginDto;
     this._auth.login(loginDto)
       .subscribe((response) =>{
-        console.log('Test van toka');
+        console.log('Test ');
         if (response && response.jwt != null){
           console.log('Token: ',response.jwt);
           this._router.navigateByUrl('collections');

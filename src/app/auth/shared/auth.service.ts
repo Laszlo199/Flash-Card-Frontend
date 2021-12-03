@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import { Observable } from 'rxjs';
+import {BehaviorSubject, Observable, of} from 'rxjs';
 import { TokenDto } from './token.dto';
 import {LoginDto} from "./login.dto";
 import {environment} from "../../../environments/environment";
-import {tap} from "rxjs/operators";
+import {take, tap} from "rxjs/operators";
 
 const jwtToken = 'jwtToken';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  isLoggedIn$ = new BehaviorSubject<string | null>(this.getToken());
 
   constructor(private _http: HttpClient) { }
 
@@ -19,9 +22,10 @@ export class AuthService {
     .pipe(
       tap(token =>{
         if(token && token.jwt){
-          localStorage.setItem('jwtToken', token.jwt);
+          localStorage.setItem(jwtToken, token.jwt);
+          this.isLoggedIn$.next(token.jwt);
         }else {
-          console.error()
+          this.logout();
         }
       })
     )
@@ -36,5 +40,11 @@ export class AuthService {
 
   getToken(): string | null {
     return localStorage.getItem(jwtToken);
+  }
+
+  logout(): Observable<boolean> {
+    localStorage.removeItem(jwtToken);
+    this.isLoggedIn$.next(null);
+    return of(true).pipe(take(1));
   }
 }
