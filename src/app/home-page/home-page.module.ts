@@ -11,17 +11,20 @@ import {CollectionsModule} from "../collections/collections.module";
 
 
 @NgModule({
-  declarations: [
-    NavbarComponent,
-    HomePageComponent,
-    FooterComponent,
-    PopularDecksComponent
-  ],
-  imports: [
-    CommonModule,
-    HomePageRoutingModule,
-    HttpClientModule,
-    CollectionsModule
-  ]
+    declarations: [
+        NavbarComponent,
+        HomePageComponent,
+        FooterComponent,
+        PopularDecksComponent
+    ],
+    exports: [
+        NavbarComponent
+    ],
+    imports: [
+        CommonModule,
+        HomePageRoutingModule,
+        HttpClientModule,
+        CollectionsModule
+    ]
 })
 export class HomePageModule { }
