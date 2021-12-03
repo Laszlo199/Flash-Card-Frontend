@@ -17,7 +17,7 @@ export class CollectionCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToLearningMode(id: number) {
+  /*goToLearningMode(id: number) {
     this.router.navigateByUrl("/learningMode/"+id)
-  }
+  }*/
 }
