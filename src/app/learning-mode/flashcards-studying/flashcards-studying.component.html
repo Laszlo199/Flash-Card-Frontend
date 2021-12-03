@@ -22,6 +22,9 @@
         <button class="nextbut" (click)="next()"><span>Right</span></button>
       </div>
     </div>
+    <div class="info">
+    <h1 *ngIf="flashcards$">{{counter+1}} / {{flashcards$.length}}</h1>
+  </div>
     <div class="rotateCont">
     <button class="rotateBtn" (click)="rotate()">Rotate</button>
     </div>

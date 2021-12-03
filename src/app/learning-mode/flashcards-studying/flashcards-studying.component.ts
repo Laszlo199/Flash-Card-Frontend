@@ -14,7 +14,7 @@ export class FlashcardsStudyingComponent implements OnInit {
   deckId: number|undefined;
   private collection$: Subscription | undefined;
  flashcards$: Array<FlashcardDto> | undefined;
- private counter: number =0;
+  counter: number =0;
   flash: FlashcardDto | undefined;
   question: boolean = false;
 
