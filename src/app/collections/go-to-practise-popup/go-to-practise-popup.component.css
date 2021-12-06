@@ -1,5 +1,9 @@
 .title{
   text-align: center;
-  font-size: 25px;
+  font-size: 45px;
+  padding-bottom: 25px;
+}
+h2:hover{
+  color: #3a3a3a;
 }
 

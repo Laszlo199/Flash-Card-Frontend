@@ -1,5 +1,23 @@
-<!--<div class="container">
-  <p>go-to-practise-popup works!</p>
-</div>-->
+<div>
+<h1 class="title" mat-dialog-title>Choose mode</h1>
+</div>
 
-<h1 class="title" mat-dialog-title>Choose a mode</h1>
+<div>
+  <ul>
+    <li>
+      <h2 mat-dialog-close="true" (click)="goToLearningMode()">Learning mode</h2>
+      review all cards
+    </li>
+
+    <li>
+      <h2 mat-dialog-close="true" (click)="goToTestMode()">test mode</h2>
+      see a card and give an answer
+    </li>
+
+    <li>
+      <h2>exercise mode</h2>
+      go though all cards as long as all of them are answered correctly
+    </li>
+
+  </ul>
+</div>

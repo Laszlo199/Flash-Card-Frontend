@@ -19,15 +19,19 @@ export class CollectionCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  /*goToLearningMode(id: number) {
+ /* goToLearningMode(id: number) {
     this.router.navigateByUrl("/learningMode/"+id)
   }*/
 
 
   openPractiseDialog() {
-    const dialogRef= this.dialog.open(GoToPractisePopupComponent, {
+    const dialogRef= this.dialog.open(GoToPractisePopupComponent,
+      {
       height: '400px',
-      width: '600px'
+      width: '600px',
+        data: {
+        id: this.deck?.id
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
