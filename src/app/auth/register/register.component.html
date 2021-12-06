@@ -1,0 +1,35 @@
+<div class="background">
+  <h1 class = "loginText">Sign Up</h1>
+  <div class="LoginP">
+    <form [formGroup]="registerForm" (ngSubmit)="signup()">
+
+      <input class="emailField" placeholder="Email" id="email" type="text" formControlName="email">
+      <div *ngIf="email && email.invalid && (email.dirty || email.touched)"
+           class="alert alert-danger">
+        <div *ngIf="email.errors?.required">
+          Email is required.
+        </div>
+        <div *ngIf="email.errors?.maxLength">
+          Email must be maximum 20 characters long.
+        </div>
+      </div>
+
+      <input class="passwordField" placeholder="Password" id="password" type="password" formControlName="password">
+        <div *ngIf="password && password.invalid && (password.dirty || password.touched)"
+             class="alert alert-danger">
+          <div *ngIf="password.errors?.required">
+            Password is required.
+          </div>
+          <div *ngIf="password.errors?.minlength">
+            Password must be minimum 6 characters long.
+          </div>
+        </div>
+
+
+      <button class="signupButton" id="signup" type="submit" >Sign up</button>
+      <input class="errorText" id="errorText" type="errorText" formControlName="errorText">
+      <p class="mb-5 pb-lg-2" style="color: #393f81;">Already have an account? <a routerLink="/auth/login" href="#!" style="color: #393f81;">Login here</a></p>
+
+    </form>
+  </div>
+</div>

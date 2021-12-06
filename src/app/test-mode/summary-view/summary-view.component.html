@@ -1,0 +1,26 @@
+<div class="view">
+  <h1>Your practise is done. Great job! You got {{correctCards.length}} out of
+    {{correctCards.length + wrongCards.length + skippedCards.length}} cards correct.</h1>
+  <br>
+
+  <h3>What you got correct:</h3>
+  <ul *ngFor="let card of correctCards">
+    <li><strong class="question">{{card.question}}</strong> // {{card.answer}}</li>
+  </ul>
+  <p *ngIf="correctCards.length==0">-</p>
+
+  <h3>What you got wrong:</h3>
+  <ul *ngFor="let card of wrongCards">
+    <li><strong class="question">{{card.question}}</strong> // {{card.answer}}</li>
+  </ul>
+  <p *ngIf="wrongCards.length==0">-</p>
+
+  <h3>What you skipped:</h3>
+  <ul *ngFor="let card of skippedCards">
+    <li><strong class="question">{{card.question}}</strong> // {{card.answer}}</li>
+  </ul>
+  <p *ngIf="skippedCards.length==0">-</p>
+
+  <br>
+  <p class="button" (click)="goBack()">done</p>
+</div>

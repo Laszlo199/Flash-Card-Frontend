@@ -6,7 +6,12 @@ const routes: Routes = [
   {
     path: "collections",
     loadChildren: () => import('./collections/collections.module')
-      .then(f=>f.CollectionsModule),
+      .then(f=>f.CollectionsModule)
+  },
+  {
+    path: "auth",
+    loadChildren: () => import('./auth/auth.module')
+      .then(f=>f.AuthModule)
   },
   {
     path: "home",
@@ -18,7 +23,14 @@ const routes: Routes = [
     loadChildren: () => import('./learning-mode/learning-mode.module')
       .then(f=>f.LearningModeModule),
   },
-
+  {
+    path: "test-mode",
+    loadChildren: () => import('./test-mode/test-mode.module')
+      .then(f=>f.TestModeModule)
+  },
+  {
+    path: '',  redirectTo: '/home', pathMatch: 'full'
+  }
 ];
 
 @NgModule({
