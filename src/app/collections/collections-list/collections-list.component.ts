@@ -10,9 +10,12 @@ import {Router} from "@angular/router";
   styleUrls: ['./collections-list.component.css']
 })
 export class CollectionsListComponent implements OnInit {
+  userId = 1;
+
   searchPhrase: string | undefined;
-  fakeDecks: DecksDto[] | undefined;
   decks$: Observable<DecksDto[]> | undefined;
+
+  publicShown: boolean = false;
 
   popupShown: boolean = false;
   private newDeckSubscription: Subscription;
@@ -28,17 +31,16 @@ export class CollectionsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fakeDecks = this.service.getDecks();
     this.loadDecks();
   }
 
   private loadDecks() {
-    this.decks$ = this.service.getByUserId(1, "");
+    this.decks$ = this.service.getByUserId(this.userId, "");
   }
 
   searchDecks() {
     if(this.searchPhrase && this.searchPhrase!="")
-      this.decks$ = this.service.getByUserId(1, this.searchPhrase);
+      this.decks$ = this.service.getByUserId(this.userId, this.searchPhrase);
   }
 
   goToCollection(id: number) {
@@ -56,5 +58,15 @@ export class CollectionsListComponent implements OnInit {
 
   closePopup() {
     this.popupShown = false;
+  }
+
+  showPrivate() {
+    this.publicShown = false;
+    this.decks$ = this.service.getByUserId(this.userId, "");
+  }
+
+  showPublic() {
+    this.publicShown = true;
+    this.decks$ = this.service.getPublic();
   }
 }

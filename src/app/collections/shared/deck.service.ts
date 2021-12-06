@@ -32,6 +32,10 @@ export class DeckService {
     return this._http.get<DecksDto[]>("https://localhost:5001/Decks/GetByUserId/"+userId+"?search="+search);
   }
 
+  getPublic(): Observable<DecksDto[]> {
+    return this._http.get<DecksDto[]>("https://localhost:5001/Decks/GetAllPublic");
+  }
+
   createDeck(deck: PostDeckDto): Observable<DecksDto> {
     return this._http.post<DecksDto>("https://localhost:5001/Decks", deck);
   }
