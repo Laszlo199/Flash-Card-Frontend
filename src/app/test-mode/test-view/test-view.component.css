@@ -57,6 +57,14 @@ input:focus {
   outline: none;
 }
 
+.leave {
+  cursor: pointer;
+}
+
+.leave:hover {
+  color: mediumpurple;
+}
+
 .button {
   color: white;
   background-color: mediumpurple;
