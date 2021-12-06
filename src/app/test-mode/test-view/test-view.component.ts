@@ -123,4 +123,9 @@ export class TestViewComponent implements OnInit {
       this.summaryService.setDeckId(this.deckId);
     }
   }
+
+  leave() {
+    if(confirm("Are you sure you want to leave?") && this.deckId)
+      this.router.navigateByUrl("/collections/"+this.deckId);
+  }
 }

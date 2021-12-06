@@ -1,7 +1,7 @@
 <div class="container" *ngIf="deck && cards">
   <div class="top-left">
     <p>practising {{deck.name}}</p>
-    <a routerLink="/collections/{{deckId}}">leave</a>
+    <p class="leave" (click)="leave()">leave</p>
   </div>
 
   <div class="top-right">
