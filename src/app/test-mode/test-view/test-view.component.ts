@@ -4,6 +4,8 @@ import {CollectionService} from "../shared/collection.service";
 import {DeckDto} from "../../collections/shared/dtos/deck/deck.dto";
 import {CardDto} from "../../collections/shared/dtos/card/card.dto";
 import {SummaryService} from "../shared/summary.service";
+import {PostAttemptDto} from "../shared/dtos/post-attempt.dto";
+
 
 @Component({
   selector: 'app-test-view',
@@ -56,10 +58,33 @@ export class TestViewComponent implements OnInit {
         this.answeredCorrectly = true;
         this.correct++;
         this.correctCards.push(this.cards[this.currentCardIndex]);
+
+        let attempt: PostAttemptDto = {
+          "userId": 1,
+          "cardId": this.cards[this.currentCardIndex].id,
+          "wasCorrect": true,
+          "date": new Date()
+        };
+        this.service.createAttempt(attempt)
+          .subscribe(a=> {
+            console.log(a);
+          }, error => console.log(error))
+
       } else {
         this.answeredCorrectly = false;
         this.wrong++;
         this.wrongCards.push(this.cards[this.currentCardIndex]);
+
+        let attempt: PostAttemptDto = {
+          "userId": 1,
+          "cardId": this.cards[this.currentCardIndex].id,
+          "wasCorrect": false,
+          "date": new Date()
+        };
+        this.service.createAttempt(attempt)
+          .subscribe(a=> {
+            console.log(a);
+          }, error => console.log(error))
       }
     }
   }
