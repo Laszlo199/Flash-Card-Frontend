@@ -9,6 +9,7 @@ import {AuthInterceptor} from "./auth/interceptores/auth.interceptor";
 
 import {CollectionsModule} from "./collections/collections.module";
 import {HomePageModule} from "./home-page/home-page.module";
+import {RouterModule} from "@angular/router";
 
 
 

@@ -24,8 +24,8 @@ export class CardService {
 
   getByDeckId(id: number, sortOrder: string): Observable<DeckDto> {
     let url =
-      sortOrder==""?
-        "https://localhost:5001/Decks/GetById/"+id : "https://localhost:5001/Decks/GetById/"+id+"?sortOrder="+sortOrder;
+      sortOrder=="" ? "https://localhost:5001/Decks/GetById/"+id
+                    : "https://localhost:5001/Decks/GetById/"+id+"?sortOrder="+sortOrder;
     return this._http.get<DeckDto>(url);
   }
 

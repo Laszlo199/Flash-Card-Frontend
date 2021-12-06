@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DecksDto} from "../shared/dtos/deck/decks.dto";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -11,9 +12,12 @@ export class CollectionCardComponent implements OnInit {
 
   @Input() deck?: DecksDto;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  /*goToLearningMode(id: number) {
+    this.router.navigateByUrl("/learningMode/"+id)
+  }*/
 }

@@ -1,0 +1,4 @@
+<div class="card shadow" *ngIf="flashcard">
+  <h1 class="question" *ngIf="!question">  Question: {{flashcard.question}}</h1>
+  <h1 class="answer" *ngIf="question">Answer: {{flashcard.answer}}</h1>
+</div>
