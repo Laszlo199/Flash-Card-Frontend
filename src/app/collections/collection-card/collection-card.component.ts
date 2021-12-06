@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DecksDto} from "../shared/dtos/deck/decks.dto";
 import {Router} from "@angular/router";
-import {PractiseModeService} from "../shared/practise-mode.service";
 import {MatDialog} from '@angular/material/dialog';
 import {GoToPractisePopupComponent} from "../go-to-practise-popup/go-to-practise-popup.component";
 
@@ -14,7 +13,7 @@ export class CollectionCardComponent implements OnInit {
 
   @Input() deck?: DecksDto;
 
-  constructor(private router: Router, private practise_service: PractiseModeService,
+  constructor(private router: Router,
               private dialog: MatDialog) { }
 
   ngOnInit(): void {
