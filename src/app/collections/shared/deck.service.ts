@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import {DecksDto} from "./dtos/deck/decks.dto";
-import {DECKS} from "./fake-decks";
 import {HttpClient} from "@angular/common/http";
 import {Observable, Subject} from "rxjs";
 import {PostDeckDto} from "./dtos/deck/post-deck.dto";
-import {CardDto} from "./dtos/card/card.dto";
 import {PutDeckDto} from "./dtos/deck/put-deck.dto";
 
 @Injectable({

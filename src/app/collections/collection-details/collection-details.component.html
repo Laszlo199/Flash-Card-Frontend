@@ -16,7 +16,7 @@
                [(ngModel)]="newDescription"
                placeholder="Description...">
       </div>
-      <div>
+      <div *ngIf="!deck.wasCopied">
         <input class="checkbox" type="checkbox" id="isPublic" [checked]="isPublic" (change)="isPublic=!isPublic">
         <label class="checkbox" for="isPublic">public</label>
       </div>
