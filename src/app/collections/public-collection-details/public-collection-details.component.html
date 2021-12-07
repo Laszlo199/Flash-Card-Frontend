@@ -1,1 +1,34 @@
-<p>public-collection-details works!</p>
+<div *ngIf="deckId">
+
+  <div class="back-link" (click)="backToCollections()">Back to collections</div>
+
+  <div class="container" *ngIf="deck$ | async as deck">
+
+    <!--HEADER-->
+    <div class="header">
+      <div class="item">
+        <h1>{{deck.name}}</h1>
+      </div>
+      <div class="item">
+        <p class="btn" (click)="addCollection()">add</p>
+      </div>
+      <p class="description">{{deck.description}}</p>
+      <div class="itm">
+        <p>{{deck.cards.length}} cards</p>
+      </div>
+      <div class="itm">
+        <p>user{{deck.userId}}</p>
+      </div>
+    </div>
+
+    <!--CARDS-->
+    <div class="cards-list">
+      <ng-container>
+        <div *ngFor="let card of deck.cards">
+          <app-public-card class="card" [card]="card"></app-public-card>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+</div>

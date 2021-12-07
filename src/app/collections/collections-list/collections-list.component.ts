@@ -102,6 +102,6 @@ export class CollectionsListComponent implements OnInit {
   }
 
   goToCollectionPreview(id: number) {
-
+    this.router.navigateByUrl("/collections/preview/"+id)
   }
 }
