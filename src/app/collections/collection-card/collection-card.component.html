@@ -5,7 +5,7 @@
     : (deck.description)}}</p>
   <p class="number">{{deck.numberOfCards==1 ? (deck.numberOfCards+" card") : (deck.numberOfCards+" cards")}}</p>
   <p class="public">{{deck.isPublic ? "public" : "private"}}</p>
-  <div class="practise">
+  <div *ngIf="deck.numberOfCards > 0" class="practise">
     <div id="circle" class="practise-btn">
       <div id="triangle-right"></div>
     </div>
