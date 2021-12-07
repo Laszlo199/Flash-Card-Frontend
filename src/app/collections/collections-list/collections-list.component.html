@@ -1,11 +1,11 @@
 <div class="collections">
   <div class="header">
     <div class="item" *ngIf="!publicShown">
-      <div class="plus-icon" title="create a new deck" (click)="openPopup()"></div>
+      <div class="plus-icon" title="create a new deck" (click)="openPopup()">+</div>
     </div>
     <div class="item">
       <h1 class="my-coll"
-        [ngStyle]="(publicShown)? {'font-size' : '1.5rem', 'color' : 'mediumpurple'} : {'font-size' : '2rem', 'color' : 'black'}"
+          [@openClose]="publicShown ? 'closed' : 'open'"
         (click)="showPrivate()"
       >My collections</h1>
     </div>
@@ -14,7 +14,7 @@
     </div>
     <div class="item">
       <h1 class="pub-coll"
-        [ngStyle]="(publicShown)? {'font-size' : '2rem', 'color' : 'black'} : {'font-size' : '1.5rem', 'color' : 'mediumpurple'}"
+          [@openClose]="publicShown ? 'open' : 'closed'"
         (click)="showPublic()"
       >Public collections</h1>
     </div>
@@ -27,7 +27,10 @@
     </div>
 
     <div class="searchbar">
-      <input class="search" placeholder="search..." [(ngModel)]="searchPhrase" (keyup.enter)="searchDecks()" (input)="resetDecks()">
+      <input class="search" placeholder="search..."
+             [(ngModel)]="searchPhrase"
+             (keyup.enter)="searchDecks()"
+             (input)="resetDecks()">
     </div>
   </div>
 
@@ -35,7 +38,12 @@
   <br>
   <div class="decks-list" *ngIf="decks$ | async as decks">
     <ng-container *ngFor="let deck of decks">
-      <app-collection-card class="card" [deck]="deck" (click)="goToCollection(deck.id)"></app-collection-card>
+      <div *ngIf="publicShown">
+        <app-public-collection-card class="card" [deck]="deck" [userId]="userId" (click)="goToCollectionPreview(deck.id)"></app-public-collection-card>
+      </div>
+      <div *ngIf="!publicShown">
+        <app-collection-card class="card" [deck]="deck" (click)="goToCollection(deck.id)"></app-collection-card>
+      </div>
     </ng-container>
   </div>
 </div>

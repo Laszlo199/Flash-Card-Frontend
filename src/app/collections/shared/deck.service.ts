@@ -12,7 +12,8 @@ import {PutDeckDto} from "./dtos/deck/put-deck.dto";
 })
 export class DeckService {
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) {
+  }
 
   private subject = new Subject<any>();
 
@@ -24,16 +25,12 @@ export class DeckService {
     return this.subject.asObservable();
   }
 
-  getDecks(): DecksDto[] {
-    return DECKS;
-  }
-
   getByUserId(userId: number, search: string): Observable<DecksDto[]> {
-    return this._http.get<DecksDto[]>("https://localhost:5001/Decks/GetByUserId/"+userId+"?search="+search);
+    return this._http.get<DecksDto[]>("https://localhost:5001/Decks/GetByUserId/" + userId + "?search=" + search);
   }
 
-  getPublic(): Observable<DecksDto[]> {
-    return this._http.get<DecksDto[]>("https://localhost:5001/Decks/GetAllPublic");
+  getPublic(searchPhrase: string): Observable<DecksDto[]> {
+    return this._http.get<DecksDto[]>("https://localhost:5001/Decks/GetAllPublic?search=" + searchPhrase);
   }
 
   createDeck(deck: PostDeckDto): Observable<DecksDto> {
@@ -41,10 +38,14 @@ export class DeckService {
   }
 
   deleteDeck(deckId: number) {
-    return this._http.delete<any>("https://localhost:5001/Decks/"+deckId);
+    return this._http.delete<any>("https://localhost:5001/Decks/" + deckId);
   }
 
   updateDeck(newDeck: PutDeckDto) {
     return this._http.put<any>("https://localhost:5001/Decks", newDeck);
+  }
+
+  createCopiedDeck(deckId: number, userId: number): Observable<DecksDto> {
+    return this._http.post<DecksDto>("https://localhost:5001/Decks/CreateCopied?deckId=" + deckId + "&userId=" + userId, null);
   }
 }

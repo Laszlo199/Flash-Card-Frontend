@@ -8,6 +8,7 @@
          [(ngModel)]="newAnswer"
          placeholder="Answer...">
   <p class="correct"
+     title="counted basing on your last 5 times reviewing this card"
      [ngStyle]="editMode? {'opacity' : '0.5'} : {'opacity' : '1'}">
       correct: {{card.correctness}}%</p>
   <p class="btn" *ngIf="editMode"

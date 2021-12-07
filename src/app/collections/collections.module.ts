@@ -10,6 +10,8 @@ import { CollectionDetailsComponent } from './collection-details/collection-deta
 import { CardComponent } from './card/card.component';
 import { NewCardComponent } from './new-card/new-card.component';
 import { NewDeckPopupComponent } from './new-deck-popup/new-deck-popup.component';
+import { PublicCollectionCardComponent } from './public-collection-card/public-collection-card.component';
+import { PublicCollectionDetailsComponent } from './public-collection-details/public-collection-details.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { NewDeckPopupComponent } from './new-deck-popup/new-deck-popup.component
     CollectionDetailsComponent,
     CardComponent,
     NewCardComponent,
-    NewDeckPopupComponent
+    NewDeckPopupComponent,
+    PublicCollectionCardComponent,
+    PublicCollectionDetailsComponent
   ],
   exports: [
     CollectionCardComponent

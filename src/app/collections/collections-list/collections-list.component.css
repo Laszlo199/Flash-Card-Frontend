@@ -36,10 +36,6 @@
   background-color: mediumpurple;
 }
 
-.plus-icon::before {
-  content: "+";
-}
-
 .decks-list {
   height: 60vh;
   display: grid;

@@ -9,6 +9,7 @@ import {AuthInterceptor} from "./auth/interceptores/auth.interceptor";
 
 import {CollectionsModule} from "./collections/collections.module";
 import {HomePageModule} from "./home-page/home-page.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -21,7 +22,8 @@ import {HomePageModule} from "./home-page/home-page.module";
     AppRoutingModule,
     HttpClientModule,
     CollectionsModule,
-    HomePageModule
+    HomePageModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi: true},

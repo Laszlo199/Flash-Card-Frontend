@@ -3,9 +3,35 @@ import {DecksDto} from "../shared/dtos/deck/decks.dto";
 import {DeckService} from "../shared/deck.service";
 import {Observable, Subscription} from "rxjs";
 import {Router} from "@angular/router";
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
 
 @Component({
   selector: 'app-collections-list',
+  animations: [
+    trigger('openClose', [
+      state('open', style({
+        fontSize : '2rem',
+        color : 'black'
+      })),
+      state('closed', style({
+        fontSize : '1.5rem',
+        color : 'mediumpurple'
+      })),
+      transition('open => closed', [
+        animate('0.25s')
+      ]),
+      transition('closed => open', [
+        animate('0.25s')
+      ]),
+    ]),
+  ],
   templateUrl: './collections-list.component.html',
   styleUrls: ['./collections-list.component.css']
 })
@@ -35,12 +61,15 @@ export class CollectionsListComponent implements OnInit {
   }
 
   private loadDecks() {
-    this.decks$ = this.service.getByUserId(this.userId, "");
+    this.decks$ = this.publicShown ? this.service.getPublic("") : this.service.getByUserId(this.userId, "");
   }
 
   searchDecks() {
     if(this.searchPhrase && this.searchPhrase!="")
-      this.decks$ = this.service.getByUserId(this.userId, this.searchPhrase);
+      if(this.publicShown)
+        this.decks$ = this.service.getPublic(this.searchPhrase);
+      else
+        this.decks$ = this.service.getByUserId(this.userId, this.searchPhrase);
   }
 
   goToCollection(id: number) {
@@ -62,11 +91,17 @@ export class CollectionsListComponent implements OnInit {
 
   showPrivate() {
     this.publicShown = false;
-    this.decks$ = this.service.getByUserId(this.userId, "");
+    this.loadDecks();
+    this.searchPhrase = "";
   }
 
   showPublic() {
     this.publicShown = true;
-    this.decks$ = this.service.getPublic();
+    this.loadDecks();
+    this.searchPhrase = "";
+  }
+
+  goToCollectionPreview(id: number) {
+
   }
 }
