@@ -37,7 +37,7 @@
 }
 
 .decks-list {
-  height: 60vh;
+  height: 57vh;
   display: grid;
   grid-template-columns: 300px 300px 300px ;
   grid-gap: 30px;
@@ -84,6 +84,14 @@
   margin: 15% auto; /* 15% from the top and centered */
   background-color: transparent;
   width: 30vw;
+}
+
+.page-nav {
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+  color: #6C6C6C;
+
 }
 
 

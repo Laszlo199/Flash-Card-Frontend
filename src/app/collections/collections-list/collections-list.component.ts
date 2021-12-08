@@ -44,6 +44,9 @@ export class CollectionsListComponent implements OnInit {
   publicShown: boolean = false;
 
   popupShown: boolean = false;
+  currentPage = 1;
+  itemsPerPage = 9;
+
   private newDeckSubscription: Subscription;
 
   constructor(private service: DeckService, private router: Router) {
@@ -61,13 +64,15 @@ export class CollectionsListComponent implements OnInit {
   }
 
   private loadDecks() {
-    this.decks$ = this.publicShown ? this.service.getPublic("") : this.service.getByUserId(this.userId, "");
+    this.decks$ = this.publicShown ?
+      this.service.getPublic("", this.currentPage, this.itemsPerPage)
+      : this.service.getByUserId(this.userId, "");
   }
 
   searchDecks() {
     if(this.searchPhrase && this.searchPhrase!="")
       if(this.publicShown)
-        this.decks$ = this.service.getPublic(this.searchPhrase);
+        this.decks$ = this.service.getPublic(this.searchPhrase, this.currentPage, this.itemsPerPage);
       else
         this.decks$ = this.service.getByUserId(this.userId, this.searchPhrase);
   }
@@ -103,5 +108,15 @@ export class CollectionsListComponent implements OnInit {
 
   goToCollectionPreview(id: number) {
     this.router.navigateByUrl("/collections/preview/"+id)
+  }
+
+  previousPage() {
+    this.currentPage--;
+    this.loadDecks();
+  }
+
+  nextPage() {
+    this.currentPage++;
+    this.loadDecks();
   }
 }

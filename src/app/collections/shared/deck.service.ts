@@ -27,8 +27,11 @@ export class DeckService {
     return this._http.get<DecksDto[]>("https://localhost:5001/Decks/GetByUserId/" + userId + "?search=" + search);
   }
 
-  getPublic(searchPhrase: string): Observable<DecksDto[]> {
-    return this._http.get<DecksDto[]>("https://localhost:5001/Decks/GetAllPublic?search=" + searchPhrase);
+  getPublic(searchPhrase: string, currentPage: number, itemsPrPage: number): Observable<DecksDto[]> {
+    let url = searchPhrase==""?
+      "https://localhost:5001/Decks/GetAllPublic?CurrentPage="+currentPage+"&ItemsPrPage="+itemsPrPage
+    : "https://localhost:5001/Decks/GetAllPublic?search="+searchPhrase+"&CurrentPage="+currentPage+"&ItemsPrPage="+itemsPrPage
+    return this._http.get<DecksDto[]>(url);
   }
 
   createDeck(deck: PostDeckDto): Observable<DecksDto> {

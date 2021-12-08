@@ -46,5 +46,7 @@
       </div>
     </ng-container>
   </div>
+  <p class="page-nav" *ngIf="publicShown && currentPage!=1" (click)="previousPage()"><< previous page</p>
+  <p class="page-nav" *ngIf="publicShown" (click)="nextPage()">next page >></p>
 </div>
 
