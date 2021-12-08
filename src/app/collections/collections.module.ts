@@ -13,7 +13,14 @@ import { NewDeckPopupComponent } from './new-deck-popup/new-deck-popup.component
 import { GoToPractisePopupComponent } from './go-to-practise-popup/go-to-practise-popup.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
-
+import { NavbarCollectionsComponent } from './navbar-collections/navbar-collections.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatIconModule} from "@angular/material/icon";
+import {MatSliderModule} from "@angular/material/slider";
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -23,18 +30,30 @@ import {MatButtonModule} from "@angular/material/button";
     CardComponent,
     NewCardComponent,
     NewDeckPopupComponent,
-    GoToPractisePopupComponent
+    GoToPractisePopupComponent,
+    NavbarCollectionsComponent
   ],
   entryComponents: [GoToPractisePopupComponent],
   exports: [
-    CollectionCardComponent
+    CollectionCardComponent,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule
   ],
-    imports: [
-        CommonModule,
-        CollectionsRoutingModule,
-        FormsModule,
-        MatDialogModule,
-        MatButtonModule
-    ]
+  imports: [
+    CommonModule,
+    CollectionsRoutingModule,
+    FormsModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    FormsModule,
+    MatSliderModule,
+    MatTabsModule,
+    MatButtonToggleModule,
+    MatMenuModule
+  ]
 })
 export class CollectionsModule { }

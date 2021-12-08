@@ -1,0 +1,33 @@
+<mat-toolbar class="navbar">
+    <span>
+      <mat-icon class="home-icon" aria-hidden="false" aria-label="Example home icon">clear_all</mat-icon>
+      </span>
+  <span class="logoName">
+     Memorise
+   </span>
+  <span class="toggle-span">
+    <button class="allCollectionsBtn" mat-button value="all_collections">all collections</button>
+    <button class="profileOvBtn" mat-button value="profile_overview">profile overview</button>
+  </span>
+
+  <span class="textt">kuba2001  </span>
+  <span class="user-info">
+    <span class="imageBtn">
+      <button class="imageBtn" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <img  src="assets/Images/avatar.png" alt="Avatar" class="avatar">
+       </button>
+      </span>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Settings</span>
+        </button>
+        <button mat-menu-item >
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Log out</span>
+        </button>
+      </mat-menu>
+   </span>
+
+</mat-toolbar>
+
