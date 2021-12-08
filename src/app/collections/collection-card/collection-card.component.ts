@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DecksDto} from "../shared/dtos/deck/decks.dto";
 import {Router} from "@angular/router";
-
+import {MatDialog} from '@angular/material/dialog';
+import {GoToPractisePopupComponent} from "../go-to-practise-popup/go-to-practise-popup.component";
 
 @Component({
   selector: 'app-collection-card',
@@ -12,12 +13,29 @@ export class CollectionCardComponent implements OnInit {
 
   @Input() deck?: DecksDto;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
-  /*goToLearningMode(id: number) {
+ /* goToLearningMode(id: number) {
     this.router.navigateByUrl("/learningMode/"+id)
   }*/
+
+
+  openPractiseDialog() {
+    const dialogRef= this.dialog.open(GoToPractisePopupComponent,
+      {
+      height: '450px',
+      width: '600px',
+        data: {
+        id: this.deck?.id
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }

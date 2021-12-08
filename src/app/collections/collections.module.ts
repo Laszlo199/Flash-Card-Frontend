@@ -10,6 +10,9 @@ import { CollectionDetailsComponent } from './collection-details/collection-deta
 import { CardComponent } from './card/card.component';
 import { NewCardComponent } from './new-card/new-card.component';
 import { NewDeckPopupComponent } from './new-deck-popup/new-deck-popup.component';
+import { GoToPractisePopupComponent } from './go-to-practise-popup/go-to-practise-popup.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -19,15 +22,19 @@ import { NewDeckPopupComponent } from './new-deck-popup/new-deck-popup.component
     CollectionDetailsComponent,
     CardComponent,
     NewCardComponent,
-    NewDeckPopupComponent
+    NewDeckPopupComponent,
+    GoToPractisePopupComponent
   ],
+  entryComponents: [GoToPractisePopupComponent],
   exports: [
     CollectionCardComponent
   ],
-  imports: [
-    CommonModule,
-    CollectionsRoutingModule,
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        CollectionsRoutingModule,
+        FormsModule,
+        MatDialogModule,
+        MatButtonModule
+    ]
 })
 export class CollectionsModule { }

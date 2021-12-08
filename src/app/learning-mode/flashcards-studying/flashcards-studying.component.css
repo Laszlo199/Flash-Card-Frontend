@@ -20,6 +20,7 @@
 }
 
 .link{
+  padding-left: 10px;
   width: 100%;
 }
 
@@ -194,3 +195,10 @@ margin: 5px;
   right: 50%;
   transform: translateX(50%);
 }
+
+
+
+.back-link:hover{
+  color: #505050;
+}
+
