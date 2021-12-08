@@ -6,7 +6,7 @@
      Memorise
    </span>
   <span class="toggle-span">
-    <button class="allCollectionsBtn" mat-button value="all_collections">all collections</button>
+    <button class="allCollectionsBtn" (click)="goToCollections()" mat-button value="all_collections">all collections</button>
     <button class="profileOvBtn" mat-button value="profile_overview">profile overview</button>
   </span>
 
@@ -22,7 +22,7 @@
           <mat-icon>settings</mat-icon>
           <span>Settings</span>
         </button>
-        <button mat-menu-item >
+        <button (click)="logOut()" mat-menu-item >
           <mat-icon>exit_to_app</mat-icon>
           <span>Log out</span>
         </button>
