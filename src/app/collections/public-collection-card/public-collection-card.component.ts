@@ -14,6 +14,9 @@ export class PublicCollectionCardComponent implements OnInit {
   @Input() userId: number | undefined;
 
   isAdded: boolean = false;
+  errorMsg = "";
+
+  newDeckId: number | undefined;
 
   constructor(private service: DeckService, private router: Router) { }
 
@@ -21,14 +24,15 @@ export class PublicCollectionCardComponent implements OnInit {
   }
 
   addCollection() {
-    if(this.deck && this.userId)
+    if(this.deck && this.userId && !this.isAdded)
     this.service.createCopiedDeck(this.deck.id, this.userId)
       .subscribe(d=>{
         this.isAdded=true;
-      },error => console.log(error))
+        this.newDeckId = d.id;
+      },error => {
+        console.log(error);
+        this.errorMsg = "this collection is already yours";
+      })
   }
 
-  goToCollection() {
-    this.router.navigateByUrl("/collections/"+this.deck?.id)
-  }
 }

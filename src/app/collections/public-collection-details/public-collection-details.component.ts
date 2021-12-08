@@ -15,6 +15,7 @@ export class PublicCollectionDetailsComponent implements OnInit {
   deckId: number | undefined;
   deck$: Observable<DeckDto> | undefined;
   userId: number = 1;
+  errorMsg: string = "";
 
   constructor(private router: Router, private route: ActivatedRoute,
               private service: CardService, private deckService: DeckService) { }
@@ -40,6 +41,9 @@ export class PublicCollectionDetailsComponent implements OnInit {
       this.deckService.createCopiedDeck(this.deckId, this.userId)
         .subscribe(newDeck=>{
           this.router.navigateByUrl("/collections/"+newDeck.id)
-        },error => console.log(error))
+        },error => {
+          console.log(error);
+          this.errorMsg = "cannot add this collection";
+        })
   }
 }

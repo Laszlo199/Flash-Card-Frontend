@@ -66,3 +66,8 @@
 .btn:hover {
   background-color: #6C6C6C;
 }
+
+.error-msg {
+  color: indianred;
+  margin-block: 0;
+}

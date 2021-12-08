@@ -47,3 +47,12 @@ p {
 .add-btn:hover {
   background-color: #6C6C6C;
 }
+
+.errorMsg {
+  color: indianred;
+}
+
+.link {
+  color: mediumpurple;
+  background-color: white;
+}
