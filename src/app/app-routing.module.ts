@@ -30,6 +30,11 @@ const routes: Routes = [
   },
   {
     path: '',  redirectTo: '/home', pathMatch: 'full'
+  },
+  {
+    path: "exercise-mode",
+    loadChildren: () => import('./exercise-mode/exercise-mode-routing.module')
+      .then(f=>f.ExerciseModeRoutingModule)
   }
 ];
 
