@@ -9,8 +9,12 @@ import {AuthInterceptor} from "./auth/interceptores/auth.interceptor";
 
 import {CollectionsModule} from "./collections/collections.module";
 import {HomePageModule} from "./home-page/home-page.module";
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import {RouterModule} from "@angular/router";
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 
@@ -24,6 +28,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     CollectionsModule,
     HomePageModule,
+    BrowserAnimationsModule,
     NoopAnimationsModule
   ],
   providers: [

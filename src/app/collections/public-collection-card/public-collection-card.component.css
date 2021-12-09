@@ -1,0 +1,58 @@
+.card {
+  width: 100%;
+  height: 180px;
+  padding: 20px;
+
+  border-radius: 15px;
+
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  cursor: pointer;
+}
+
+p {
+  text-align: left;
+  margin-block: 7px;
+  background-color: white;
+}
+
+.title {
+  font-weight: bolder;
+  font-size: 1.5rem;
+  padding: 0px;
+  margin-block: 0px;
+}
+
+.description {
+}
+
+.number {
+  margin-top: 20px;
+}
+
+.user {
+  color: #6C6C6C;
+}
+
+.add-btn {
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #D2D2DD;
+  color: white;
+  width: 40px;
+  text-align: center;
+}
+
+.add-btn:hover {
+  background-color: #6C6C6C;
+}
+
+.errorMsg {
+  color: indianred;
+}
+
+.link {
+  color: mediumpurple;
+  background-color: white;
+}
