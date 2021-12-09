@@ -1,11 +1,23 @@
 <app-navbar-collections></app-navbar-collections>
 <div class="collections">
   <div class="header">
-    <div class="item">
-      <div class="plus-icon" title="create a new deck" (click)="openPopup()"></div>
+    <div class="item" *ngIf="!publicShown">
+      <div class="plus-icon" title="create a new deck" (click)="openPopup()">+</div>
     </div>
     <div class="item">
-      <h1>My collections</h1>
+      <h1 class="my-coll"
+          [@openClose]="publicShown ? 'closed' : 'open'"
+        (click)="showPrivate()"
+      >My collections</h1>
+    </div>
+    <div class="item">
+      <h1>     |     </h1>
+    </div>
+    <div class="item">
+      <h1 class="pub-coll"
+          [@openClose]="publicShown ? 'open' : 'closed'"
+        (click)="showPublic()"
+      >Public collections</h1>
     </div>
     <!-- Popup window -->
     <div id="popup" class="modal"
@@ -16,17 +28,29 @@
     </div>
 
     <div class="searchbar">
-      <input class="search" placeholder="search..." [(ngModel)]="searchPhrase" (keyup.enter)="searchDecks()" (input)="resetDecks()">
+      <input class="search" placeholder="search..."
+             [(ngModel)]="searchPhrase"
+             (keyup.enter)="searchDecks()"
+             (input)="resetDecks()">
     </div>
   </div>
 
   <br>
   <br>
-  <div class="decks-list" *ngIf="decks$ | async as decks">
-    <!--ng-container *ngFor="let deck of fakeDecks"-->
+  <div class="decks-list" *ngIf="decks$ | async as decks else loading">
     <ng-container *ngFor="let deck of decks">
-      <app-collection-card class="card" [deck]="deck"  (click)="goToCollection(deck.id)"></app-collection-card>
+      <div *ngIf="publicShown">
+        <app-public-collection-card class="card" [deck]="deck" [userId]="userId" (click)="goToCollectionPreview(deck.id)"></app-public-collection-card>
+      </div>
+      <div *ngIf="!publicShown">
+        <app-collection-card class="card" [deck]="deck" (click)="goToCollection(deck.id)"></app-collection-card>
+      </div>
     </ng-container>
   </div>
+  <p class="page-nav" *ngIf="publicShown && currentPage!=1" (click)="previousPage()"><< previous page</p>
+  <p class="page-nav" *ngIf="publicShown && (decks$| async)?.length == itemsPerPage" (click)="nextPage()">next page >></p>
 </div>
 
+<ng-template #loading>
+  <p>no data</p>
+</ng-template>

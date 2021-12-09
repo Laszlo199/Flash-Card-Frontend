@@ -6,5 +6,6 @@ export interface DeckDto {
   "description": string,
   "userId": number,
   "isPublic": boolean,
+  "wasCopied": boolean,
   "cards": CardDto[]
 }

@@ -1,0 +1,15 @@
+<div class="card" *ngIf="deck">
+  <p class="title">{{deck.name}}</p>
+  <p class="description">{{ (deck.description.length>70)?
+    ((deck.description | slice:0:70)+'...')
+    : (deck.description)}}</p>
+  <p class="number">{{deck.numberOfCards==1 ? (deck.numberOfCards+" card") : (deck.numberOfCards+" cards")}}</p>
+  <p class="user">author: user{{deck.userId}}</p>
+  <p class="add-btn"
+     title="Add to your collections. You will be able to edit and practise the cards"
+    (click)="$event.stopPropagation(); addCollection()"
+  [ngStyle]="isAdded?{'background-color' : 'mediumpurple'} : {}">{{isAdded? 'added' : 'add'}}</p>
+  <p class="errorMsg" *ngIf="!isAdded">{{errorMsg}}</p>
+  <a class="link" *ngIf="isAdded && newDeckId"
+     routerLink="/collections/{{newDeckId}}">go to your new collection</a>
+</div>

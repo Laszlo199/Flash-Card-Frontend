@@ -10,6 +10,9 @@ import { CollectionDetailsComponent } from './collection-details/collection-deta
 import { CardComponent } from './card/card.component';
 import { NewCardComponent } from './new-card/new-card.component';
 import { NewDeckPopupComponent } from './new-deck-popup/new-deck-popup.component';
+import { PublicCollectionCardComponent } from './public-collection-card/public-collection-card.component';
+import { PublicCollectionDetailsComponent } from './public-collection-details/public-collection-details.component';
+import { PublicCardComponent } from './public-card/public-card.component';
 import { GoToPractisePopupComponent } from './go-to-practise-popup/go-to-practise-popup.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
@@ -30,8 +33,11 @@ import {MatMenuModule} from "@angular/material/menu";
     CardComponent,
     NewCardComponent,
     NewDeckPopupComponent,
-    GoToPractisePopupComponent,
     NavbarCollectionsComponent
+    PublicCollectionCardComponent,
+    PublicCollectionDetailsComponent,
+    PublicCardComponent,
+    GoToPractisePopupComponent
   ],
   entryComponents: [GoToPractisePopupComponent],
   exports: [

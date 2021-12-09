@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
-import {DecksDto} from "../../collections/shared/decks.dto";
+import {DecksDto} from "../../collections/shared/dtos/deck/decks.dto";
 import {HomePageService} from "../shared/home-page.service";
 
 @Component({
