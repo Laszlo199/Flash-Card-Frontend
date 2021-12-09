@@ -33,7 +33,7 @@ import {MatMenuModule} from "@angular/material/menu";
     CardComponent,
     NewCardComponent,
     NewDeckPopupComponent,
-    NavbarCollectionsComponent
+    NavbarCollectionsComponent,
     PublicCollectionCardComponent,
     PublicCollectionDetailsComponent,
     PublicCardComponent,
