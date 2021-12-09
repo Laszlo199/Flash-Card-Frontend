@@ -1,0 +1,69 @@
+.home-icon{
+  padding-left: 3px;
+  padding-top: 8px;
+  padding-right: 5px;
+}
+
+.toggle-Btn{
+  size: 5px;
+}
+
+.toggle-span{
+  padding-left: 50px;
+}
+
+mat-button-toggle{
+
+}
+
+mat-button-toggle-group{
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.user-info{
+  padding-bottom: 10px;
+  position: absolute;
+  right: 1.5%;
+
+}
+
+.imageBtn{
+
+}
+
+.textt{
+  padding-bottom: 1px;
+  padding-right: 3px;
+  position: absolute;
+  right: 5%;
+}
+
+.allCollectionsBtn{
+  padding-top: 5px;
+  font-size: 20px;
+}
+
+.profileOvBtn{
+  padding-left: 30px;
+  padding-top: 5px;
+  font-size: 20px;
+}
+
+.logoName{
+  font-size: 25px;
+}
+
+.navbar{
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the bottom of the page */
+  width: 100%; /* Full width */
+}
+
