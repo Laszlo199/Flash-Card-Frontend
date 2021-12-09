@@ -19,6 +19,11 @@ const routes: Routes = [
       .then(f=>f.HomePageModule),
   },
   {
+    path: "learningMode",
+    loadChildren: () => import('./learning-mode/learning-mode.module')
+      .then(f=>f.LearningModeModule),
+  },
+  {
     path: "test-mode",
     loadChildren: () => import('./test-mode/test-mode.module')
       .then(f=>f.TestModeModule)
@@ -26,7 +31,6 @@ const routes: Routes = [
   {
     path: '',  redirectTo: '/home', pathMatch: 'full'
   }
-
 ];
 
 @NgModule({

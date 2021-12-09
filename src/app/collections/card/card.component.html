@@ -8,9 +8,9 @@
          [(ngModel)]="newAnswer"
          placeholder="Answer...">
   <p class="correct"
-     title="counted basing on your last 5 times reviewing this card"
-     [ngStyle]="editMode? {'opacity' : '0.5'} : {'opacity' : '1'}">
-      correct: {{card.correctness}}%</p>
+     [ngStyle]="editMode? {'opacity' : '0.5'} : {'opacity' : '1'}"
+      title="correctness is counted basing on your last 5 times practising this card">
+      correct: {{card.correctness.toFixed(0)}}%</p>
   <p class="btn" *ngIf="editMode"
      [ngStyle]="(newQuestion && newAnswer)? {'background-color' : 'mediumpurple', 'cursor' : 'pointer'} : {'background-color' : '#d2d2dd', 'cursor' : 'default'}"
      (click)="editSave()">save</p>

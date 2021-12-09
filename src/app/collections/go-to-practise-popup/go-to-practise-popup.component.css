@@ -1,0 +1,17 @@
+.title{
+  text-align: center;
+  font-size: 45px;
+  padding-bottom: 25px;
+}
+h2:hover{
+  color: #3a3a3a;
+}
+
+.closeBtn{
+  display: block;
+  margin: auto;
+  width: 90%;
+  font-size: 20px;
+}
+
+

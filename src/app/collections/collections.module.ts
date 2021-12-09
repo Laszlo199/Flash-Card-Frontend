@@ -13,6 +13,9 @@ import { NewDeckPopupComponent } from './new-deck-popup/new-deck-popup.component
 import { PublicCollectionCardComponent } from './public-collection-card/public-collection-card.component';
 import { PublicCollectionDetailsComponent } from './public-collection-details/public-collection-details.component';
 import { PublicCardComponent } from './public-card/public-card.component';
+import { GoToPractisePopupComponent } from './go-to-practise-popup/go-to-practise-popup.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -25,16 +28,19 @@ import { PublicCardComponent } from './public-card/public-card.component';
     NewDeckPopupComponent,
     PublicCollectionCardComponent,
     PublicCollectionDetailsComponent,
-    PublicCardComponent
+    PublicCardComponent,
+    GoToPractisePopupComponent
   ],
+  entryComponents: [GoToPractisePopupComponent],
   exports: [
     CollectionCardComponent
   ],
-  imports: [
-    CommonModule,
-    CollectionsRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ]
+    imports: [
+        CommonModule,
+        CollectionsRoutingModule,
+        FormsModule,
+        MatDialogModule,
+        MatButtonModule
+    ]
 })
 export class CollectionsModule { }

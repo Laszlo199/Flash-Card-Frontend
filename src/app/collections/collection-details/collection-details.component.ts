@@ -5,6 +5,8 @@ import {Observable, Subscription} from "rxjs";
 import {CardService} from "../shared/card.service";
 import {DeckService} from "../shared/deck.service";
 import {PutDeckDto} from "../shared/dtos/deck/put-deck.dto";
+import {GoToPractisePopupComponent} from "../go-to-practise-popup/go-to-practise-popup.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-collection-details',
@@ -24,7 +26,8 @@ export class CollectionDetailsComponent implements OnInit {
   isPublic: boolean = false;
 
   constructor(private route: ActivatedRoute, private cardService: CardService,
-              private deckService: DeckService, private router: Router) {
+              private deckService: DeckService, private router: Router,
+              private dialog: MatDialog) {
 
     this.newCardSubscription = this.cardService.getUpdate()
       .subscribe((id: number) => {
@@ -96,6 +99,14 @@ export class CollectionDetailsComponent implements OnInit {
   }
 
   goToTestMode() {
-    this.router.navigateByUrl("/test-mode/"+this.deckId);
+    /*this.router.navigateByUrl("/test-mode/"+this.deckId);*/
+    const dialogRef= this.dialog.open(GoToPractisePopupComponent,
+      {
+        height: '450px',
+        width: '600px',
+        data: {
+          id: this.deckId
+        }
+      });
   }
 }
