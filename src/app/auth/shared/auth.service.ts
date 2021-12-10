@@ -7,6 +7,7 @@ import {environment} from "../../../environments/environment";
 import {take, tap} from "rxjs/operators";
 
 const jwtToken = 'jwtToken';
+const userId = 'userId';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,7 @@ export class AuthService {
       tap(token =>{
         if(token && token.jwt){
           localStorage.setItem(jwtToken, token.jwt);
+          localStorage.setItem(userId, token.userId.toString());
           this.isLoggedIn$.next(token.jwt);
         }else {
           this.logout();
@@ -42,7 +44,17 @@ export class AuthService {
     return localStorage.getItem(jwtToken);
   }
 
+  getUserId(): number{
+    var userIdAsString = localStorage.getItem(userId);
+    if(userIdAsString) {
+      return +userIdAsString;
+    }
+    return -1
+  }
+
+
   logout(): Observable<boolean> {
+    localStorage.removeItem(userId);
     localStorage.removeItem(jwtToken);
     this.isLoggedIn$.next(null);
     return of(true).pipe(take(1));
