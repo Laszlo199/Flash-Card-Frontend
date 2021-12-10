@@ -1,0 +1,20 @@
+.container {
+  margin-inline: 20px;
+  margin-top: 90px;
+}
+
+.decks {
+  display: grid;
+  grid-template-columns: 300px 300px 300px 300px;
+  grid-gap: 30px;
+  justify-content: start;
+  align-items: start;
+}
+
+.deck {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+

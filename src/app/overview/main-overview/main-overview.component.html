@@ -1,0 +1,31 @@
+<app-navbar-collections></app-navbar-collections>
+
+<div class="container">
+  <h1>Overview</h1>
+  <p>Your collections: </p>
+  <p>You're doing great: </p>
+  <div class="decks">
+    <ng-container>
+      <div *ngFor="let deck of bestDecks">
+        <app-deck class="deck" [deck]="deck"></app-deck>
+      </div>
+    </ng-container>
+  </div>
+  <p>You're getting there: </p>
+  <div class="decks">
+    <ng-container>
+      <div *ngFor="let deck of okDecks">
+        <app-deck class="deck" [deck]="deck"></app-deck>
+      </div>
+    </ng-container>
+  </div>
+  <p>Need some more attention: </p>
+  <div class="decks">
+    <ng-container>
+      <div *ngFor="let deck of badDecks">
+        <app-deck class="deck" [deck]="deck"></app-deck>
+      </div>
+    </ng-container>
+  </div>
+</div>
+

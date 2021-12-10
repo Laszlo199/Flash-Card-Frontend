@@ -37,7 +37,7 @@
 
   <br>
   <br>
-  <div class="decks-list" *ngIf="decks$ | async as decks else loading">
+  <div class="decks-list" *ngIf="decks$ | async as decks">
     <ng-container *ngFor="let deck of decks">
       <div *ngIf="publicShown">
         <app-public-collection-card class="card" [deck]="deck" [userId]="userId" (click)="goToCollectionPreview(deck.id)"></app-public-collection-card>
@@ -51,6 +51,4 @@
   <p class="page-nav" *ngIf="publicShown && (decks$| async)?.length == itemsPerPage" (click)="nextPage()">next page >></p>
 </div>
 
-<ng-template #loading>
-  <p>no data</p>
-</ng-template>
+

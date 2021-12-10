@@ -44,7 +44,8 @@ import {MatMenuModule} from "@angular/material/menu";
     CollectionCardComponent,
     MatToolbarModule,
     MatSidenavModule,
-    MatIconModule
+    MatIconModule,
+    NavbarCollectionsComponent
   ],
   imports: [
     CommonModule,

@@ -23,4 +23,8 @@ export class NavbarCollectionsComponent implements OnInit {
     this.router.navigateByUrl("/home");
     this.authService.logout();
   }
+
+  goToOverview() {
+    this.router.navigateByUrl("/overview")
+  }
 }
