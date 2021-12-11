@@ -15,7 +15,7 @@ import {PublicCardComponent} from './public-card/public-card.component';
 import {GoToPractisePopupComponent} from './go-to-practise-popup/go-to-practise-popup.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
-import {NavbarCollectionsComponent} from './navbar-collections/navbar-collections.component';
+import {NavbarCollectionsComponent} from '../shared/navbar-collections/navbar-collections.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatIconModule} from "@angular/material/icon";

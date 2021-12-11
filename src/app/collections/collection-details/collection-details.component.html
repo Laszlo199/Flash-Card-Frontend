@@ -1,16 +1,16 @@
 <app-navbar-collections></app-navbar-collections>
 <div>
-  <div *ngIf="deckId" class="collection">
-    <div class="container" *ngIf="deck$ | async as deck">
+<div *ngIf="deckId" class="collection">
+  <div *ngIf="deck$ | async as deck" class="container">
 
-      <!--HEADER-->
-      <div class="header-editMode" *ngIf="editDeckMode">
-        <div>
-          <input class="input-title"
-                 [(ngModel)]="newTitle"
-                 placeholder="Title...">
-        </div>
-        <div>
+    <!--HEADER-->
+    <div *ngIf="editDeckMode" class="header-editMode">
+      <div>
+        <input [(ngModel)]="newTitle"
+               class="input-title"
+               placeholder="Title...">
+      </div>
+      <div>
         <input class="input-description"
                [(ngModel)]="newDescription"
                placeholder="Description...">
@@ -84,15 +84,15 @@
 
 
     <!--CARDS-->
-      <div class="cards-list">
-        <ng-container>
-          <div *ngFor="let card of deck.cards">
-            <app-card class="card" [card]="card" [deckId]="deck.id"></app-card>
-          </div>
-          <app-new-card class="card" [deckId]="deck.id"></app-new-card>
-        </ng-container>
-      </div>
+    <div class="cards-list">
+      <ng-container>
+        <div *ngFor="let card of deck.cards">
+          <app-card [card]="card" [deckId]="deck.id" class="card"></app-card>
+        </div>
+        <app-new-card [deckId]="deck.id" class="card"></app-new-card>
+      </ng-container>
     </div>
-
   </div>
+
+</div>
 </div>
