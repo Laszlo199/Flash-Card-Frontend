@@ -6,11 +6,8 @@
 </div>
 
 <div class="back-link" (click)="backToCollections()">Back to collections</div>-->
-
 <div class="container">
-  <div class="link">
-    <h2 class="back-link" (click)="backToCollections()"> Back to collections</h2>
-  </div>
+  <app-navbar-collections></app-navbar-collections>
   <div class="flashcard">
     <div class="aa">
       <app-flashcard [question]="question" [flashcard]="flash"></app-flashcard>

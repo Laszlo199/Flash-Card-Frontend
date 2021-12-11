@@ -5,16 +5,16 @@
   position: relative;
 }
 
-.back-link {
+/*.back-link {
   position: absolute;
   left: 10px;
-  top: 20px;
+  !*top: 15px;*!
   cursor: pointer;
 }
 
 .back-link:hover {
   color: mediumpurple;
-}
+}*/
 
 .header {
   margin-bottom: 2rem;
