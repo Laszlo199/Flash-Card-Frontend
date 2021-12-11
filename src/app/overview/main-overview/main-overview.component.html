@@ -2,7 +2,31 @@
 
 <div class="container">
   <h1>Overview</h1>
-  <p>Your collections: </p>
+
+  <!--ACTIVITY-->
+  <div *ngIf="activities$ | async as activities">
+    <h2>Your activity: </h2>
+    <div class="main-activity">
+      <span class="arrow inline" (click)="previousActivities()"><</span>
+      <div class="activity-box inline">
+        <div class="activities">
+          <ng-container>
+            <div *ngFor="let a of activities">
+              <app-activity-card class="activity" [activity]="a"></app-activity-card>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <span class="arrow inline" (click)="nextActivities()">></span>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <!--COLLECTIONS-->
+  <h2>Your collections: </h2>
+
   <p>You're doing great: </p>
   <div class="decks">
     <ng-container>
@@ -11,6 +35,7 @@
       </div>
     </ng-container>
   </div>
+
   <p>You're getting there: </p>
   <div class="decks">
     <ng-container>
@@ -19,6 +44,7 @@
       </div>
     </ng-container>
   </div>
+
   <p>Need some more attention: </p>
   <div class="decks">
     <ng-container>

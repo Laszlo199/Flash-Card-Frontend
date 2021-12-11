@@ -15,6 +15,56 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transition: height 1s, width 1s;
+}
+
+.deck:hover {
+  transform: scale(1.02);
+}
+
+.activities {
+  display: grid;
+  grid-template-columns: 150px 150px 150px 150px 150px 150px;
+  grid-gap: 30px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.activity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.arrow {
+  width: 5vw;
+  color: #D2D2DD;
+  font-size: 2rem;
+  text-align: center;
+  margin-block: auto;
+}
+.arrow:hover {
+  color: #6C6C6C;
+  cursor: pointer;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.activity-box {
+  width: 80vw;
+  margin: 0;
+  padding: 0;
+}
+
+.main-activity {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
 }
 
 

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {OverviewService} from "../overview.service";
 import {CardDto} from "../../collections/shared/dtos/card/card.dto";
 import {DeckOverview} from "../shared/deckOverview";
+import {AttemptDto} from "../../test-mode/shared/dtos/attempt.dto";
+import {Activity} from "../shared/activity";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-main-overview',
@@ -14,16 +17,23 @@ export class MainOverviewComponent implements OnInit {
   okDecks: Array<DeckOverview> = [];
   badDecks: Array<DeckOverview> = [];
 
-  constructor(private service: OverviewService) { }
+  activities$: Observable<Activity[]> | undefined;
+  currentPage = 1;
+  itemsPerPage = 6;
+
+  constructor(private service: OverviewService) {
+  }
 
   ngOnInit(): void {
     this.service.getDecksForUser(this.userId)
-      .subscribe(decks=>{
-        for(let deck of decks) {
+      .subscribe(decks => {
+        for (let deck of decks) {
           this.getCards(deck.id, deck.name);
         }
         this.sort();
       })
+
+    this.activities$ = this.service.getActivity(this.userId, this.currentPage, this.itemsPerPage);
   }
 
   private getCards(deckId: number, name: string) {
@@ -38,7 +48,7 @@ export class MainOverviewComponent implements OnInit {
     let perfectCards = 0;
     let avgCorrectness = 0;
 
-    if(cards.length>0) {
+    if (cards.length > 0) {
       for (let card of cards) {
         sum = sum + card.correctness;
         if (card.correctness == 100) perfectCards++;
@@ -54,18 +64,31 @@ export class MainOverviewComponent implements OnInit {
       "average": avgCorrectness
     };
 
-    if(avgCorrectness>=80)
+    if (avgCorrectness >= 80)
       this.bestDecks.push(deck);
-    else if(avgCorrectness >50)
+    else if (avgCorrectness > 50)
       this.okDecks.push(deck);
     else this.badDecks.push(deck);
 
   }
 
   private sort() {
-    this.bestDecks.sort((d1,d2) => d1.average - d2.average);
-    this.okDecks.sort((d1,d2) => d1.average - d2.average);
-    this.badDecks.sort((d1,d2) => d1.average - d2.average);
+    this.bestDecks.sort((d1, d2) => d1.average - d2.average);
+    this.okDecks.sort((d1, d2) => d1.average - d2.average);
+    this.badDecks.sort((d1, d2) => d1.average - d2.average);
   }
 
+  previousActivities() {
+    if(this.currentPage>1) {
+      this.currentPage--;
+      this.activities$ = this.service.getActivity(this.userId, this.currentPage, this.itemsPerPage);
+    }
+  }
+
+  nextActivities() {
+    if(this.currentPage<5) {
+      this.currentPage++;
+      this.activities$ = this.service.getActivity(this.userId, this.currentPage, this.itemsPerPage);
+    }
+  }
 }
