@@ -1,5 +1,5 @@
 import {Component, HostListener, Input, OnInit} from '@angular/core';
-import {Activity} from "../shared/activity";
+import {ActivityDto} from "../shared/activity.dto";
 
 @Component({
   selector: 'app-activity-card',
@@ -7,7 +7,7 @@ import {Activity} from "../shared/activity";
   styleUrls: ['./activity-card.component.css']
 })
 export class ActivityCardComponent implements OnInit {
-  @Input() activity: Activity | undefined;
+  @Input() activity: ActivityDto | undefined;
   date: number = 0;
   month: string = "";
   isHover = false;

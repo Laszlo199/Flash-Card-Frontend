@@ -1,7 +1,10 @@
 <div class="card" *ngIf="activity">
     <div class="main"
          [ngStyle]="activity.cardsPractised>0? {'background-color' : '#D2D2DD'} : {'background-color' : 'white'}"
-          [style.borderRadius]="isHover? '20px' : '50%'">
+         [style.borderTopLeftRadius]="isHover? '20px' : '50%'"
+         [style.borderTopRightRadius]="isHover? '20px' : '50%'"
+         [style.borderBottomLeftRadius]="isHover? '0' : '50%'"
+         [style.borderBottomRightRadius]="isHover? '0' : '50%'">
       <p class="day">{{date}}</p>
       <p>{{month}}</p>
       <p *ngIf="isHover" class="details day-of-week">{{activity.day}}</p>

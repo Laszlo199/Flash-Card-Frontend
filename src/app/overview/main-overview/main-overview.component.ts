@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {OverviewService} from "../overview.service";
+import {OverviewService} from "../shared/overview.service";
 import {CardDto} from "../../collections/shared/dtos/card/card.dto";
 import {DeckOverview} from "../shared/deckOverview";
 import {AttemptDto} from "../../test-mode/shared/dtos/attempt.dto";
-import {Activity} from "../shared/activity";
+import {ActivityDto} from "../shared/activity.dto";
 import {Observable} from "rxjs";
 
 @Component({
@@ -17,14 +17,17 @@ export class MainOverviewComponent implements OnInit {
   okDecks: Array<DeckOverview> = [];
   badDecks: Array<DeckOverview> = [];
 
-  activities$: Observable<Activity[]> | undefined;
+  activities$: Observable<ActivityDto[]> | undefined;
   currentPage = 1;
   itemsPerPage = 6;
+
+  streak: number = 0;
 
   constructor(private service: OverviewService) {
   }
 
   ngOnInit(): void {
+    //get decks
     this.service.getDecksForUser(this.userId)
       .subscribe(decks => {
         for (let deck of decks) {
@@ -33,7 +36,14 @@ export class MainOverviewComponent implements OnInit {
         this.sort();
       })
 
+    //get activities
     this.activities$ = this.service.getActivity(this.userId, this.currentPage, this.itemsPerPage);
+
+    //get all to count streak
+    this.service.getAllActivity(this.userId)
+      .subscribe(act => {
+        this.getStreak(act);
+      })
   }
 
   private getCards(deckId: number, name: string) {
@@ -89,6 +99,13 @@ export class MainOverviewComponent implements OnInit {
     if(this.currentPage<5) {
       this.currentPage++;
       this.activities$ = this.service.getActivity(this.userId, this.currentPage, this.itemsPerPage);
+    }
+  }
+
+  private getStreak(activities: ActivityDto[]) {
+    for(let act of activities) {
+      if(act.cardsPractised>0) this.streak++;
+      else break;
     }
   }
 }

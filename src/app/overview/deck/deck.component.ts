@@ -1,5 +1,5 @@
 import {Component, HostListener, Input, OnInit} from '@angular/core';
-import {OverviewService} from "../overview.service";
+import {OverviewService} from "../shared/overview.service";
 import {DeckOverview} from "../shared/deckOverview";
 import {
   trigger,

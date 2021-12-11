@@ -1,6 +1,33 @@
 .container {
-  margin-inline: 20px;
+  height: 100vh;
   margin-top: 90px;
+  margin-inline: 0;
+  padding-inline: 20px;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+section{
+  scroll-snap-align: start;
+}
+
+.one {
+  height: 100vh;
+}
+.two {
+  height: 150vh;
+}
+
+.title-activity{
+  text-align: center;
+  font-size: 2rem;
+  padding-top: 20vh;
+}
+
+.title-collections {
+  text-align: center;
+  font-size: 2rem;
+  padding-top: 10vh;
 }
 
 .decks {
@@ -16,7 +43,9 @@
   justify-content: center;
   align-items: center;
 
-  transition: height 1s, width 1s;
+  height: 170px;
+
+  transition: transform 1s;
 }
 
 .deck:hover {
@@ -36,7 +65,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px;
+  height: 30vh;
 }
 
 .arrow {
@@ -65,6 +94,22 @@
   display: flex;
   justify-content: center;
   justify-items: center;
+  height: 30vh;
 }
+
+.streak {
+  text-align: center;
+  width: 200px;
+  padding: 20px;
+  margin-inline: auto;
+}
+
+.heading {
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+
+
 
 

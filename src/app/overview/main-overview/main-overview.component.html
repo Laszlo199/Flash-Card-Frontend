@@ -1,57 +1,60 @@
 <app-navbar-collections></app-navbar-collections>
 
 <div class="container">
-  <h1>Overview</h1>
 
   <!--ACTIVITY-->
-  <div *ngIf="activities$ | async as activities">
-    <h2>Your activity: </h2>
-    <div class="main-activity">
-      <span class="arrow inline" (click)="previousActivities()"><</span>
-      <div class="activity-box inline">
-        <div class="activities">
-          <ng-container>
-            <div *ngFor="let a of activities">
-              <app-activity-card class="activity" [activity]="a"></app-activity-card>
-            </div>
-          </ng-container>
+  <section class="one">
+      <h1 class="title-activity">Your activity during the last 30 days: </h1>
+      <div class="main-activity">
+        <span class="arrow inline" (click)="previousActivities()"><</span>
+        <div class="activity-box inline">
+          <div class="activities" *ngIf="activities$ | async as activities">
+            <ng-container>
+              <div *ngFor="let a of activities">
+                <app-activity-card class="activity" [activity]="a"></app-activity-card>
+              </div>
+            </ng-container>
+          </div>
         </div>
+        <span class="arrow inline" (click)="nextActivities()">></span>
       </div>
-      <span class="arrow inline" (click)="nextActivities()">></span>
+    <div class="streak">
+      <h2>Current streak: {{streak}}</h2>
+      <p>{{streak==0? "It's time to practise!" : (streak<10?"Keep on doing the great job!" : "Wow you're doing great!")}}</p>
     </div>
-  </div>
-
-  <br>
-  <br>
+  </section>
 
   <!--COLLECTIONS-->
-  <h2>Your collections: </h2>
+  <section class="two">
+    <h1 class="title-collections">Your collections: </h1>
 
-  <p>You're doing great: </p>
-  <div class="decks">
-    <ng-container>
-      <div *ngFor="let deck of bestDecks">
-        <app-deck class="deck" [deck]="deck"></app-deck>
-      </div>
-    </ng-container>
-  </div>
+    <p class="heading">You're doing great: </p>
+    <div class="decks">
+      <ng-container>
+        <div *ngFor="let deck of bestDecks">
+          <app-deck class="deck" [deck]="deck"></app-deck>
+        </div>
+      </ng-container>
+    </div>
 
-  <p>You're getting there: </p>
-  <div class="decks">
-    <ng-container>
-      <div *ngFor="let deck of okDecks">
-        <app-deck class="deck" [deck]="deck"></app-deck>
-      </div>
-    </ng-container>
-  </div>
+    <p class="heading">You're getting there: </p>
+    <div class="decks">
+      <ng-container>
+        <div *ngFor="let deck of okDecks">
+          <app-deck class="deck" [deck]="deck"></app-deck>
+        </div>
+      </ng-container>
+    </div>
 
-  <p>Need some more attention: </p>
-  <div class="decks">
-    <ng-container>
-      <div *ngFor="let deck of badDecks">
-        <app-deck class="deck" [deck]="deck"></app-deck>
-      </div>
-    </ng-container>
-  </div>
+    <p class="heading">Need some more attention: </p>
+    <div class="decks">
+      <ng-container>
+        <div *ngFor="let deck of badDecks">
+          <app-deck class="deck" [deck]="deck"></app-deck>
+        </div>
+      </ng-container>
+    </div>
+  </section>
+
 </div>
 

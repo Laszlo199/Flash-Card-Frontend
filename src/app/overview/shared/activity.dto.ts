@@ -1,4 +1,4 @@
-export interface Activity{
+export interface ActivityDto{
   "date" : Date,
   "day": string,
   "cardsPractised": number,
