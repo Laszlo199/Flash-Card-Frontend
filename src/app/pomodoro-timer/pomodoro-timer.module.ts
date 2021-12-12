@@ -8,6 +8,7 @@ import {ControlsComponent} from './controls/controls.component';
 import {CollectionsModule} from "../collections/collections.module";
 import {SwitchingModesComponent} from './switching-modes/switching-modes.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
     CommonModule,
     PomodoroTimerRoutingModule,
     CollectionsModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatButtonModule
   ]
 })
 export class PomodoroTimerModule {

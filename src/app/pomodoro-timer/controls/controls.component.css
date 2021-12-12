@@ -1,0 +1,14 @@
+.timer-control {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  width: 90%;
+  height: 50px;
+  position: fixed;
+  bottom: 32px;
+}
