@@ -50,10 +50,34 @@ export class TimerComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.timerControlAction.currentValue === 'Start') {
       this.start()
-    }
-    if (changes.timerControlAction.currentValue === 'Stop') {
+    } else if (changes.timerControlAction.currentValue === 'Pause') {
       this.stop()
+    } else if (changes.timerControlAction.currentValue === 'pomodoro') {
+      this.setPomodoroTimer();
+    } else if (changes.timerControlAction.currentValue === 'short-break') {
+      this.setShortBreakTimer();
+    } else if (changes.timerControlAction.currentValue === 'long-break') {
+      this.setLongBreakTimer();
     }
+  }
+
+  private setPomodoroTimer() {
+    this.setTimer('pomodoro', 25);
+  }
+
+  private setShortBreakTimer() {
+    this.setTimer('short-break', 5);
+  }
+
+  private setLongBreakTimer() {
+    this.setTimer('long-break', 10);
+  }
+
+  private setTimer(timerType: string, time: number) {
+    this.time = time;
+    this.timerRemaining = this.timerStartValue;
+    this.currentTimer = timerType;
+    this.restart();
   }
 
   private completeTimer() {

@@ -1,7 +1,7 @@
 <div class="container">
-  <mat-button-toggle-group aria-label="Font Style" name="fontStyle" value="All">
-    <mat-button-toggle value="bold">Pomodoro</mat-button-toggle>
-    <mat-button-toggle value="italic">Short break</mat-button-toggle>
-    <mat-button-toggle value="underline">Long break</mat-button-toggle>
+  <mat-button-toggle-group aria-label="Font Style" name="fontStyle">
+    <mat-button-toggle (click)="clickEvent('pomodoro'); clickEvent2('pomodoro')">Pomodoro</mat-button-toggle>
+    <mat-button-toggle (click)="clickEvent('short-break'); clickEvent2('short-break')">Short break</mat-button-toggle>
+    <mat-button-toggle (click)="clickEvent('long-break'); clickEvent2('long-break')">Long break</mat-button-toggle>
   </mat-button-toggle-group>
 </div>

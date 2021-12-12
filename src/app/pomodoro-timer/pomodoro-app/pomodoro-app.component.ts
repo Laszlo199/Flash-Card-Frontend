@@ -7,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class PomodoroAppComponent implements OnInit {
   public timerControlAction: any;
+  public change: any
 
   constructor() {
   }
@@ -18,4 +19,7 @@ export class PomodoroAppComponent implements OnInit {
     this.timerControlAction = $event;
   }
 
+  receiveChangeStart($event: any) {
+    this.change = $event;
+  }
 }
