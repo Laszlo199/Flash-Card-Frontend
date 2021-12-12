@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {FlashcardsStudyingComponent} from "../learning-mode/flashcards-studying/flashcards-studying.component";
+import {FlashCardsViewComponent} from "./flash-cards-view/flash-cards-view.component";
 
-const routes: Routes = [{}];
+const routes: Routes = [
+  {path: ':id', component: FlashCardsViewComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
