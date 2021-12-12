@@ -48,12 +48,11 @@ export class TimerComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.timerControlAction.currentValue === 'start') {
-      this.start();
-    } else if (changes.timerControlAction.currentValue === 'pause') {
-      this.stop();
-    } else if (changes.timerControlAction.currentValue === 'restart') {
-      this.restart();
+    if (changes.timerControlAction.currentValue === 'Start') {
+      this.start()
+    }
+    if (changes.timerControlAction.currentValue === 'Stop') {
+      this.stop()
     }
   }
 

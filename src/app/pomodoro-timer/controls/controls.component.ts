@@ -7,6 +7,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class ControlsComponent implements OnInit {
   @Output() timerControlEvent = new EventEmitter<string>();
+  start: string = 'Start';
+  i: number = 0;
 
   constructor() {
   }
@@ -16,6 +18,12 @@ export class ControlsComponent implements OnInit {
 
   clickEvent(action: string | undefined) {
     this.timerControlEvent.emit(action);
+    this.i++;
+    if (this.i % 2 != 0)
+      this.start = "Stop";
+    else this.start = "Start";
   }
+
+
 
 }

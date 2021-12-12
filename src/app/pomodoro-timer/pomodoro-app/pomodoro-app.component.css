@@ -1,19 +1,28 @@
 .container {
   height: 320px;
   width: 600px;
-  background: #1b8f7d;
+  /* background: #1b8f7d;*/
   border-radius: 25px;
-  padding: 20px;
+  padding: 28px;
 
 
   margin: 0;
   position: absolute;
-  top: 46%;
+  top: 51%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
-.cont {
+.smaller {
 
+  background: #1b8f7d;
 }
+
+
+.bigger {
+  height: 600px;
+  width: 700px;
+  /*  background-color: #6C6C6C;*/
+}
+
