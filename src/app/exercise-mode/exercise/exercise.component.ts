@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ExerciseService} from "../shared/exercise.service";
 import {exerciseCardsDto} from "../shared/exerciseCards.dto";
 import {exerciseDecksDto} from "../shared/exerciseDecks.dto";
+import {PostAttemptDto} from "../../test-mode/shared/dtos/post-attempt.dto";
 
 @Component({
   selector: 'app-exercise',
@@ -14,10 +15,12 @@ export class ExerciseComponent implements OnInit {
   deckId : number | undefined;
   deck: exerciseDecksDto | undefined;
   cards: exerciseCardsDto[] | undefined;
+  wrongCards: exerciseCardsDto[] | undefined;
   index: number = 0;
   toggleProperty = false;
   answer: string | undefined;
   checked: boolean = false;
+  answeredCorrectly: boolean | undefined;
 
 
   constructor(private _service: ExerciseService,
@@ -54,6 +57,18 @@ export class ExerciseComponent implements OnInit {
   }
 
   checkAnswer() {
+    if(!this.checked && this.answer && this.cards) {
+      this.checked = true;
 
+      if (this.answer.toLowerCase() == this.cards[this.index].answer.toLowerCase()) {
+        this.answeredCorrectly = true;
+        
+      }
+    }
+
+  }
+
+  skip() {
+    this.index++;
   }
 }

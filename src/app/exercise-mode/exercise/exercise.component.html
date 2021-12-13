@@ -15,11 +15,21 @@
     </div>
   </div>
   </div>
-</div>
-  <div class="checkButton" (click)="toggle()">
-    <p>Check</p>
-    <i class="ion-ios-arrow-back"></i>
+
+  <div class="skipButton" (click)="skip()">
+    <p>I dont know</p>
   </div>
+
+  <input class="textField" placeholder="Answer..." [(ngModel)]="answer">
+
+
+  <div class="checkButton" (click)="toggle()" (click)="checkAnswer()">
+    <p>Check</p>
+  </div>
+
+</div>
+
+
 
 
 </div>
