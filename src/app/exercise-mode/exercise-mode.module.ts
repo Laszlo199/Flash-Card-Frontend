@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ExerciseModeRoutingModule } from './exercise-mode-routing.module';
-import { FlashCardsViewComponent } from './flash-cards-view/flash-cards-view.component';
+import { ExerciseComponent } from './exercise/exercise.component';
 
 
 @NgModule({
   declarations: [
-    FlashCardsViewComponent
+    ExerciseComponent
   ],
   imports: [
     CommonModule,

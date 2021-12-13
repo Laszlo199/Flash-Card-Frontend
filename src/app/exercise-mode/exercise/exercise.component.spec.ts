@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FlashCardsViewComponent } from './flash-cards-view.component';
+import { ExerciseComponent } from './exercise.component';
 
-describe('FlashCardsViewComponent', () => {
-  let component: FlashCardsViewComponent;
-  let fixture: ComponentFixture<FlashCardsViewComponent>;
+describe('ExerciseComponent', () => {
+  let component: ExerciseComponent;
+  let fixture: ComponentFixture<ExerciseComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FlashCardsViewComponent ]
+      declarations: [ ExerciseComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FlashCardsViewComponent);
+    fixture = TestBed.createComponent(ExerciseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

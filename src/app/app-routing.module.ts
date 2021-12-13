@@ -33,8 +33,8 @@ const routes: Routes = [
   },
   {
     path: "exercise-mode",
-    loadChildren: () => import('./exercise-mode/exercise-mode-routing.module')
-      .then(f=>f.ExerciseModeRoutingModule)
+    loadChildren: () => import('./exercise-mode/exercise-mode.module')
+      .then(f=>f.ExerciseModeModule)
   }
 ];
 

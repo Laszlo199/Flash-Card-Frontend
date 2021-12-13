@@ -24,4 +24,8 @@ export class GoToPractisePopupComponent implements OnInit {
   goToTestMode() {
     this.router.navigateByUrl("/test-mode/"+ this.data.id)
   }
+
+  goToExerciseMode() {
+    this.router.navigateByUrl("/exercise-mode/"+ this.data.id)
+  }
 }

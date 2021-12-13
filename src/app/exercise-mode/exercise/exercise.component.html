@@ -1,0 +1,33 @@
+<div class="containerForButton">
+    <div class="exit">
+      <h1 class="exit" (click)="Back()">Exit</h1>
+    </div>
+
+<div class="container">
+  <div class="card" *ngIf="deck && cards">
+  <div [ngClass]="toggleProperty ? 'flipped' : ''" class="card">
+    <div class="front">
+      <h3>{{cards[index].question}}</h3>
+
+    </div>
+    <div class="back">
+      <h3 class="answer">{{cards[index].answer}}</h3>
+    </div>
+  </div>
+  </div>
+</div>
+  <div class="checkButton" (click)="toggle()">
+    <p>Check</p>
+    <i class="ion-ios-arrow-back"></i>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+

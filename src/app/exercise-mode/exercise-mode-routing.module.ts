@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {FlashCardsViewComponent} from "./flash-cards-view/flash-cards-view.component";
+import { ExerciseComponent } from './exercise/exercise.component';
+
 
 const routes: Routes = [
-  {path: ':id', component: FlashCardsViewComponent}
+  {path: ':id', component: ExerciseComponent}
 ];
 
 @NgModule({
