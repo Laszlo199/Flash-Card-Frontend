@@ -31,6 +31,8 @@ export class ControlsComponent implements OnInit, OnChanges, OnDestroy {
   ngOnChanges(changes: SimpleChanges): void {
     this.i = 0;
     this.start = this.pomodoroService.getStartState();
+    /*this.pomodoroService.saveStartState('Start');
+    this.start = this.pomodoroService.getStartState();*/
   }
 
   ngOnDestroy(): void {

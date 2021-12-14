@@ -53,14 +53,17 @@ export class PomodoroService {
   }
 
   public setPomodoroTimer() {
+    this.saveStartState('Start');
     this.setTimer('pomodoro', 25);
   }
 
   public setShortBreakTimer() {
+    this.saveStartState('Start');
     this.setTimer('short-break', 5);
   }
 
   public setLongBreakTimer() {
+    this.saveStartState('Start');
     this.setTimer('long-break', 10);
   }
 

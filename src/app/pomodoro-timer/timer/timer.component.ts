@@ -23,10 +23,13 @@ export class TimerComponent implements OnChanges, OnInit {
       this.pomodoroService.stop()
     } else if (changes.timerControlAction.currentValue === 'pomodoro') {
       this.pomodoroService.setPomodoroTimer();
+      this.ngOnInit()
     } else if (changes.timerControlAction.currentValue === 'short-break') {
       this.pomodoroService.setShortBreakTimer();
+      this.ngOnInit()
     } else if (changes.timerControlAction.currentValue === 'long-break') {
       this.pomodoroService.setLongBreakTimer();
+      this.ngOnInit()
     }
   }
 
