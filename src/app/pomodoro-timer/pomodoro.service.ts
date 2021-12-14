@@ -6,14 +6,17 @@ import {repeatWhen, takeUntil, takeWhile} from "rxjs/operators";
   providedIn: 'root'
 })
 export class PomodoroService {
-  public timer$: Observable<number>;
-  public timerRemaining = this.timerStartValue;
+
   start1: string = 'Start';
+  private isRunning: boolean = false;
+
+  public timer$: Observable<number>;
   private currentTimer = 'pomodoro';
+
   private time = 25; // initial timer amount in minutes
+  public timerRemaining = this.timerStartValue;
   private start$ = new Subject();
   private stop$ = new Subject();
-  private isRunning: boolean = false;
 
   constructor() {
     this.timer$ = interval(1000).pipe(
