@@ -8,15 +8,17 @@
   <div [ngClass]="toggleProperty ? 'flipped' : ''" class="card">
     <div class="front">
       <h3>{{cards[index].question}}</h3>
-
     </div>
     <div class="back">
+      <div *ngIf="checked">
       <h3 class="answer">{{cards[index].answer}}</h3>
+      </div>
     </div>
   </div>
   </div>
 
-  <div class="skipButton" (click)="skip()">
+
+  <div class="skipButton" (click)="skip()" (click)="checkAnswer()" (click)="toggle()">
     <p>I dont know</p>
   </div>
 
