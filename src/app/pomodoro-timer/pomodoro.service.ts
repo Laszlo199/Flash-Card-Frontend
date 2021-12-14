@@ -14,9 +14,11 @@ export class PomodoroService {
   private _currentTimer = 'pomodoro';
 
   private time = 25; // initial timer amount in minutes
+ // private _timerRemaining =5;
   private _timerRemaining = this.timerStartValue;
   private start$ = new Subject();
   private stop$ = new Subject();
+  private audio: HTMLAudioElement | undefined;
 
   constructor() {
     this._timer$ = interval(1000).pipe(
@@ -30,7 +32,7 @@ export class PomodoroService {
       this._timerRemaining -= 1; // countdown 1 by 1
       const percentage = ((this.timerStartValue - this._timerRemaining) /
         this.timerStartValue) * 100;
-      if (percentage === 100) {
+      if (percentage == 100) {
         this.completeTimer();
       }
     });
@@ -104,11 +106,20 @@ export class PomodoroService {
     this.playAudio();
     // this.updateStats();
     this.stop();
+    this.goToPomodoro();
+  }
+
+  private goToPomodoro() {
+
   }
 
   private playAudio() {
-    const audio = new Audio('assets/bell.mp3');
-    audio.play();
+    /*const audio = new Audio("");
+    audio.play();*/
+    this.audio = new Audio();
+    this.audio.src = "../../../assets/Sounds/sound2.mp3";
+    this.audio.load();
+    this.audio.play();
   }
 
   private setTimer(timerType: string, time: number) {
@@ -117,4 +128,5 @@ export class PomodoroService {
     this._currentTimer = timerType;
     this.restart();
   }
+
 }
