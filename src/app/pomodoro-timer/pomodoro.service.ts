@@ -10,25 +10,25 @@ export class PomodoroService {
   start1: string = 'Start';
   private isRunning: boolean = false;
 
-  public timer$: Observable<number>;
-  private currentTimer = 'pomodoro';
+  private readonly _timer$: Observable<number>;
+  private _currentTimer = 'pomodoro';
 
   private time = 25; // initial timer amount in minutes
-  public timerRemaining = this.timerStartValue;
+  private _timerRemaining = this.timerStartValue;
   private start$ = new Subject();
   private stop$ = new Subject();
 
   constructor() {
-    this.timer$ = interval(1000).pipe(
+    this._timer$ = interval(1000).pipe(
       takeUntil(this.stop$),
       takeWhile(v => v >= 0),
       repeatWhen(() => this.start$)
     ); // 1 second interval
 
 
-    this.timer$.subscribe(() => {
-      this.timerRemaining -= 1; // countdown 1 by 1
-      const percentage = ((this.timerStartValue - this.timerRemaining) /
+    this._timer$.subscribe(() => {
+      this._timerRemaining -= 1; // countdown 1 by 1
+      const percentage = ((this.timerStartValue - this._timerRemaining) /
         this.timerStartValue) * 100;
       if (percentage === 100) {
         this.completeTimer();
@@ -40,11 +40,31 @@ export class PomodoroService {
 
   private get timerStartValue() {
     return this.time * 60; // seconds
+
+  }
+
+
+  set currentTimer(value: string) {
+    this._currentTimer = value;
   }
 
   public stop() {
     this.stop$.next();
     this.isRunning = false;
+  }
+
+
+  get currentTimer(): string {
+    return this._currentTimer;
+  }
+
+
+  get timer$(): Observable<number> {
+    return this._timer$;
+  }
+
+  get timerRemaining(): number {
+    return this._timerRemaining;
   }
 
   public start() {
@@ -69,7 +89,7 @@ export class PomodoroService {
 
   public restart() {
     this.stop();
-    this.timerRemaining = this.timerStartValue;
+    this._timerRemaining = this.timerStartValue;
   }
 
   saveStartState(start: string) {
@@ -93,8 +113,8 @@ export class PomodoroService {
 
   private setTimer(timerType: string, time: number) {
     this.time = time;
-    this.timerRemaining = this.timerStartValue;
-    this.currentTimer = timerType;
+    this._timerRemaining = this.timerStartValue;
+    this._currentTimer = timerType;
     this.restart();
   }
 }
