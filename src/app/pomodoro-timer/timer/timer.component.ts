@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {PomodoroService} from "../pomodoro.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-timer',
@@ -9,11 +10,17 @@ import {PomodoroService} from "../pomodoro.service";
 export class TimerComponent implements OnChanges, OnInit {
   @Input() timerControlAction: string | undefined;
   @Output() completedTimer = new EventEmitter();
-
+  // Subscriptions
+  private componentSubscription: Subscription;
   private timerRemaining = 25 * 60;
 
   constructor(private pomodoroService: PomodoroService) {
-
+    this.componentSubscription= this.pomodoroService.sampleSubscriber.subscribe(() =>
+    {
+      // Put the code for manage the notification here
+      this.pomodoroService.setPomodoroTimer();
+      this.refresh();
+    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -23,14 +30,17 @@ export class TimerComponent implements OnChanges, OnInit {
       this.pomodoroService.stop()
     } else if (changes.timerControlAction.currentValue === 'pomodoro') {
       this.pomodoroService.setPomodoroTimer();
-      this.ngOnInit()
+      this.refresh();
     } else if (changes.timerControlAction.currentValue === 'short-break') {
       this.pomodoroService.setShortBreakTimer();
-      this.ngOnInit()
+      this.refresh();
     } else if (changes.timerControlAction.currentValue === 'long-break') {
       this.pomodoroService.setLongBreakTimer();
-      this.ngOnInit()
+      this.refresh();
     }
+
+    this.timerRemaining = this.pomodoroService.timerRemaining
+    this.formatTime();
   }
 
   formatTime() {
@@ -38,11 +48,15 @@ export class TimerComponent implements OnChanges, OnInit {
   }
 
   ngOnInit(): void {
-    this.timerRemaining = this.pomodoroService.timerRemaining
-    this.formatTime();
+    this.refresh();
 
     this.pomodoroService.timer$.subscribe(() =>
       this.timerRemaining = this.pomodoroService.timerRemaining
     )
+  }
+
+  refresh(){
+    this.timerRemaining = this.pomodoroService.timerRemaining
+    this.formatTime();
   }
 }

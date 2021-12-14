@@ -20,6 +20,10 @@ export class PomodoroService {
   private stop$ = new Subject();
   private audio: HTMLAudioElement | undefined;
 
+  private sampleObservable = new Subject<boolean>();
+  // Observable boolean streams
+  sampleSubscriber = this.sampleObservable.asObservable();
+
   constructor() {
     this._timer$ = interval(1000).pipe(
       takeUntil(this.stop$),
@@ -33,7 +37,10 @@ export class PomodoroService {
       const percentage = ((this.timerStartValue - this._timerRemaining) /
         this.timerStartValue) * 100;
       if (percentage == 100) {
+        this.sampleObservable.next();
         this.completeTimer();
+       // this.setPomodoroTimer();
+
       }
     });
 
@@ -42,6 +49,7 @@ export class PomodoroService {
 
   private get timerStartValue() {
     return this.time * 60; // seconds
+    //return 5
 
   }
 
@@ -106,16 +114,9 @@ export class PomodoroService {
     this.playAudio();
     // this.updateStats();
     this.stop();
-    this.goToPomodoro();
-  }
-
-  private goToPomodoro() {
-
   }
 
   private playAudio() {
-    /*const audio = new Audio("");
-    audio.play();*/
     this.audio = new Audio();
     this.audio.src = "../../../assets/Sounds/sound2.mp3";
     this.audio.load();

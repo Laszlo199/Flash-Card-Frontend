@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { MatButtonToggle } from '@angular/material/button-toggle';
 import {PomodoroService} from "../pomodoro.service";
+import {Subscription} from "rxjs";
 
 
 @Component({
@@ -12,8 +13,15 @@ export class SwitchingModesComponent implements OnInit {
   @Output() timerControlEvent = new EventEmitter<string>();
   @Output() changeStartEvent = new EventEmitter<string>();
   public selectedVal: string = '';
-
+  // Subscriptions
+  private componentSubscription: Subscription;
   constructor(private pomodoroService: PomodoroService) {
+    this.componentSubscription= this.pomodoroService.sampleSubscriber.subscribe(() =>
+    {
+      // Put the code for manage the notification here
+     this.selectedVal = 'pomodoro'
+      this.pomodoroService.currentTimer = 'Pomodoro';
+    });
   }
 
   public onValChange(val: string) {
@@ -23,7 +31,6 @@ export class SwitchingModesComponent implements OnInit {
 
 
   ngOnInit(): void {
-   // this.selectedVal ='draft';
     this.selectedVal = this.pomodoroService.currentTimer;
   }
 
