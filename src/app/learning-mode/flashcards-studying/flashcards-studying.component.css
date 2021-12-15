@@ -10,18 +10,12 @@
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-
 }
 
 .control{
   /*position: absolute;
   right: 50%;
   transform: translateX(50%);*/
-}
-
-.link{
-  padding-left: 10px;
-  width: 100%;
 }
 
 .rotateBtn{

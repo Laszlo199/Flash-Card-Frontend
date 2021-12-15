@@ -5,10 +5,14 @@
   position: relative;
 }
 
+.collection {
+  /* margin-top: 15vh;*/
+}
+
 .back-link {
-  position: absolute;
+  position: fixed;
   left: 10px;
-  top: 20px;
+  /* top: 20px;*/
   cursor: pointer;
 }
 
