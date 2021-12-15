@@ -3,7 +3,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ExerciseService} from "../shared/exercise.service";
 import {exerciseCardsDto} from "../shared/exerciseCards.dto";
 import {exerciseDecksDto} from "../shared/exerciseDecks.dto";
-import {PostAttemptDto} from "../../test-mode/shared/dtos/post-attempt.dto";
 
 @Component({
   selector: 'app-exercise',
@@ -63,6 +62,7 @@ export class ExerciseComponent implements OnInit {
           if (this.index+1 == this.cards.length) {
             this.index = 0;
             this.cards.splice(this.cards.length-1, 1);
+            this.Back();
           }else {
             this.cards.splice(this.index, 1);
           }
