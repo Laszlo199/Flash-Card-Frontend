@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {DeckDto} from "../shared/dtos/deck/deck.dto";
 import {PostDeckDto} from "../shared/dtos/deck/post-deck.dto";
 import {DeckService} from "../shared/deck.service";
+import {AuthService} from "../../auth/shared/auth.service";
 
 @Component({
   selector: 'app-new-deck-popup',
@@ -9,14 +10,15 @@ import {DeckService} from "../shared/deck.service";
   styleUrls: ['./new-deck-popup.component.css']
 })
 export class NewDeckPopupComponent implements OnInit {
-  @Input() userId: number | undefined;
+  userId: number | undefined;
   isPublic: boolean = false;
   name: string | undefined;
   description: string = "";
 
-  constructor(private service: DeckService) { }
+  constructor(private service: DeckService, private loginService: AuthService) { }
 
   ngOnInit(): void {
+    this.userId=this.loginService.getUserId();
   }
 
   createNew() {

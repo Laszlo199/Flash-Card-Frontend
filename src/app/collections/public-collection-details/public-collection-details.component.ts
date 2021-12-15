@@ -4,6 +4,7 @@ import {CardService} from "../shared/card.service";
 import {DeckDto} from "../shared/dtos/deck/deck.dto";
 import {Observable} from "rxjs";
 import {DeckService} from "../shared/deck.service";
+import {AuthService} from "../../auth/shared/auth.service";
 
 @Component({
   selector: 'app-public-collection-details',
@@ -14,15 +15,17 @@ export class PublicCollectionDetailsComponent implements OnInit {
 
   deckId: number | undefined;
   deck$: Observable<DeckDto> | undefined;
-  userId: number = 1;
+  userId: number | undefined;
   errorMsg: string = "";
 
   constructor(private router: Router, private route: ActivatedRoute,
-              private service: CardService, private deckService: DeckService) { }
+              private service: CardService, private deckService: DeckService,
+              private loginService: AuthService) { }
 
   ngOnInit(): void {
     // @ts-ignore
     this.deckId = +this.route.snapshot.paramMap.get('id');
+    this.userId = this.loginService.getUserId();
     this.loadDeck();
   }
 

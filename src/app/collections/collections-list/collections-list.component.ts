@@ -37,7 +37,7 @@ import { AuthService } from 'src/app/auth/shared/auth.service';
   styleUrls: ['./collections-list.component.css']
 })
 export class CollectionsListComponent implements OnInit {
-  userId = 1;
+  userId: number | undefined;
 
   searchPhrase: string | undefined;
   decks$: Observable<DecksDto[]> | undefined;
@@ -50,7 +50,7 @@ export class CollectionsListComponent implements OnInit {
 
   private newDeckSubscription: Subscription;
 
-  constructor(private service: DeckService, private router: Router, private loginservice: AuthService) {
+  constructor(private service: DeckService, private router: Router, private loginService: AuthService) {
     this.newDeckSubscription = this.service.getUpdate()
       .subscribe((deckCreated: boolean) => {
         this.closePopup();
@@ -61,17 +61,19 @@ export class CollectionsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userId = this.loginService.getUserId();
     this.loadDecks();
   }
 
   private loadDecks() {
+    if(this.userId)
     this.decks$ = this.publicShown ?
       this.service.getPublic("", this.currentPage, this.itemsPerPage)
-      : this.service.getByUserId(this.loginservice.getUserId(), "");
+      : this.service.getByUserId(this.userId, "");
   }
 
   searchDecks() {
-    if(this.searchPhrase && this.searchPhrase!="")
+    if(this.searchPhrase && this.searchPhrase!="" && this.userId)
       if(this.publicShown)
         this.decks$ = this.service.getPublic(this.searchPhrase, this.currentPage, this.itemsPerPage);
       else
