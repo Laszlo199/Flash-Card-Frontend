@@ -39,6 +39,7 @@
   cursor: pointer;
 
   margin-right: 20px;
+  transition: background-color 0.5s;
 }
 
 .plus-icon:hover {
@@ -111,6 +112,13 @@
   cursor: pointer;
   color: #6C6C6C;
 
+}
+
+.no-decks-info {
+  text-align: center;
+  margin: auto;
+  margin-inline: auto;
+  width: 70vw;
 }
 
 

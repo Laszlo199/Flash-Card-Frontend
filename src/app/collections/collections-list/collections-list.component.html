@@ -43,6 +43,7 @@
   <br>
   <!--DECKS LIST-->
   <div class="decks-list" *ngIf="decks$ | async as decks">
+    <span class="no-decks-info" *ngIf="decks.length==0">you don't have any decks yet, click a plus icon above to create one</span>
     <ng-container *ngFor="let deck of decks">
       <div *ngIf="publicShown">
         <app-public-collection-card class="card" [deck]="deck" [userId]="userId" (click)="goToCollectionPreview(deck.id)"></app-public-collection-card>

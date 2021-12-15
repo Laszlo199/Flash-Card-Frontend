@@ -30,7 +30,7 @@
   <section class="two">
     <h1 class="title-collections">Your collections: </h1>
 
-    <p class="heading">You're doing great: </p>
+    <p class="heading" *ngIf="bestDecks.length>0">You're doing great: </p>
     <div class="decks">
       <ng-container>
         <div *ngFor="let deck of bestDecks">
@@ -39,7 +39,7 @@
       </ng-container>
     </div>
 
-    <p class="heading">You're getting there: </p>
+    <p class="heading" *ngIf="okDecks.length>0">You're getting there: </p>
     <div class="decks">
       <ng-container>
         <div *ngFor="let deck of okDecks">
@@ -48,7 +48,7 @@
       </ng-container>
     </div>
 
-    <p class="heading">Need some more attention: </p>
+    <p class="heading" *ngIf="badDecks.length>0">Need some more attention: </p>
     <div class="decks">
       <ng-container>
         <div *ngFor="let deck of badDecks">
