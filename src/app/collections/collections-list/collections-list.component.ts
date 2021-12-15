@@ -11,6 +11,7 @@ import {
   transition,
   // ...
 } from '@angular/animations';
+import { AuthService } from 'src/app/auth/shared/auth.service';
 
 @Component({
   selector: 'app-collections-list',
@@ -49,7 +50,7 @@ export class CollectionsListComponent implements OnInit {
 
   private newDeckSubscription: Subscription;
 
-  constructor(private service: DeckService, private router: Router) {
+  constructor(private service: DeckService, private router: Router, private loginservice: AuthService) {
     this.newDeckSubscription = this.service.getUpdate()
       .subscribe((deckCreated: boolean) => {
         this.closePopup();
@@ -66,7 +67,7 @@ export class CollectionsListComponent implements OnInit {
   private loadDecks() {
     this.decks$ = this.publicShown ?
       this.service.getPublic("", this.currentPage, this.itemsPerPage)
-      : this.service.getByUserId(this.userId, "");
+      : this.service.getByUserId(this.loginservice.getUserId(), "");
   }
 
   searchDecks() {
