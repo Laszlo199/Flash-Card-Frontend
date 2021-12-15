@@ -2,9 +2,16 @@
   margin-inline: auto;
 }
 
+.background {
+  margin: 0;
+  padding: 0;
+  background-color: #F5F6FA;
+  height: 100vh;
+}
+
 .view {
   text-align: center;
-  margin-top: 3rem;
+  padding-top: 3rem;
   display: block;
 }
 

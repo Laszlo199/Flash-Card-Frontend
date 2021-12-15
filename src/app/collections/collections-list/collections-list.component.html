@@ -1,4 +1,8 @@
 <app-navbar-collections></app-navbar-collections>
+
+<div class="background">
+
+  <!--HEADER-->
 <div class="collections">
   <div class="header">
     <div class="item" *ngIf="!publicShown">
@@ -19,7 +23,7 @@
         (click)="showPublic()"
       >Public collections</h1>
     </div>
-    <!-- Popup window -->
+    <!-- POPUP WINDOW -->
     <div id="popup" class="modal"
          [ngStyle]="popupShown? {'display' : 'block'} : {'display' : 'none'}">
       <div class="modal-content">
@@ -37,6 +41,7 @@
 
   <br>
   <br>
+  <!--DECKS LIST-->
   <div class="decks-list" *ngIf="decks$ | async as decks">
     <ng-container *ngFor="let deck of decks">
       <div *ngIf="publicShown">
@@ -51,4 +56,5 @@
   <p class="page-nav" *ngIf="publicShown && (decks$| async)?.length == itemsPerPage" (click)="nextPage()">next page >></p>
 </div>
 
+</div>
 

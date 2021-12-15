@@ -1,3 +1,9 @@
+.background {
+  margin: 0;
+  padding: 0;
+  background-color: #F5F6FA;
+}
+
 .container {
   text-align: center;
   margin-top: 10vh;

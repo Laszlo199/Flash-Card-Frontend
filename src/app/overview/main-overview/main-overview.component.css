@@ -1,6 +1,11 @@
+.background {
+  margin: 0;
+  padding: 0;
+  background-color: #F5F6FA;
+}
+
 .container {
   height: 100vh;
-  margin-top: 90px;
   margin-inline: 0;
   padding-inline: 20px;
   overflow-y: scroll;
