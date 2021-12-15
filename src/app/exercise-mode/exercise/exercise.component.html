@@ -1,6 +1,6 @@
 <div class="containerForButton">
     <div class="exit">
-      <h1 class="exit" (click)="Back()">Exit</h1>
+      <h1 class="exit" (click)="Back()"><-Exit</h1>
     </div>
 
 <div class="container">
@@ -18,11 +18,11 @@
   </div>
 
 
-  <div class="indontKnow" (click)="idontKnow()">
-    <p>I dont know</p>
+  <div class="idontKnow" (click)="idontKnow()">
+    <p>Don't know</p>
   </div>
 
-  <input class="textField" placeholder="Answer..." [(ngModel)]="answer">
+  <input class="textField" placeholder="Type the answer..." [(ngModel)]="answer">
 
 
   <div class="checkButton" (click)="toggle()" (click)="checkAnswer()">

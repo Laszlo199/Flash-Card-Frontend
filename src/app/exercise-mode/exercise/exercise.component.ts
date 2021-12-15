@@ -94,7 +94,7 @@ export class ExerciseComponent implements OnInit {
      this.index++;
     }
   }
-  
+
   async idontKnow() {
     this.checked = true;
     this.toggle();
