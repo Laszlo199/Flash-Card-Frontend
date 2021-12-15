@@ -26,7 +26,7 @@
     <!-- POPUP WINDOW -->
     <div id="popup" class="modal"
          [ngStyle]="popupShown? {'display' : 'block'} : {'display' : 'none'}">
-      <div class="modal-content">
+      <div class="modal-content" *ngIf="popupShown">
         <app-new-deck-popup [userId]="1"></app-new-deck-popup>
       </div>
     </div>

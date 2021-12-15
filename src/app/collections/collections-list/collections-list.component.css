@@ -17,11 +17,13 @@
 .my-coll {
   margin-right: 20px;
   cursor: pointer;
+  transition: font-size 0.3s, color 0.5s;
 }
 
 .pub-coll {
   margin-left: 20px;
   cursor: pointer;
+  transition: font-size 0.3s, color 0.5s;
 }
 
 .plus-icon {
@@ -91,6 +93,16 @@
   margin: 15% auto; /* 15% from the top and centered */
   background-color: transparent;
   width: 30vw;
+
+  position: relative;
+
+  animation-name: popup;
+  animation-duration: 0.8s;
+}
+
+@keyframes popup {
+  from {top: -80px; opacity: 0;}
+  to {top: 0;opacity: 100;}
 }
 
 .page-nav {
