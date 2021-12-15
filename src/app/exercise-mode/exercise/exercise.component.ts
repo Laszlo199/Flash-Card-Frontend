@@ -73,6 +73,11 @@ export class ExerciseComponent implements OnInit {
           console.log('good');
         } else {
           console.log('wrong');
+          this.checked = true;
+          await new Promise(f => setTimeout(f, 4000));
+          this.hideAnswer();
+          this.checked = false;
+          this.toggle();
           this.skip();
         }
       }
@@ -84,20 +89,18 @@ export class ExerciseComponent implements OnInit {
 
   async skip() {
     if (this.index + 1 == this.cards?.length || this.index == this.cards?.length) {
-      this.next();
       this.index = 0;
     } else {
-     this.next();
-      this.index++;
+     this.index++;
     }
   }
-
-  async next() {
+  
+  async idontKnow() {
     this.checked = true;
-    await new Promise(f => setTimeout(f, 4000));
-    this.hideAnswer();
-    this.checked = false;
     this.toggle();
-
+    await new Promise(f => setTimeout(f, 4000));
+    this.toggle();
+    this.checked = false;
+    this.skip();
   }
 }
