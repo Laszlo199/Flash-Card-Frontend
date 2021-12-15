@@ -19,6 +19,7 @@ export class ExerciseComponent implements OnInit {
   toggleProperty = false;
   answer: string | undefined;
   checked: boolean = false;
+  answeredCorrectly: boolean | undefined;
 
 
   constructor(private _service: ExerciseService,
@@ -29,10 +30,6 @@ export class ExerciseComponent implements OnInit {
     this.deckId = +this._route.snapshot.paramMap.get('id');
     this.loadDeck()
   }
-
-
-
-
 
 
   private loadDeck() {
@@ -49,7 +46,6 @@ export class ExerciseComponent implements OnInit {
     this._router.navigateByUrl("/collections");
   }
 
-
   toggle() {
     this.toggleProperty = !this.toggleProperty;
   }
@@ -60,7 +56,7 @@ export class ExerciseComponent implements OnInit {
         this.checked = true;
 
         if (this.answer.toLowerCase() == this.cards[this.index].answer.toLowerCase()) {
-
+          this.answeredCorrectly = true;
           await new Promise(f => setTimeout(f, 4000));
           this.toggle();
           this.hideAnswer();
@@ -72,6 +68,7 @@ export class ExerciseComponent implements OnInit {
           }
           console.log('good');
         } else {
+          this.answeredCorrectly = false;
           console.log('wrong');
           this.checked = true;
           await new Promise(f => setTimeout(f, 4000));
