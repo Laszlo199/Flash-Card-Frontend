@@ -18,7 +18,6 @@ export class ControlsComponent implements OnInit, OnChanges, OnDestroy {
   constructor(private pomodoroService: PomodoroService) {
     this.componentSubscription= this.pomodoroService.sampleSubscriber.subscribe(() =>
     {
-      // Put the code for manage the notification here
       this.start = 'Start';
       this.pomodoroService.saveStartState(this.start);
 

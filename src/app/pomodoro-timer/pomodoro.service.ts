@@ -13,8 +13,7 @@ export class PomodoroService {
   private readonly _timer$: Observable<number>;
   private _currentTimer = 'pomodoro';
 
-  private time = 25; // initial timer amount in minutes
- // private _timerRemaining =5;
+  private time = 25;
   private _timerRemaining = this.timerStartValue;
   private start$ = new Subject();
   private stop$ = new Subject();
@@ -39,7 +38,6 @@ export class PomodoroService {
       if (percentage == 100) {
         this.sampleObservable.next();
         this.completeTimer();
-       // this.setPomodoroTimer();
 
       }
     });
@@ -49,7 +47,7 @@ export class PomodoroService {
 
   private get timerStartValue() {
     return this.time * 60; // seconds
-    //return 5
+
 
   }
 
@@ -112,7 +110,6 @@ export class PomodoroService {
 
   private completeTimer() {
     this.playAudio();
-    // this.updateStats();
     this.stop();
   }
 

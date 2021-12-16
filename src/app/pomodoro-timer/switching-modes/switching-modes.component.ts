@@ -13,12 +13,11 @@ export class SwitchingModesComponent implements OnInit {
   @Output() timerControlEvent = new EventEmitter<string>();
   @Output() changeStartEvent = new EventEmitter<string>();
   public selectedVal: string = '';
-  // Subscriptions
+  // Subscription
   private componentSubscription: Subscription;
   constructor(private pomodoroService: PomodoroService) {
     this.componentSubscription= this.pomodoroService.sampleSubscriber.subscribe(() =>
     {
-      // Put the code for manage the notification here
      this.selectedVal = 'pomodoro'
       this.pomodoroService.currentTimer = 'Pomodoro';
     });

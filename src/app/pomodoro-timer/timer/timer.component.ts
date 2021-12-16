@@ -10,14 +10,13 @@ import {Subscription} from "rxjs";
 export class TimerComponent implements OnChanges, OnInit {
   @Input() timerControlAction: string | undefined;
   @Output() completedTimer = new EventEmitter();
-  // Subscriptions
+  // Subscription
   private componentSubscription: Subscription;
   private timerRemaining = 25 * 60;
 
   constructor(private pomodoroService: PomodoroService) {
     this.componentSubscription= this.pomodoroService.sampleSubscriber.subscribe(() =>
     {
-      // Put the code for manage the notification here
       this.pomodoroService.setPomodoroTimer();
       this.refresh();
     });
