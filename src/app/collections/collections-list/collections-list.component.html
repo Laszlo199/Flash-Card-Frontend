@@ -23,7 +23,7 @@
     <div id="popup" class="modal"
          [ngStyle]="popupShown? {'display' : 'block'} : {'display' : 'none'}">
       <div class="modal-content">
-        <app-new-deck-popup [userId]="1"></app-new-deck-popup>
+        <app-new-deck-popup></app-new-deck-popup>
       </div>
     </div>
 
@@ -40,7 +40,7 @@
   <div class="decks-list" *ngIf="decks$ | async as decks else loading">
     <ng-container *ngFor="let deck of decks">
       <div *ngIf="publicShown">
-        <app-public-collection-card class="card" [deck]="deck" [userId]="userId" (click)="goToCollectionPreview(deck.id)"></app-public-collection-card>
+        <app-public-collection-card class="card" [deck]="deck" (click)="goToCollectionPreview(deck.id)"></app-public-collection-card>
       </div>
       <div *ngIf="!publicShown">
         <app-collection-card class="card" [deck]="deck" (click)="goToCollection(deck.id)"></app-collection-card>
