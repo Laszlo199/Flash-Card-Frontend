@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
 
 const routes: Routes = [
   {
     path: "collections",
     loadChildren: () => import('./collections/collections.module')
-      .then(f=>f.CollectionsModule)
+      .then(f => f.CollectionsModule)
   },
   {
     path: "auth",
@@ -21,12 +21,12 @@ const routes: Routes = [
   {
     path: "learningMode",
     loadChildren: () => import('./learning-mode/learning-mode.module')
-      .then(f=>f.LearningModeModule),
+      .then(f => f.LearningModeModule),
   },
   {
     path: "test-mode",
     loadChildren: () => import('./test-mode/test-mode.module')
-      .then(f=>f.TestModeModule)
+      .then(f => f.TestModeModule)
   },
   {
     path: "overview",
@@ -34,7 +34,12 @@ const routes: Routes = [
       .then(f=>f.OverviewModule)
   },
   {
-    path: '',  redirectTo: '/home', pathMatch: 'full'
+    path: "pomodoro-timer",
+    loadChildren: () => import('./pomodoro-timer/pomodoro-timer.module')
+      .then(f => f.PomodoroTimerModule)
+  },
+  {
+    path: '', redirectTo: '/home', pathMatch: 'full'
   }
 ];
 

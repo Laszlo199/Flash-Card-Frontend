@@ -6,8 +6,10 @@
      Memorise
    </span>
   <span class="toggle-span">
-    <button class="allCollectionsBtn" (click)="goToCollections()" mat-button value="all_collections">all collections</button>
-    <button class="profileOvBtn" (click)="goToOverview()" mat-button value="profile_overview">profile overview</button>
+    <button class="allCollectionsBtn" mat-button routerLink="/collections"
+            value="all_collections">all collections</button>
+    <button class="profileOvBtn" mat-button value="profile_overview" routerLink="/overview">profile overview</button>
+    <button class="profileOvBtn" mat-button routerLink="/pomodoro-timer">pomodoro timer</button>
   </span>
 
   <span class="textt">kuba2001  </span>

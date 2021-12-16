@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {DecksDto} from "../shared/dtos/deck/decks.dto";
 import {DeckService} from "../shared/deck.service";
 import {Router} from "@angular/router";
+import {AuthService} from "../../auth/shared/auth.service";
 
 @Component({
   selector: 'app-public-collection-card',
@@ -11,16 +12,17 @@ import {Router} from "@angular/router";
 export class PublicCollectionCardComponent implements OnInit {
 
   @Input() deck?: DecksDto;
-  @Input() userId: number | undefined;
+  userId: number | undefined;
 
   isAdded: boolean = false;
   errorMsg = "";
 
   newDeckId: number | undefined;
 
-  constructor(private service: DeckService, private router: Router) { }
+  constructor(private service: DeckService, private loginService: AuthService) { }
 
   ngOnInit(): void {
+    this.userId = this.loginService.getUserId();
   }
 
   addCollection() {
