@@ -1,0 +1,17 @@
+<div class="card" *ngIf="activity">
+    <div class="main"
+         [ngStyle]="activity.cardsPractised>0? {'background-color' : '#D2D2DD'} : {'background-color' : 'white'}"
+         [style.borderTopLeftRadius]="isHover? '20px' : '50%'"
+         [style.borderTopRightRadius]="isHover? '20px' : '50%'"
+         [style.borderBottomLeftRadius]="isHover? '0' : '50%'"
+         [style.borderBottomRightRadius]="isHover? '0' : '50%'">
+      <p class="day">{{date}}</p>
+      <p>{{month}}</p>
+      <p *ngIf="isHover" class="details day-of-week">{{activity.day}}</p>
+    </div>
+
+    <div class="details" *ngIf="isHover">
+      <p>cards practised: {{activity.cardsPractised}}</p>
+      <p>average score: {{activity.average.toFixed(1)}}%</p>
+    </div>
+</div>

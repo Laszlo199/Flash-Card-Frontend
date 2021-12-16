@@ -1,4 +1,7 @@
 <app-navbar-collections></app-navbar-collections>
+
+<div class="background">
+
 <div *ngIf="deckId">
   <div class="container" *ngIf="deck$ | async as deck">
 
@@ -29,5 +32,7 @@
       </ng-container>
     </div>
   </div>
+
+</div>
 
 </div>

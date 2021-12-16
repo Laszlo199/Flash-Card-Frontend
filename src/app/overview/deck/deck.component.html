@@ -1,0 +1,14 @@
+<div class="deck" *ngIf="deck"
+     [@openClose]="isHover ? 'open' : 'closed'"
+      [style.boxShadow]="deck.average>=80 ? '0px 0px 13px -1px #095E1A' : (deck.average<=50 ? '0px 0px 13px -1px #590E09' : '0px 0px 13px -1px #595959')">
+  <!--[style.border]="deck.average>=80 ? 'mediumseagreen solid 2px' : (deck.average<=50 ? 'indianred solid 2px' : 'darkgrey solid 2px')"-->
+
+  <p class="title">{{deck.name}}</p>
+  <p>{{deck.cards}} cards</p>
+  <p>cards with 100%: {{deck.perfectCards}}</p>
+  <p>average: {{deck.average.toFixed(0)}}%</p>
+  <a class="link" *ngIf="isHover" routerLink="/collections/{{deck.deckId}}">go to collection >></a>
+</div>
+
+
+

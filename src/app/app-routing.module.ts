@@ -29,6 +29,11 @@ const routes: Routes = [
       .then(f => f.TestModeModule)
   },
   {
+    path: "overview",
+    loadChildren: () => import('./overview/overview.module')
+      .then(f=>f.OverviewModule)
+  },
+  {
     path: "pomodoro-timer",
     loadChildren: () => import('./pomodoro-timer/pomodoro-timer.module')
       .then(f => f.PomodoroTimerModule)

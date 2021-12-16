@@ -1,12 +1,15 @@
-.container {
-  text-align: center;
-  margin-top: 10vh;
-
-  position: relative;
+.background {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #F5F6FA;
 }
 
-.collection {
-  /* margin-top: 15vh;*/
+.container {
+  text-align: center;
+  padding-top: 10vh;
+
+  position: relative;
 }
 
 .back-link {
@@ -23,7 +26,7 @@
 .side-box {
   position: absolute;
   right: 0;
-  top: 0;
+  top: 10vh;
   text-align: left;
   padding: 10px;
 
