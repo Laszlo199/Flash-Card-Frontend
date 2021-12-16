@@ -1,0 +1,7 @@
+<div class="container">
+  <mat-button-toggle-group   #group="matButtonToggleGroup" [value]="selectedVal" (change)="onValChange(group.value)" aria-label="Font Style" name="fontStyle">
+    <mat-button-toggle value="pomodoro"  (click)="clickEvent('pomodoro'); clickEvent2('pomodoro')">Pomodoro</mat-button-toggle>
+    <mat-button-toggle  value="short-break" (click)="clickEvent('short-break'); clickEvent2('short-break')">Short break</mat-button-toggle>
+    <mat-button-toggle  value="long-break" (click)="clickEvent('long-break'); clickEvent2('long-break')">Long break</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>

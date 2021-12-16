@@ -15,9 +15,9 @@ export class NavbarCollectionsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToCollections() {
+  /*goToCollections() {
     this.router.navigateByUrl("/collections");
-  }
+  }*/
 
   logOut() {
     this.router.navigateByUrl("/home");

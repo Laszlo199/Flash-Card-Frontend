@@ -1,0 +1,11 @@
+<div class="overall">
+  <app-navbar-collections></app-navbar-collections>
+  <div class="container bigger">
+    <app-switching-modes (changeStartEvent)="receiveChangeStart($event)"
+                         (timerControlEvent)="receiveAction($event)"></app-switching-modes>
+    <section class="container smaller">
+      <app-timer [timerControlAction]="timerControlAction"></app-timer>
+      <app-controls (timerControlEvent)="receiveAction($event)" [change]="change"></app-controls>
+    </section>
+  </div>
+</div>
