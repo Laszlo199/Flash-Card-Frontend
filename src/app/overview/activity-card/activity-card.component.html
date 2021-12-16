@@ -12,6 +12,6 @@
 
     <div class="details" *ngIf="isHover">
       <p>cards practised: {{activity.cardsPractised}}</p>
-      <p>average score: {{activity.average}}%</p>
+      <p>average score: {{activity.average.toFixed(1)}}%</p>
     </div>
 </div>
