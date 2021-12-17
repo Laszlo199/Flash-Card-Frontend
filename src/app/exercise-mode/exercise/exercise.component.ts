@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ExerciseService} from "../shared/exercise.service";
 import {exerciseCardsDto} from "../shared/exerciseCards.dto";
 import {exerciseDecksDto} from "../shared/exerciseDecks.dto";
+import {PostAttemptDto} from "../../test-mode/shared/dtos/post-attempt.dto";
 
 @Component({
   selector: 'app-exercise',
@@ -27,6 +28,7 @@ export class ExerciseComponent implements OnInit {
   ngOnInit(): void {
     // @ts-ignore
     this.deckId = +this._route.snapshot.paramMap.get('id');
+    //this.userId = this.loginService.getUserId();// I need the user id but I dont have this function in this branch
     this.loadDeck()
   }
 
@@ -57,18 +59,43 @@ export class ExerciseComponent implements OnInit {
         if (this.answer.toLowerCase() == this.cards[this.index].answer.toLowerCase()) {
           this.answeredCorrectly = true;
           await new Promise(f => setTimeout(f, 4000));
+          if (this.cards.length == 1){
+            this.goBackToCollectionsById();
+          }
           this.toggle();
           this.hideAnswer();
           if (this.index+1 == this.cards.length) {
             this.index = 0;
             this.cards.splice(this.cards.length-1, 1);
-            this.Back();
           }else {
             this.cards.splice(this.index, 1);
           }
+
+          let attempt: PostAttemptDto = {
+            "userId": 1,//this.userId// I need the user id but I dont have this function in mine branches
+            "cardId": this.cards[this.index].id,
+            "wasCorrect": true,
+            "date": new Date()
+          };
+          this._service.createAttempt(attempt)
+            .subscribe(a=> {
+              console.log(a);
+            }, error => console.log(error))
           console.log('good');
+
         } else {
           this.answeredCorrectly = false;
+          let attempt: PostAttemptDto = {
+            "userId": 1, //this.userId// I need the user id but I dont have this function in this branch
+            "cardId": this.cards[this.index].id,
+            "wasCorrect": false,
+            "date": new Date()
+          };
+          this._service.createAttempt(attempt)
+            .subscribe(a=> {
+              console.log(a);
+            }, error => console.log(error))
+
           console.log('wrong');
           this.checked = true;
           await new Promise(f => setTimeout(f, 4000));
@@ -87,7 +114,7 @@ export class ExerciseComponent implements OnInit {
   async skip() {
     if (this.index + 1 == this.cards?.length || this.index == this.cards?.length) {
       this.index = 0;
-    } else {
+    }else {
      this.index++;
     }
   }
@@ -99,5 +126,9 @@ export class ExerciseComponent implements OnInit {
     this.toggle();
     this.checked = false;
     this.skip();
+  }
+
+  goBackToCollectionsById(){
+      this._router.navigateByUrl("/collections/"+this.deckId);
   }
 }
