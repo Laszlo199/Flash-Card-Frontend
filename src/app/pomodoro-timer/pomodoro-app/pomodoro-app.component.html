@@ -1,5 +1,8 @@
 <div class="overall">
   <app-navbar-collections></app-navbar-collections>
+  <div class="settingsIcon">
+    <mat-icon class="icon" >settings</mat-icon>
+  </div>
   <div class="container bigger">
     <app-switching-modes (changeStartEvent)="receiveChangeStart($event)"
                          (timerControlEvent)="receiveAction($event)"></app-switching-modes>

@@ -9,6 +9,7 @@ import {CollectionsModule} from "../collections/collections.module";
 import {SwitchingModesComponent} from './switching-modes/switching-modes.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatButtonModule} from "@angular/material/button";
+import { SettingsPopupComponent } from './settings-popup/settings-popup.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {MatButtonModule} from "@angular/material/button";
     PomodoroAppComponent,
     TimerComponent,
     ControlsComponent,
-    SwitchingModesComponent
+    SwitchingModesComponent,
+    SettingsPopupComponent
   ],
   imports: [
     CommonModule,

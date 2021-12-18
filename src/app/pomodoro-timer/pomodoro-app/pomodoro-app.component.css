@@ -14,6 +14,17 @@
   transform: translate(-50%, -50%);
 }
 
+.settingsIcon{
+  float: right;
+  padding-right: 60px;
+  padding-top: 120px;
+
+}
+
+.icon{
+  font-size: 40px;
+}
+
 .smaller {
 
   background: #1b8f7d;
