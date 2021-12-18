@@ -58,6 +58,17 @@ export class ExerciseComponent implements OnInit {
 
         if (this.answer.toLowerCase() == this.cards[this.index].answer.toLowerCase()) {
           this.answeredCorrectly = true;
+          console.log('good');
+          let attempt: PostAttemptDto = {
+            "userId": 1,//this.userId// I need the user id but I dont have this function in mine branches
+            "cardId": this.cards[this.index].id,
+            "wasCorrect": true,
+            "date": new Date()
+          };
+          this._service.createAttempt(attempt)
+            .subscribe(a=> {
+              console.log(a);
+            }, error => console.log(error))
           await new Promise(f => setTimeout(f, 4000));
           if (this.cards.length == 1){
             this.goBackToCollectionsById();
@@ -70,19 +81,6 @@ export class ExerciseComponent implements OnInit {
           }else {
             this.cards.splice(this.index, 1);
           }
-
-          let attempt: PostAttemptDto = {
-            "userId": 1,//this.userId// I need the user id but I dont have this function in mine branches
-            "cardId": this.cards[this.index].id,
-            "wasCorrect": true,
-            "date": new Date()
-          };
-          this._service.createAttempt(attempt)
-            .subscribe(a=> {
-              console.log(a);
-            }, error => console.log(error))
-          console.log('good');
-
         } else {
           this.answeredCorrectly = false;
           let attempt: PostAttemptDto = {
