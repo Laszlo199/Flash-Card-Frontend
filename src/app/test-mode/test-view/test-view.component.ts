@@ -62,7 +62,7 @@ export class TestViewComponent implements OnInit {
       this.checked = true;
 
       let card;
-      if(this.showAnswerFirst)
+      if(!this.showAnswerFirst)
         card = this.cards[this.currentCardIndex].answer.toLowerCase();
       else
         card = this.cards[this.currentCardIndex].question.toLowerCase();
@@ -123,7 +123,11 @@ export class TestViewComponent implements OnInit {
 
   showHint() {
     if (this.cards) {
-      this.answer = this.cards[this.currentCardIndex].answer.charAt(0);
+
+      if(this.showAnswerFirst)
+        this.answer = this.cards[this.currentCardIndex].question.charAt(0);
+      else
+        this.answer = this.cards[this.currentCardIndex].answer.charAt(0);
     }
   }
 
