@@ -23,6 +23,7 @@ h2:hover{
 }
 
 .showQuestionsBtn{
+  padding-top: 5px;
   color: #7542de;
   font-size: 26px;
 }
@@ -37,4 +38,7 @@ hr.rounded {
   background-color: #939393;
 }
 
+.element{
+  padding-left: 15px;
+}
 
