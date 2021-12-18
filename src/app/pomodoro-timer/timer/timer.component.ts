@@ -9,7 +9,7 @@ import {Subscription} from "rxjs";
 })
 export class TimerComponent implements OnChanges, OnInit {
   @Input() timerControlAction: string | undefined;
-  @Output() completedTimer = new EventEmitter();
+  @Output() completedTimer = new EventEmitter(); // we dont need that anymore ??
   // Subscription
   private componentSubscription: Subscription;
   private timerRemaining = 25 * 60;

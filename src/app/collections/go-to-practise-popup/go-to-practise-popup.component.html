@@ -1,9 +1,9 @@
 <div>
-<h1 class="title" mat-dialog-title>Choose mode</h1>
+  <h1 class="title" mat-dialog-title>Choose mode</h1>
 </div>
 
 <div>
-  <ul>
+  <ul class="list">
     <li>
       <h2 mat-dialog-close="true" (click)="goToLearningMode()">Learning mode</h2>
       review all cards
@@ -17,6 +17,19 @@
     <li>
       <h2>exercise mode</h2>
       go though all cards as long as all of them are answered correctly
+    </li>
+
+    <li class="divider">
+      <hr class="rounded">
+    </li>
+
+    <li class="showQuestionsCont">
+      <div class="showQuestionsBtn"> show answers first option:
+        <mat-slide-toggle [(ngModel)]="showAnswer" (ngModelChange)="onChange($event)"
+                          class="element"></mat-slide-toggle>
+      </div>
+      <br>
+      By default answer is shown first. In order to change it, select toggle.
     </li>
 
   </ul>
