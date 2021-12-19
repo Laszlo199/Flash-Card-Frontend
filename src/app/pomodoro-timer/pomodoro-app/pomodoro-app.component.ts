@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {SettingsPopupComponent} from "../settings-popup/settings-popup.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-pomodoro-app',
@@ -9,7 +11,7 @@ export class PomodoroAppComponent implements OnInit {
   public timerControlAction: any;
   public change: any
 
-  constructor() {
+  constructor(private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -21,5 +23,16 @@ export class PomodoroAppComponent implements OnInit {
 
   receiveChangeStart($event: any) {
     this.change = $event;
+  }
+
+  openPopup() {
+    const dialogRef= this.dialog.open(SettingsPopupComponent,
+      {
+        height: '450px',
+        width: '700px',
+        data: {
+
+        }
+      });
   }
 }
