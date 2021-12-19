@@ -6,7 +6,7 @@
   <ul>
     <li>
       <h2 class="element pom">pomodoro time</h2>
-      <mat-form-field class="element" appearance="fill" >
+      <mat-form-field class="element" appearance="fill">
         <mat-label>Selected time</mat-label>
         <mat-select (selectionChange)="changePomodoroTime($event.value)" [(value)]="selectedValue" >
           <mat-option [value]="ten">10 minutes</mat-option>

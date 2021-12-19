@@ -30,9 +30,8 @@ export class PomodoroAppComponent implements OnInit {
       {
         height: '450px',
         width: '700px',
-        data: {
-
-        }
+        data: {}, //we need to pass that empty data!
+        autoFocus: false
       });
   }
 }
