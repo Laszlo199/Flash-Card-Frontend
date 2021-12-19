@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {SettingsPopupComponent} from "../settings-popup/settings-popup.component";
 import {MatDialog} from "@angular/material/dialog";
+import {PomodoroService} from "../pomodoro.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-pomodoro-app',
@@ -10,8 +12,25 @@ import {MatDialog} from "@angular/material/dialog";
 export class PomodoroAppComponent implements OnInit {
   public timerControlAction: any;
   public change: any
+  no: number =1;
+// Subscription
+  private componentSubscription: Subscription;
+  constructor(private dialog: MatDialog,
+              private pomodoroService: PomodoroService) {
+    this.componentSubscription= this.pomodoroService.sampleSubscriber.subscribe((value) =>
+    {
+      if(value=='pomodoro' && this.no<=3){
+        ++this.no;
+      }
 
-  constructor(private dialog: MatDialog) {
+      else if(value=='pomodoro' && this.no==4){
+        this.no = 1 ;
+      }
+
+    /* else if(value=='long-break' && this.no==4){
+        this.no =1 ;
+      }*/
+    });
   }
 
   ngOnInit(): void {

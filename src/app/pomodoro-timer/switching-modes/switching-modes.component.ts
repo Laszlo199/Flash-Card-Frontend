@@ -24,11 +24,11 @@ export class SwitchingModesComponent implements OnInit {
       }
       if(value=='short-break'){
         this.selectedVal = 'short-break'
-        this.pomodoroService.currentTimer = 'short-break'; // maybe here we inserted wrong
+        this.pomodoroService.currentTimer = 'short-break'; //
       }
       if(value=='long-break'){
         this.selectedVal = 'long-break'
-        this.pomodoroService.currentTimer = 'long-break'; // maybe here we inserted wrong
+        this.pomodoroService.currentTimer = 'long-break'; //
       }
     });
   }

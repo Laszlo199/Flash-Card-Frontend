@@ -37,3 +37,12 @@
   /*  background-color: #6C6C6C;*/
 }
 
+.counter{
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+
+}
+

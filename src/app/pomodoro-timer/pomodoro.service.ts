@@ -9,7 +9,7 @@ export class PomodoroService {
   private _pomodoroTime :number = 25;
   private _shortBreakTime :number = 5;
   private _longBreakTime :number = 10;
-
+  private no:number =1;
 
   start1: string = 'Start';
   private isRunning: boolean = false;
@@ -40,9 +40,26 @@ export class PomodoroService {
       const percentage = ((this.timerStartValue - this._timerRemaining) /
         this.timerStartValue) * 100;
       if (percentage == 100) {
-        this.setPomodoroTimer();
+       /* this.setPomodoroTimer();
         this.sampleObservable.next("pomodoro");
-        this.completeTimer();
+        this.completeTimer();*/
+        if(this._currentTimer=='pomodoro' && this.no<=3){
+          this.no++;
+          this.sampleObservable.next("short-break");
+          this.nextShortBreak()
+        }
+        else if(this._currentTimer=='pomodoro' && this.no==4){
+         // this.no++;
+          this.nextLongBreak()
+        }
+       else if(this._currentTimer=='short-break'){
+          this.nextPomodoro()
+        }
+       else if(this._currentTimer=='long-break'){
+          this.no = 1;
+          this.nextPomodoro()
+        }
+
       }
     });
 
@@ -50,26 +67,27 @@ export class PomodoroService {
   }
 
   private nextPomodoro(){
+    this.completeTimer();
     this.setPomodoroTimer();
     this.sampleObservable.next("pomodoro");
-    this.completeTimer();
   }
 
   //change that
   private nextShortBreak(){
+    this.completeTimer();
     this.setShortBreakTimer();
     this.sampleObservable.next("short-break");
-    this.completeTimer();
   }
 
   private nextLongBreak(){
+    this.completeTimer();
     this.setLongBreakTimer();
     this.sampleObservable.next("long-break");
-    this.completeTimer();
   }
 
   private get timerStartValue() {
    return this._time * 60; // seconds
+   // return 2;
   }
 
 

@@ -10,5 +10,9 @@
       <app-timer [timerControlAction]="timerControlAction"></app-timer>
       <app-controls (timerControlEvent)="receiveAction($event)" [change]="change"></app-controls>
     </section>
+    <div class="counter">
+      <h1> #{{no}}</h1>
+    </div>
   </div>
 </div>
+
