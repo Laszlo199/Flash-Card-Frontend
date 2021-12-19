@@ -19,17 +19,14 @@ export class PomodoroAppComponent implements OnInit {
               private pomodoroService: PomodoroService) {
     this.componentSubscription= this.pomodoroService.sampleSubscriber.subscribe((value) =>
     {
-      if(value=='pomodoro' && this.no<=3){
+      if(value=='pomodoro1' && this.no<=3){
         ++this.no;
       }
 
-      else if(value=='pomodoro' && this.no==4){
+      else if(value=='pomodoro1' && this.no==4){
         this.no = 1 ;
       }
 
-    /* else if(value=='long-break' && this.no==4){
-        this.no =1 ;
-      }*/
     });
   }
 

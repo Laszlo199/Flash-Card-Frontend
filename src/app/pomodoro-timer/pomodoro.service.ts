@@ -45,7 +45,7 @@ export class PomodoroService {
         this.completeTimer();*/
         if(this._currentTimer=='pomodoro' && this.no<=3){
           this.no++;
-          this.sampleObservable.next("short-break");
+          //this.sampleObservable.next("short-break");
           this.nextShortBreak()
         }
         else if(this._currentTimer=='pomodoro' && this.no==4){
@@ -70,6 +70,7 @@ export class PomodoroService {
     this.completeTimer();
     this.setPomodoroTimer();
     this.sampleObservable.next("pomodoro");
+    this.sampleObservable.next("pomodoro1");
   }
 
   //change that
@@ -87,7 +88,7 @@ export class PomodoroService {
 
   private get timerStartValue() {
    return this._time * 60; // seconds
-   // return 2;
+   //return 2;
   }
 
 
