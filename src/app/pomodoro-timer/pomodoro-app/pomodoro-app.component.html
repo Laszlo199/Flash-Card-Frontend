@@ -1,5 +1,8 @@
 <div class="overall">
   <app-navbar-collections></app-navbar-collections>
+  <div class="settingsIcon">
+    <mat-icon (click)="openPopup()" class="icon" >settings</mat-icon>
+  </div>
   <div class="container bigger">
     <app-switching-modes (changeStartEvent)="receiveChangeStart($event)"
                          (timerControlEvent)="receiveAction($event)"></app-switching-modes>
@@ -7,5 +10,9 @@
       <app-timer [timerControlAction]="timerControlAction"></app-timer>
       <app-controls (timerControlEvent)="receiveAction($event)" [change]="change"></app-controls>
     </section>
+    <div class="counter">
+      <h1> #{{no}}</h1>
+    </div>
   </div>
 </div>
+

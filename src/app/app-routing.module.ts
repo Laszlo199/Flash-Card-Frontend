@@ -33,6 +33,11 @@ const routes: Routes = [
     canActivate:[AuthGuard]
   },
   {
+    path: "exercise-mode",
+    loadChildren: () => import('./exercise-mode/exercise-mode.module')
+      .then(f=>f.ExerciseModeModule)
+  },
+  {
     path: "overview",
     loadChildren: () => import('./overview/overview.module')
       .then(f=>f.OverviewModule),

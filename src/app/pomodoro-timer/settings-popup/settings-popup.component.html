@@ -1,0 +1,49 @@
+<div>
+  <h1 class="title" mat-dialog-title>Change time settings</h1>
+</div>
+
+<div>
+  <ul>
+    <li>
+      <h2 class="element pom">pomodoro time</h2>
+      <mat-form-field class="element" appearance="fill">
+        <mat-label>Selected time</mat-label>
+        <mat-select (selectionChange)="changePomodoroTime($event.value)" [(value)]="selectedValue" >
+          <mat-option [value]="ten">10 minutes</mat-option>
+          <mat-option [value]="twenty">20 minutes</mat-option>
+          <mat-option [value]="twentyFive">25 minutes</mat-option>
+          <!--<mat-option value=30>30 minutes</mat-option>
+          <mat-option value=45>45 minutes</mat-option>-->
+        </mat-select>
+      </mat-form-field>
+    </li>
+
+    <li>
+      <h2 class="element pom">short break</h2>
+      <mat-form-field class="element" appearance="fill" >
+        <mat-label>Selected time</mat-label>
+        <mat-select (selectionChange)="changeShortBreakTime($event.value)" [(value)]="selectedValueShort" >
+          <mat-option [value]="two">2 minutes</mat-option>
+          <mat-option [value]="five">5 minutes</mat-option>
+          <mat-option [value]="ten">10 minutes</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </li>
+
+    <li>
+      <h2 class="element pom">long break</h2>
+      <mat-form-field class="element" appearance="fill" >
+        <mat-label>Selected time</mat-label>
+        <mat-select (selectionChange)="changeLongBreakTime($event.value)" [(value)]="selectedValueLong" >
+          <mat-option [value]="ten">10 minutes</mat-option>
+          <mat-option [value]="fifteen">15 minutes</mat-option>
+          <mat-option [value]="twenty">20 minutes</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </li>
+
+  </ul>
+  <mat-dialog-actions>
+    <button class="closeBtn" tabindex="-1" mat-button mat-dialog-close="false">Close</button>
+  </mat-dialog-actions>
+</div>

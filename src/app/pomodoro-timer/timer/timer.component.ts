@@ -9,7 +9,7 @@ import {Subscription} from "rxjs";
 })
 export class TimerComponent implements OnChanges, OnInit {
   @Input() timerControlAction: string | undefined;
-  @Output() completedTimer = new EventEmitter();
+  @Output() completedTimer = new EventEmitter(); // we dont need that anymore ??
   // Subscription
   private componentSubscription: Subscription;
   private timerRemaining = 25 * 60;
@@ -17,7 +17,7 @@ export class TimerComponent implements OnChanges, OnInit {
   constructor(private pomodoroService: PomodoroService) {
     this.componentSubscription= this.pomodoroService.sampleSubscriber.subscribe(() =>
     {
-      this.pomodoroService.setPomodoroTimer();
+     // this.pomodoroService.setPomodoroTimer();
       this.refresh();
     });
   }

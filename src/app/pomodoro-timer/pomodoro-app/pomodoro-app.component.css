@@ -21,6 +21,17 @@
   transform: translate(-50%, -50%);
 }
 
+.settingsIcon{
+  float: right;
+  padding-right: 60px;
+  padding-top: 120px;
+
+}
+
+.icon{
+  font-size: 40px;
+}
+
 .smaller {
   background: #7b80f1;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -32,5 +43,14 @@
   width: 700px;
 
   /*  background-color: #6C6C6C;*/
+}
+
+.counter{
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+
 }
 

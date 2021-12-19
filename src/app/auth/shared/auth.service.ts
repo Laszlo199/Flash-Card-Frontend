@@ -3,11 +3,12 @@ import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import { TokenDto } from './token.dto';
 import {LoginDto} from "./login.dto";
-import {environment} from "../../../environments/environment";
 import {take, tap} from "rxjs/operators";
+import {environment} from "../../../environments/environment";
 
 const jwtToken = 'jwtToken';
 const userId = 'userId';
+const email = 'email';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,7 @@ export class AuthService {
         if(token && token.jwt){
           localStorage.setItem(jwtToken, token.jwt);
           localStorage.setItem(userId, token.userId.toString());
+          localStorage.setItem(email, loginDto.email.toString());
           this.isLoggedIn$.next(token.jwt);
           this.isLoggedIn = true;
         }else {
@@ -52,6 +54,14 @@ export class AuthService {
       return +userIdAsString;
     }
     return -1
+  }
+
+  getUserName(): string{
+    var emailAsString = localStorage.getItem(email);
+    if(emailAsString) {
+      return emailAsString;
+    }
+    return "";
   }
 
 

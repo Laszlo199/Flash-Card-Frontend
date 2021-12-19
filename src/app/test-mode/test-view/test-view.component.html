@@ -16,9 +16,12 @@
 
   <div class="content">
     <div class="card">
-      <h1>{{cards[currentCardIndex].question}}</h1>
+      <h1 *ngIf="!showAnswerFirst">{{cards[currentCardIndex].question}}</h1>
+      <h1 *ngIf="showAnswerFirst">{{cards[currentCardIndex].answer}}</h1>
+
       <div *ngIf="checked">
-        <h3 class="answer">{{cards[currentCardIndex].answer}}</h3>
+        <h3 *ngIf="!showAnswerFirst" class="answer">{{cards[currentCardIndex].answer}}</h3>
+        <h3 *ngIf="showAnswerFirst" class="answer">{{cards[currentCardIndex].question}}</h3>
         <div class="feedback-bar"
              [ngStyle]="answeredCorrectly? {'background-color' : 'mediumseagreen'} : {'background-color' : 'palevioletred'}">
           <p class="itm feedback">

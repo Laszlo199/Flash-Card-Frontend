@@ -6,6 +6,7 @@ import {CardDto} from "../../collections/shared/dtos/card/card.dto";
 import {SummaryService} from "../shared/summary.service";
 import {PostAttemptDto} from "../shared/dtos/post-attempt.dto";
 import {AuthService} from "../../auth/shared/auth.service";
+import {QuestionsService} from "../../shared/questions.service";
 
 
 @Component({
@@ -14,8 +15,8 @@ import {AuthService} from "../../auth/shared/auth.service";
   styleUrls: ['./test-view.component.css']
 })
 export class TestViewComponent implements OnInit {
+  showAnswerFirst :boolean =false;
   userId: number | undefined;
-
   deckId : number | undefined;
   deck: DeckDto | undefined;
   cards: CardDto[] | undefined;
@@ -35,13 +36,15 @@ export class TestViewComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private service: CollectionService,
               private router: Router, private summaryService: SummaryService,
-              private loginService: AuthService) { }
+              private loginService: AuthService,
+              private questionService: QuestionsService) { }
 
   ngOnInit(): void {
     // @ts-ignore
     this.deckId = +this.route.snapshot.paramMap.get('id');
     this.userId = this.loginService.getUserId();
     this.loadDeck();
+    this.showAnswerFirst = this.questionService.showAnswer
   }
 
   private loadDeck() {
@@ -58,7 +61,13 @@ export class TestViewComponent implements OnInit {
     if(!this.checked && this.answer && this.cards && this.userId) {
       this.checked = true;
 
-      if (this.answer.toLowerCase() == this.cards[this.currentCardIndex].answer.toLowerCase()) {
+      let card;
+      if(!this.showAnswerFirst)
+        card = this.cards[this.currentCardIndex].answer.toLowerCase();
+      else
+        card = this.cards[this.currentCardIndex].question.toLowerCase();
+
+      if (this.answer.toLowerCase() == card) {
         this.answeredCorrectly = true;
         this.correct++;
         this.correctCards.push(this.cards[this.currentCardIndex]);
@@ -114,7 +123,11 @@ export class TestViewComponent implements OnInit {
 
   showHint() {
     if (this.cards) {
-      this.answer = this.cards[this.currentCardIndex].answer.charAt(0);
+
+      if(this.showAnswerFirst)
+        this.answer = this.cards[this.currentCardIndex].question.charAt(0);
+      else
+        this.answer = this.cards[this.currentCardIndex].answer.charAt(0);
     }
   }
 
