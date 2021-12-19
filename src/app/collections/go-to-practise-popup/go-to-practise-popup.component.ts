@@ -32,7 +32,11 @@ export class GoToPractisePopupComponent implements OnInit {
   }
 
 
+
   onChange($event: any) {
     this.questionService.showAnswer = $event;
+  }
+  goToExerciseMode() {
+    this.router.navigateByUrl("/exercise-mode/"+ this.data.id)
   }
 }
