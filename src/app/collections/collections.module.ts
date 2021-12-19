@@ -24,6 +24,7 @@ import {MatSliderModule} from "@angular/material/slider";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatMenuModule} from "@angular/material/menu";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 @NgModule({
   declarations: [
@@ -47,20 +48,21 @@ import {MatMenuModule} from "@angular/material/menu";
     MatIconModule,
     NavbarCollectionsComponent
   ],
-  imports: [
-    CommonModule,
-    CollectionsRoutingModule,
-    FormsModule,
-    MatDialogModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatIconModule,
-    FormsModule,
-    MatSliderModule,
-    MatTabsModule,
-    MatButtonToggleModule,
-    MatMenuModule
-  ]
+    imports: [
+        CommonModule,
+        CollectionsRoutingModule,
+        FormsModule,
+        MatDialogModule,
+        MatButtonModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatIconModule,
+        FormsModule,
+        MatSliderModule,
+        MatTabsModule,
+        MatButtonToggleModule,
+        MatMenuModule,
+        MatSlideToggleModule
+    ]
 })
 export class CollectionsModule { }

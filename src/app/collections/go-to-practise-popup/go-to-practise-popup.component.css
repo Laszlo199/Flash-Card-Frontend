@@ -14,4 +14,31 @@ h2:hover{
   font-size: 20px;
 }
 
+.list{
+  list-style: none
+}
+
+.showQuestionsCont{
+
+}
+
+.showQuestionsBtn{
+  padding-top: 5px;
+  color: #7542de;
+  font-size: 26px;
+}
+
+hr.rounded {
+  border-top: 8px solid #444444;
+  border-radius: 5px;
+}
+
+.divider{
+  padding-top: 20px;
+  background-color: #939393;
+}
+
+.element{
+  padding-left: 15px;
+}
 
