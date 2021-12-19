@@ -18,6 +18,6 @@ export class PopularDecksComponent implements OnInit {
   }
 
   private loadDecks() {
-    this.decks$ = this.service.getAllPublic();
+    this.decks$ = this.service.getAllPublic(1, 3);
   }
 }
