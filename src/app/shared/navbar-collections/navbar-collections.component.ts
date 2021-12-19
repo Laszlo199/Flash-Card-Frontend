@@ -8,11 +8,13 @@ import {AuthService} from "../../auth/shared/auth.service";
   styleUrls: ['./navbar-collections.component.css']
 })
 export class NavbarCollectionsComponent implements OnInit {
+  userEmail = '';
 
   constructor(private router: Router ,
               private authService: AuthService) { }
 
   ngOnInit(): void {
+  this.userEmail = this.authService.getUserName();
   }
 
   /*goToCollections() {
