@@ -3,6 +3,8 @@
   margin: 0;
   padding: 0;
   background-color: #F5F6FA;
+  background-image: url("../../../assets/Images/blob-scene-haikei.svg");
+  background-size: cover;
 }
 
 .container {

@@ -10,7 +10,7 @@ export class HomePageService {
 
   constructor(private _http: HttpClient) { }
 
-  getAllPublic(): Observable<DecksDto[]>{
-    return this._http.get<DecksDto[]>("https://localhost:5001/Decks/GetAllPublic/")
+  getAllPublic(currentPage: number, itemsPrPage: number): Observable<DecksDto[]>{
+    return this._http.get<DecksDto[]>("https://localhost:5001/Decks/GetAllPublic?CurrentPage="+currentPage+"&ItemsPrPage="+itemsPrPage)
   }
 }

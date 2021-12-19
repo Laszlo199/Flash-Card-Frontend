@@ -27,8 +27,8 @@ export class CollectionCardComponent implements OnInit {
   openPractiseDialog() {
     const dialogRef= this.dialog.open(GoToPractisePopupComponent,
       {
-      height: '450px',
-      width: '600px',
+        height: '50vh',
+        width: '30vw',
         data: {
         id: this.deck?.id
       }

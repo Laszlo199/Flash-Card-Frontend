@@ -1,3 +1,6 @@
+.window {
+  padding-top: 2rem;
+}
 .title{
   text-align: center;
   font-size: 45px;
@@ -5,8 +8,22 @@
 }
 h2:hover{
   color: #3a3a3a;
+  cursor: pointer;
 }
 
+li {
+  color: white;
+}
+
+p {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+h2 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
 .closeBtn{
   display: block;
   margin: auto;

@@ -1,24 +1,147 @@
+.background {
+  background-color: #F5F6FA;
+}
 
+.navbar a {
+  display: inline-block;
+  padding: 10px;
+}
+
+.main-container{
+  margin-top: 10vh;
+  height: 100vh;
+  margin-inline: 0;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  height: 90vh;
+  scroll-snap-align: start;
+  /*border: black solid 2px;*/
+}
+
+.one {
+  background-image: url("../../../assets/Images/layered-waves-haikei4.svg");
+  background-size: cover;
+}
+
+.two {
+  background: rgb(194, 187, 239);
+  background: linear-gradient(186deg, rgba(194, 187, 239, 1) 0%, rgba(113, 93, 242, 1) 100%);
+  background-size: cover;
+}
+
+.three {
+  background-image: url("../../../assets/Images/blob-scene-haikei.svg");
+  background-size: cover;
+}
+
+.fourth {
+  background-image: url("../../../assets/Images/blob-scene-haikei-2.svg");
+  background-size: cover;
+  height: 100vh;
+}
 
 .introduction-container{
-  padding-top: 40px;
-  padding-right: 12%;
-  padding-left: 12% ;
+  margin-inline: 10vw;
   display: flex;
   justify-content: space-between;
-
+  align-items: center;
+  justify-items: center;
 }
 
 .introduction-container-el{
   flex: 1; /* additionally, equal width */
-  min-height: 300px;
-  padding: 1em;
-  padding-top: 20px;
-  /*border: solid;*/
-  min-width: 200px;
 
+  width: 40vw;
+  height: 25vw;
+
+  margin-top: 15vh;
 }
 
+.header-text {
+  padding-inline: 50px;
+  margin-top: 0;
+  padding-top: 4rem;
+  color: white;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.collections-container {
+  padding-top: 20vh;
+  text-align: center;
+}
+
+.header {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.coll-header {
+  color: black;
+}
+
+.features-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: auto;
+  text-align: center;
+  padding-top: 15vh;
+  padding-inline: 5vw;
+}
+
+.features-header {
+  flex-basis: 100%;
+}
+
+.more {
+  flex-basis: 100%;
+  font-weight: normal;
+}
+
+.feature-el {
+  display: inline-block;
+}
+
+.feature-img {
+  width: 20vw;
+  height: 25vh;
+  border-radius: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  transition: transform 1s;
+}
+.feature-img:hover{
+  transform: scale(1.1);
+}
+
+.features-container p {
+  font-weight: bold;
+}
+
+
+.aboutus-container {
+  padding-top: 20vh;
+  text-align: center;
+  width: 50vw;
+  margin-inline: auto;
+}
+
+.joinUs-container {
+  padding-top: 30vh;
+  text-align: center;
+}
 
 .iframe-container{
   position: relative;
@@ -40,49 +163,7 @@
   position: absolute;*/
 }
 
-/*here we have our collections + banner*/
-.section-1-container{
- /* border: solid saddlebrown;*/
-  padding-top: 100px;
-  padding-right: 12%;
-  padding-left: 12% ;
-  padding-bottom: 80px;
 
-}
-
-.section-1-container-banner1{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.section-3-container-banner{
-  /*border: solid;*/
-  padding: 20px;
-}
-
-.aboutUsText{
-  padding-right: 26%;
-  padding-left: 26%;
-}
-
-.section-3-container-banner1{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-
-.section-1-container-banner{
- /* border: solid;*/
-}
-
-.main-container{
-  padding-top: 70px;
-}
-.credentials{
-  padding-left: 19px;
-}
 
 /* CSS */
 .button-21 {
@@ -130,19 +211,6 @@
   background-position: -20px -20px;
 }
 
-.joinUs {
-  display: flex;
-  align-items: center;
-  justify-content: center
-}
-/*.joinUs {
-  margin: 0
-}*/
-
-.joinUs-container{
-padding-top: 40px;
-  padding-bottom: 40px;
-}
 
 .button-21:focus:not(:active) {
   box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;

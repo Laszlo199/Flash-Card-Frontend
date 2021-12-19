@@ -3,7 +3,9 @@
 body {  margin: 0; /*font-family: Roboto, "Helvetica Neue", sans-serif; */}
 
 mat-dialog-container {
-  background: #939393 !important;
+  /*background: #939393 !important;*/
+  background: rgb(194, 187, 239) !important;
+  background: linear-gradient(186deg, rgba(194, 187, 239, 1) 0%, rgba(113, 93, 242, 1) 100%) !important;
 }
 
 

@@ -1,9 +1,12 @@
 <div class="background">
-  <h1 class = "loginText"> Login</h1>
+  <div class = "loginText">
+  <h1>Login</h1>
+  <p>We are happy to see you back :)</p>
+  </div>
 <div class="LoginP">
 <form [formGroup]="loginForm" (ngSubmit)="login()">
 
-  <input class="emailField" placeholder="Email" id="email" type="text" formControlName="email">
+  <input class="emailField field" placeholder="Email" id="email" type="text" formControlName="email">
   <div *ngIf="email && email.invalid && (email.dirty || email.touched)"
        class="alert alert-danger">
     <div *ngIf="email.errors?.required">
@@ -11,7 +14,7 @@
     </div>
   </div>
 
-  <input class="passwordField" placeholder="Password" id="password" type="password" formControlName="password">
+  <input class="passwordField field" placeholder="Password" id="password" type="password" formControlName="password">
   <div *ngIf="password && password.invalid && (password.dirty || password.touched)"
        class="alert alert-danger">
     <div *ngIf="password.errors?.required">

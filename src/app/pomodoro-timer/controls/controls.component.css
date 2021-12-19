@@ -11,4 +11,11 @@
   height: 50px;
   position: fixed;
   bottom: 32px;
+
+  color: black;
+  background-color: #bbc3ef;
+}
+
+.btn:hover {
+  background-color: #d4d9f5;
 }

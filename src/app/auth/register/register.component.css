@@ -1,49 +1,93 @@
 .LoginP{
-  /* Auto Layout */
 
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 115px 30px;
-
+  padding-inline: 50px;
+  padding-top: 10vh;
 
   position: absolute;
-  width: 615px;
-  height: 662px;
-  right: 71px;
-  bottom: 119px;
+  width: 40vw;
+  height: 70vh;
+
+  right: 7vw;
+  bottom: 15vh;
 
   background: #FFFFFF;
-  border: 1px solid #000000;
+
   box-sizing: border-box;
-  box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25)
+  box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
+
+  animation-name: box;
+  animation-duration: 1s;
+}
+
+@keyframes box {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 15vh; opacity: 1}
 }
 .background{
-  position: -webkit-sticky;
-  width: 1400px;
-  height: 800px;
+  width: 100vw;
+  height: 100vh;
 
-  background: #FFFDFD;
-}
-.loginText{
+  background-image: url("../../../assets/Images/blob-scene-haikei3.svg");
+  background-size: cover;
+
   position: absolute;
-  left: 300px;
-  top: 70px;
-  background-color:#FFFFFF
 }
 
+.loginText{
+  position: relative;
+  left: 20vw;
+  top: 30vh;
+
+  animation-name: text;
+  animation-duration: 1s;
+}
+
+@keyframes text {
+  from {top: 5vh; opacity: 0;}
+  to {top: 30vh; opacity: 1}
+}
+
+.loginText span {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.log-text-join {
+  color: black;
+}
+
+.log-text-study {
+  color: #4F58FD;
+}
+
+
+.field {
+  width: 100%;
+  font-size: 1rem;
+  padding-bottom: 2px;
+  padding-top: 10px;
+  margin-block: 1rem;
+
+  border-bottom: solid #cccccc 2px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+.field:active {
+  outline: none;
+}
+
+/*
 .emailField{
-  position: static;
-  width: 500px;
-  height: 60px;
-  left: 30px;
-  top: 344px;
+
+
 
   background: #F8F7F7;
   border: 1px solid #000000;
   box-sizing: border-box;
 
-  /* Inside Auto Layout*/
+  /* Inside Auto Layout
   flex: none;
   order: 3;
   flex-grow: 0;
@@ -61,7 +105,7 @@
   border: 1px solid #000000;
   box-sizing: border-box;
 
-  /* Inside Auto Layout*/
+  /* Inside Auto Layout
 
   flex: none;
   order: 3;
@@ -70,12 +114,12 @@
 
 
 }
+*/
 
 .signupButton{
   /* Auto Layout */
 
-  background: #FFFFFF;
-  background-image: linear-gradient(-180deg, #FF7E31, #E62C03);
+  background-image: linear-gradient(-180deg, #7b80f1, #4c32f0);
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
   color: #FFFFFF;
@@ -100,21 +144,29 @@
   border: 0;
   transition: box-shadow .2s;
 
+  margin-top: 2rem;
+
 }
 
 .signButton:hover {
-  box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+  background-image: linear-gradient(-180deg, #d4d9f5, #7b80f1);
 }
 
 .alert{
-  margin: 5px;
   color: red;
-}
+  width: 100%;
 
+  margin-top: 0;
+  padding-top: 0;
+
+  font-size: 1rem;
+}
 input[type="errorText"]{
   border: none;
   background: transparent;
   color: #E62C03;
+  font-size: 1rem;
+  padding: 5px;
 }
 .errorText{
   pointer-events: none;

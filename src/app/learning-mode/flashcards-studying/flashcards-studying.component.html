@@ -6,9 +6,10 @@
 </div>
 
 <div class="back-link" (click)="backToCollections()">Back to collections</div>-->
+<app-navbar-collections></app-navbar-collections>
 <div class="container">
-  <app-navbar-collections></app-navbar-collections>
-  <div class="flashcard">
+  <div class="leave" (click)="leave()">leave</div>
+  <!--div class="flashcard"-->
     <div class="aa">
       <app-flashcard [question]="question" [flashcard]="flash"></app-flashcard>
     </div>
@@ -25,7 +26,7 @@
     <div class="rotateCont">
     <button class="rotateBtn" (click)="rotate()">Rotate</button>
     </div>
-  </div>
+  <!--/div-->
 
 </div>
 

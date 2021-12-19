@@ -1,5 +1,5 @@
 *{
-  background: #e5b038;
+
 }
 
 .card{
@@ -8,7 +8,6 @@
   height: 370px;
   position: relative;
 
-  display: block;
   margin-left: auto;
   margin-right: auto;
 
@@ -16,6 +15,7 @@
   align-items: center;
   justify-content: center;
 
+  transition: background-color 1s;
 
 }
 
@@ -28,4 +28,12 @@
 
 . answer, question{
   margin: 0;
+}
+
+.answer {
+  font-weight: normal;
+}
+
+.question {
+  font-weight: bold;
 }

@@ -15,6 +15,7 @@ const userId = 'userId';
 export class AuthService {
 
   isLoggedIn$ = new BehaviorSubject<string | null>(this.getToken());
+  isLoggedIn: boolean = false;
 
   constructor(private _http: HttpClient) { }
 
@@ -26,6 +27,7 @@ export class AuthService {
           localStorage.setItem(jwtToken, token.jwt);
           localStorage.setItem(userId, token.userId.toString());
           this.isLoggedIn$.next(token.jwt);
+          this.isLoggedIn = true;
         }else {
           this.logout();
         }
@@ -57,6 +59,7 @@ export class AuthService {
     localStorage.removeItem(userId);
     localStorage.removeItem(jwtToken);
     this.isLoggedIn$.next(null);
+    this.isLoggedIn = false;
     return of(true).pipe(take(1));
   }
 }

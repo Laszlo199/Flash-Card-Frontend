@@ -1,4 +1,5 @@
-<div>
+<div class="window">
+  <div>
 <h1 class="title" mat-dialog-title>Choose mode</h1>
 </div>
 
@@ -6,21 +7,22 @@
   <ul>
     <li>
       <h2 mat-dialog-close="true" (click)="goToLearningMode()">Learning mode</h2>
-      review all cards
+      <p>review all cards</p>
     </li>
 
     <li>
-      <h2 mat-dialog-close="true" (click)="goToTestMode()">test mode</h2>
-      see a card and give an answer
+      <h2 mat-dialog-close="true" (click)="goToTestMode()">Test mode</h2>
+      <p>see a card and give an answer</p>
     </li>
 
     <li>
-      <h2>exercise mode</h2>
-      go though all cards as long as all of them are answered correctly
+      <h2>Exercise mode</h2>
+      <p>go though all cards as long as all of them are answered correctly</p>
     </li>
 
   </ul>
   <mat-dialog-actions>
     <button class="closeBtn" tabindex="-1" mat-button mat-dialog-close="false">Close</button>
   </mat-dialog-actions>
+</div>
 </div>

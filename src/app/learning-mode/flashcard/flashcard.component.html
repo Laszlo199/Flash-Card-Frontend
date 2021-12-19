@@ -1,4 +1,6 @@
-<div class="card shadow" *ngIf="flashcard">
-  <h1 class="question" *ngIf="!question">  Question: {{flashcard.question}}</h1>
-  <h1 class="answer" *ngIf="question">Answer: {{flashcard.answer}}</h1>
+<div class="card shadow" *ngIf="flashcard"
+     [style.backgroundColor]="!question ? '#7b80f1' : 'white'"
+     [style.color]="!question? 'white' : 'black'">
+  <h1 class="question" *ngIf="!question">{{flashcard.question}}</h1>
+  <h1 class="answer" *ngIf="question">{{flashcard.answer}}</h1>
 </div>
