@@ -17,7 +17,7 @@ export class TimerComponent implements OnChanges, OnInit {
   constructor(private pomodoroService: PomodoroService) {
     this.componentSubscription= this.pomodoroService.sampleSubscriber.subscribe(() =>
     {
-      this.pomodoroService.setPomodoroTimer();
+     // this.pomodoroService.setPomodoroTimer();
       this.refresh();
     });
   }

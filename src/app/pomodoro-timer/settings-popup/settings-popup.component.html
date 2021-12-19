@@ -19,8 +19,15 @@
     </li>
 
     <li>
-      <h2 mat-dialog-close="true" >test mode</h2>
-      see a card and give an answer
+      <h2 class="element pom">short break</h2>
+      <mat-form-field class="element" appearance="fill" >
+        <mat-label>Selected time</mat-label>
+        <mat-select (selectionChange)="changeShortBreakTime($event.value)" [(value)]="selectedValueShort" >
+          <mat-option [value]="two">2 minutes</mat-option>
+          <mat-option [value]="five">5 minutes</mat-option>
+          <mat-option [value]="ten">10 minutes</mat-option>
+        </mat-select>
+      </mat-form-field>
     </li>
 
     <li>

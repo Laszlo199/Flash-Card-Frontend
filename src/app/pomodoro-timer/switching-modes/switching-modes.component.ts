@@ -16,10 +16,12 @@ export class SwitchingModesComponent implements OnInit {
   // Subscription
   private componentSubscription: Subscription;
   constructor(private pomodoroService: PomodoroService) {
-    this.componentSubscription= this.pomodoroService.sampleSubscriber.subscribe(() =>
+    this.componentSubscription= this.pomodoroService.sampleSubscriber.subscribe((value) =>
     {
-     this.selectedVal = 'pomodoro'
+      if(value=='pomodoro'){
+      this.selectedVal = 'pomodoro'
       this.pomodoroService.currentTimer = 'Pomodoro';
+      }
     });
   }
 

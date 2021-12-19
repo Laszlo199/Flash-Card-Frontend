@@ -23,7 +23,7 @@ export class PomodoroService {
   private stop$ = new Subject();
   private audio: HTMLAudioElement | undefined;
 
-  private sampleObservable = new Subject<boolean>();
+  private sampleObservable = new Subject<string>();
   // Observable boolean streams
   sampleSubscriber = this.sampleObservable.asObservable();
 
@@ -40,9 +40,9 @@ export class PomodoroService {
       const percentage = ((this.timerStartValue - this._timerRemaining) /
         this.timerStartValue) * 100;
       if (percentage == 100) {
-        this.sampleObservable.next();
+        this.setPomodoroTimer();
+        this.sampleObservable.next("pomodoro");
         this.completeTimer();
-
       }
     });
 
@@ -51,8 +51,6 @@ export class PomodoroService {
 
   private get timerStartValue() {
     return this._time * 60; // seconds
-
-
   }
 
 
@@ -138,6 +136,11 @@ export class PomodoroService {
 
   set pomodoroTime(value: number) {
     this._pomodoroTime = value;
+    this.setPomodoroTimer()
+    this.refresh()
+  }
+
+  refresh(){
     if(this.start1=="Start") {
       this.sampleObservable.next();
     }
@@ -145,10 +148,14 @@ export class PomodoroService {
 
   get shortBreakTime(): number {
     return this._shortBreakTime;
+
   }
 
   set shortBreakTime(value: number) {
     this._shortBreakTime = value;
+    this._time = value;
+    this._timerRemaining = this.timerStartValue;
+    this.refresh()
   }
 
   get longBreakTime(): number {
@@ -157,6 +164,7 @@ export class PomodoroService {
 
   set longBreakTime(value: number) {
     this._longBreakTime = value;
+    this.refresh()
   }
 
 

@@ -14,7 +14,11 @@ export class SettingsPopupComponent implements OnInit {
   ten: number =10;
   twenty: number = 20;
   twentyFive: number = 25;
+  two: number =2;
+  five: number =5;
   selectedValue: any;
+  selectedValueShort: any;
+
 
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: PomodoroData,
@@ -24,6 +28,7 @@ export class SettingsPopupComponent implements OnInit {
     this.data.pomodoroTime = this.pomodoroService.pomodoroTime;
     this.getSelectedPom()
     this.data.shortBreakTime = this.pomodoroService.shortBreakTime;
+    this.getSelectedShort();
     this.data.longBreakTime = this.pomodoroService.longBreakTime;
   }
 
@@ -39,5 +44,18 @@ export class SettingsPopupComponent implements OnInit {
 
   changePomodoroTime(value: any) {
     this.pomodoroService.pomodoroTime = value;
+  }
+
+  changeShortBreakTime(value: any) {
+    this.pomodoroService.shortBreakTime = value;
+  }
+
+  private getSelectedShort() {
+    if(this.data.shortBreakTime==2)
+      this.selectedValueShort = this.two;
+    if(this.data.shortBreakTime==5)
+      this.selectedValueShort = this.five;
+    if(this.data.shortBreakTime==10)
+      this.selectedValueShort = this.ten;
   }
 }
