@@ -1,13 +1,13 @@
  <div class="container">
     <nav>
       <div class="logo">
-      <h2>Memorise</h2>
+      <h2 class="logo">Memorise</h2>
       </div>
       <ul class="list">
         <li><a routerLink="/home">Home</a></li>
         <li><a >About us </a></li>
         <li><a >Features</a></li>
-        <li><a routerLink="/auth/login">Sign in</a></li>
+        <li><a routerLink="/auth/register">Sign in</a></li>
       </ul>
       <div class="button-logIn">
         <button routerLink="/auth/login" class="button-21" role="button" *ngIf="!jwt else logoutTemp"> Log in</button>

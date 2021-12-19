@@ -9,6 +9,14 @@
   width: 100%;
   height: 10vh;
   position: fixed;
+
+  background: #4c32f0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: whitesmoke;
+  margin-block: auto;
 }
 
 ul, li, a {
@@ -50,8 +58,7 @@ nav {
   width: 150px;
   align-items: center;
   appearance: none;
-  background-color: #3EB2FD;
-  background-image: linear-gradient(1deg, #4F58FD, #149BF3 99%);
+  background-image: linear-gradient(-180deg, #7b80f1, #4c32f0);
   background-size: calc(100% + 20px) calc(100% + 20px);
   border-radius: 100px;
   border-width: 0;
@@ -106,21 +113,21 @@ nav li {
 }
 
 nav a {
-  color: #444;
+  color: #7b80f1;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 14px;
 }
 
 nav a:hover {
-  color: #000;
+  color: white;
 }
 
 nav a::before {
   content: '';
   display: block;
   height: 5px;
-  background-color: #444;
+  background-color: #C4BBF3;
 
   position: absolute;
   top: 0;
@@ -131,4 +138,9 @@ nav a::before {
 
 nav a:hover::before {
   width: 100%;
+}
+
+li a{
+  color: #C4BBF3;
+  cursor: pointer;
 }

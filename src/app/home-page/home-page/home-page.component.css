@@ -22,7 +22,7 @@ section {
 }
 
 .one {
-  background-image: url("../../../assets/Images/layered-waves-haikei4.svg");
+  background-image: url("../../../assets/Images/layered-waves-haikei.svg");
   background-size: cover;
 }
 
@@ -170,8 +170,7 @@ section {
   /*width: 80%;*/
   align-items: center;
   appearance: none;
-  background-color: #3EB2FD;
-  background-image: linear-gradient(1deg, #4F58FD, #149BF3 99%);
+  background-image: linear-gradient(-180deg, #7b80f1, #4c32f0);
   background-size: calc(100% + 20px) calc(100% + 20px);
   border-radius: 100px;
   border-width: 0;
@@ -200,6 +199,8 @@ section {
 
 .sign-in-button{
   width: 80%;
+  background-image: linear-gradient(-180deg, whitesmoke, #7b80f1);
+  color: black;
 }
 
 .button-21:active,
