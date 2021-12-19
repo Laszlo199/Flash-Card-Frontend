@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../../auth/shared/auth.service";
 
@@ -15,12 +15,16 @@ export class NavbarCollectionsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToCollections() {
+  /*goToCollections() {
     this.router.navigateByUrl("/collections");
-  }
+  }*/
 
   logOut() {
     this.router.navigateByUrl("/home");
     this.authService.logout();
+  }
+
+  goToOverview() {
+    this.router.navigateByUrl("/overview")
   }
 }

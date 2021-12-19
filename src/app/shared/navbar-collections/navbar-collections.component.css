@@ -61,9 +61,15 @@ mat-button-toggle-group{
   font-size: 25px;
 }
 
-.navbar{
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the bottom of the page */
+.navbar {
+  z-index: 1; /*Add this*/
+  position: fixed; /* Set the navbar-collections to fixed position */
+  top: 0; /* Position the navbar-collections at the bottom of the page */
+  left: 0;
   width: 100%; /* Full width */
+}
+
+*. {
+  margin: 0;
 }
 

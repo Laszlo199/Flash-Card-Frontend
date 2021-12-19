@@ -1,0 +1,120 @@
+.background {
+  margin: 0;
+  padding: 0;
+  background-color: #F5F6FA;
+}
+
+.container {
+  height: 100vh;
+  margin-inline: 0;
+  padding-inline: 20px;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+section{
+  scroll-snap-align: start;
+}
+
+.one {
+  height: 100vh;
+}
+.two {
+  height: 150vh;
+}
+
+.title-activity{
+  text-align: center;
+  font-size: 2rem;
+  padding-top: 20vh;
+}
+
+.title-collections {
+  text-align: center;
+  font-size: 2rem;
+  padding-top: 10vh;
+}
+
+.decks {
+  display: grid;
+  grid-template-columns: 300px 300px 300px 300px;
+  grid-gap: 30px;
+  justify-content: start;
+  align-items: start;
+}
+
+.deck {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 170px;
+
+  transition: transform 1s;
+}
+
+.deck:hover {
+  transform: scale(1.02);
+}
+
+.activities {
+  display: grid;
+  grid-template-columns: 150px 150px 150px 150px 150px 150px;
+  grid-gap: 30px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.activity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+}
+
+.arrow {
+  width: 5vw;
+  color: #D2D2DD;
+  font-size: 2rem;
+  text-align: center;
+  margin-block: auto;
+}
+.arrow:hover {
+  color: #6C6C6C;
+  cursor: pointer;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.activity-box {
+  width: 80vw;
+  margin: 0;
+  padding: 0;
+}
+
+.main-activity {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  height: 30vh;
+}
+
+.streak {
+  text-align: center;
+  width: 200px;
+  padding: 20px;
+  margin-inline: auto;
+}
+
+.heading {
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+
+
+
+

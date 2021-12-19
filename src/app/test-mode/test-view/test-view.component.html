@@ -1,4 +1,7 @@
+<div class="background">
+
 <div class="container" *ngIf="deck && cards">
+  <app-navbar-collections></app-navbar-collections>
   <div class="top-left">
     <p>practising {{deck.name}}</p>
     <p class="leave" (click)="leave()">leave</p>
@@ -40,8 +43,6 @@
     <p class="item button" (click)="checkAnswer()">check</p>
   </div>
 
-
-
-
+</div>
 
 </div>

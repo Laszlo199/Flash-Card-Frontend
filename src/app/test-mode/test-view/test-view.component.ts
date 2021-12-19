@@ -5,6 +5,7 @@ import {DeckDto} from "../../collections/shared/dtos/deck/deck.dto";
 import {CardDto} from "../../collections/shared/dtos/card/card.dto";
 import {SummaryService} from "../shared/summary.service";
 import {PostAttemptDto} from "../shared/dtos/post-attempt.dto";
+import {AuthService} from "../../auth/shared/auth.service";
 
 
 @Component({
@@ -13,6 +14,7 @@ import {PostAttemptDto} from "../shared/dtos/post-attempt.dto";
   styleUrls: ['./test-view.component.css']
 })
 export class TestViewComponent implements OnInit {
+  userId: number | undefined;
 
   deckId : number | undefined;
   deck: DeckDto | undefined;
@@ -32,11 +34,13 @@ export class TestViewComponent implements OnInit {
   answeredCorrectly: boolean | undefined;
 
   constructor(private route: ActivatedRoute, private service: CollectionService,
-              private router: Router, private summaryService: SummaryService) { }
+              private router: Router, private summaryService: SummaryService,
+              private loginService: AuthService) { }
 
   ngOnInit(): void {
     // @ts-ignore
     this.deckId = +this.route.snapshot.paramMap.get('id');
+    this.userId = this.loginService.getUserId();
     this.loadDeck();
   }
 
@@ -51,7 +55,7 @@ export class TestViewComponent implements OnInit {
   }
 
   checkAnswer() {
-    if(!this.checked && this.answer && this.cards) {
+    if(!this.checked && this.answer && this.cards && this.userId) {
       this.checked = true;
 
       if (this.answer.toLowerCase() == this.cards[this.currentCardIndex].answer.toLowerCase()) {
@@ -60,7 +64,7 @@ export class TestViewComponent implements OnInit {
         this.correctCards.push(this.cards[this.currentCardIndex]);
 
         let attempt: PostAttemptDto = {
-          "userId": 1,
+          "userId": this.userId,
           "cardId": this.cards[this.currentCardIndex].id,
           "wasCorrect": true,
           "date": new Date()
@@ -76,7 +80,7 @@ export class TestViewComponent implements OnInit {
         this.wrongCards.push(this.cards[this.currentCardIndex]);
 
         let attempt: PostAttemptDto = {
-          "userId": 1,
+          "userId": this.userId,
           "cardId": this.cards[this.currentCardIndex].id,
           "wasCorrect": false,
           "date": new Date()

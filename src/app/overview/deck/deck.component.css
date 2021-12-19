@@ -1,0 +1,32 @@
+.deck {
+  width: 100%;
+  height: 180px;
+  padding-inline: 20px;
+
+  border-radius: 15px;
+
+  background-color: white;
+  /*box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;*/
+}
+
+p {
+  background-color: white;
+  color: black;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.link {
+  background-color: white;
+
+  animation-name: show-link;
+  animation-duration: 1s;
+}
+
+@keyframes show-link {
+  from {top: -20px; opacity: 0;}
+  to {top: 0;opacity: 100;}
+}

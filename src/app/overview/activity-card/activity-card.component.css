@@ -1,0 +1,58 @@
+.card {
+  width: 100%;
+  height: 100px;
+
+  transition: height 1s;
+}
+
+.card:hover {
+  background-color: white;
+  height: 150px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 20px;
+  padding-top: 0;
+}
+
+p {
+  text-align: center;
+  background-color: transparent;
+  margin-block: 3px;
+}
+
+.main {
+  margin-block: auto;
+  background-color: transparent;
+  width: 100px;
+  height: 100px;
+  margin-inline: 25px;
+}
+
+.card:hover .main {
+  width: 150px;
+  margin: 0;
+}
+
+.day {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 0;
+  padding-top: 20px;
+}
+
+.day-of-week {
+  color: mediumpurple;
+}
+
+.details {
+  position: relative;
+  background-color: transparent;
+
+  animation-name: show-details;
+  animation-duration: 1s;
+}
+
+@keyframes show-details {
+  0%{opacity: 0;}
+  50%{opacity: 0;}
+  100% {opacity: 100;}
+}

@@ -1,4 +1,8 @@
 <app-navbar-collections></app-navbar-collections>
+
+<div class="background">
+
+  <!--HEADER-->
 <div class="collections">
   <div class="header">
     <div class="item" *ngIf="!publicShown">
@@ -19,11 +23,11 @@
         (click)="showPublic()"
       >Public collections</h1>
     </div>
-    <!-- Popup window -->
+    <!-- POPUP WINDOW -->
     <div id="popup" class="modal"
          [ngStyle]="popupShown? {'display' : 'block'} : {'display' : 'none'}">
-      <div class="modal-content">
-        <app-new-deck-popup [userId]="1"></app-new-deck-popup>
+      <div class="modal-content" *ngIf="popupShown">
+        <app-new-deck-popup></app-new-deck-popup>
       </div>
     </div>
 
@@ -37,10 +41,12 @@
 
   <br>
   <br>
-  <div class="decks-list" *ngIf="decks$ | async as decks else loading">
+  <!--DECKS LIST-->
+  <div class="decks-list" *ngIf="decks$ | async as decks">
+    <span class="no-decks-info" *ngIf="decks.length==0">you don't have any decks yet, click a plus icon above to create one</span>
     <ng-container *ngFor="let deck of decks">
       <div *ngIf="publicShown">
-        <app-public-collection-card class="card" [deck]="deck" [userId]="userId" (click)="goToCollectionPreview(deck.id)"></app-public-collection-card>
+        <app-public-collection-card class="card" [deck]="deck" (click)="goToCollectionPreview(deck.id)"></app-public-collection-card>
       </div>
       <div *ngIf="!publicShown">
         <app-collection-card class="card" [deck]="deck" (click)="goToCollection(deck.id)"></app-collection-card>
@@ -51,6 +57,5 @@
   <p class="page-nav" *ngIf="publicShown && (decks$| async)?.length == itemsPerPage" (click)="nextPage()">next page >></p>
 </div>
 
-<ng-template #loading>
-  <p>no data</p>
-</ng-template>
+</div>
+

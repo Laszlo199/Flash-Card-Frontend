@@ -6,15 +6,17 @@
      Memorise
    </span>
   <span class="toggle-span">
-    <button class="allCollectionsBtn" (click)="goToCollections()" mat-button value="all_collections">all collections</button>
-    <button class="profileOvBtn" mat-button value="profile_overview">profile overview</button>
+    <button class="allCollectionsBtn" mat-button routerLink="/collections"
+            value="all_collections">all collections</button>
+    <button class="profileOvBtn" mat-button value="profile_overview" routerLink="/overview">profile overview</button>
+    <button class="profileOvBtn" mat-button routerLink="/pomodoro-timer">pomodoro timer</button>
   </span>
 
   <span class="textt">kuba2001  </span>
   <span class="user-info">
     <span class="imageBtn">
       <button class="imageBtn" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-    <img  src="assets/Images/avatar.png" alt="Avatar" class="avatar">
+    <img alt="Avatar" class="avatar" src="../../../assets/Images/avatar.png">
        </button>
       </span>
       <mat-menu #menu="matMenu">
@@ -28,6 +30,5 @@
         </button>
       </mat-menu>
    </span>
-
 </mat-toolbar>
 
