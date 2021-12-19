@@ -31,8 +31,15 @@
     </li>
 
     <li>
-      <h2>exercise mode</h2>
-      go though all cards as long as all of them are answered correctly
+      <h2 class="element pom">long break</h2>
+      <mat-form-field class="element" appearance="fill" >
+        <mat-label>Selected time</mat-label>
+        <mat-select (selectionChange)="changeLongBreakTime($event.value)" [(value)]="selectedValueLong" >
+          <mat-option [value]="ten">10 minutes</mat-option>
+          <mat-option [value]="fifteen">15 minutes</mat-option>
+          <mat-option [value]="twenty">20 minutes</mat-option>
+        </mat-select>
+      </mat-form-field>
     </li>
 
   </ul>

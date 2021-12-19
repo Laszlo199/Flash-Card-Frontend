@@ -22,6 +22,14 @@ export class SwitchingModesComponent implements OnInit {
       this.selectedVal = 'pomodoro'
       this.pomodoroService.currentTimer = 'Pomodoro';
       }
+      if(value=='short-break'){
+        this.selectedVal = 'short-break'
+        this.pomodoroService.currentTimer = 'Short-break'; // maybe here we inserted wrong
+      }
+      if(value=='long-break'){
+        this.selectedVal = 'long-break'
+        this.pomodoroService.currentTimer = 'long-break'; // maybe here we inserted wrong
+      }
     });
   }
 

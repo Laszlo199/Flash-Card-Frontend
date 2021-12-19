@@ -11,13 +11,15 @@ import {PomodoroService} from "../pomodoro.service";
   styleUrls: ['./settings-popup.component.css']
 })
 export class SettingsPopupComponent implements OnInit {
-  ten: number =10;
-  twenty: number = 20;
-  twentyFive: number = 25;
-  two: number =2;
-  five: number =5;
+ readonly ten: number =10;
+  readonly twenty: number = 20;
+  readonly twentyFive: number = 25;
+  readonly two: number =2;
+  readonly five: number =5;
+  readonly fifteen: number =15;
   selectedValue: any;
   selectedValueShort: any;
+  selectedValueLong: any;
 
 
 
@@ -30,6 +32,7 @@ export class SettingsPopupComponent implements OnInit {
     this.data.shortBreakTime = this.pomodoroService.shortBreakTime;
     this.getSelectedShort();
     this.data.longBreakTime = this.pomodoroService.longBreakTime;
+    this.getSelectedLong();
   }
 
   getSelectedPom(){
@@ -57,5 +60,18 @@ export class SettingsPopupComponent implements OnInit {
       this.selectedValueShort = this.five;
     if(this.data.shortBreakTime==10)
       this.selectedValueShort = this.ten;
+  }
+
+  changeLongBreakTime(value: any) {
+    this.pomodoroService.longBreakTime = value;
+  }
+
+  private getSelectedLong() {
+    if(this.data.longBreakTime==10)
+      this.selectedValueLong = this.ten;
+    if(this.data.longBreakTime==15)
+      this.selectedValueLong = this.fifteen;
+    if(this.data.longBreakTime==20)
+      this.selectedValueLong = this.twenty;
   }
 }
