@@ -20,11 +20,11 @@ export class SwitchingModesComponent implements OnInit {
     {
       if(value=='pomodoro'){
       this.selectedVal = 'pomodoro'
-      this.pomodoroService.currentTimer = 'Pomodoro';
+      this.pomodoroService.currentTimer = 'pomodoro';
       }
       if(value=='short-break'){
         this.selectedVal = 'short-break'
-        this.pomodoroService.currentTimer = 'Short-break'; // maybe here we inserted wrong
+        this.pomodoroService.currentTimer = 'short-break'; // maybe here we inserted wrong
       }
       if(value=='long-break'){
         this.selectedVal = 'long-break'

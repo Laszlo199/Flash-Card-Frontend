@@ -49,6 +49,25 @@ export class PomodoroService {
     this.stop(); // initially stop
   }
 
+  private nextPomodoro(){
+    this.setPomodoroTimer();
+    this.sampleObservable.next("pomodoro");
+    this.completeTimer();
+  }
+
+  //change that
+  private nextShortBreak(){
+    this.setShortBreakTimer();
+    this.sampleObservable.next("short-break");
+    this.completeTimer();
+  }
+
+  private nextLongBreak(){
+    this.setLongBreakTimer();
+    this.sampleObservable.next("long-break");
+    this.completeTimer();
+  }
+
   private get timerStartValue() {
    return this._time * 60; // seconds
   }
@@ -136,16 +155,15 @@ export class PomodoroService {
 
   set pomodoroTime(value: number) {
     this._pomodoroTime = value;
-    if(this.start1=='Start') {
+    if(this.start1=='Start' && this._currentTimer=='pomodoro') {
       this.setPomodoroTimer()
+      this.refresh('pomodoro')
     }
-    this.refresh('pomodoro')
+
   }
 
   refresh(val:string){
-    if(this.start1=='Start') {
       this.sampleObservable.next(val);
-    }
   }
 
   get shortBreakTime(): number {
@@ -154,10 +172,11 @@ export class PomodoroService {
 
   set shortBreakTime(value: number) {
     this._shortBreakTime = value;
-    if(this.start1=='Start') {
+    if(this.start1=='Start' && this._currentTimer=='short-break') {
       this.setShortBreakTimer()
+      this.refresh('short-break')
     }
-    this.refresh('short-break')
+
   }
 
   get longBreakTime(): number {
@@ -166,10 +185,11 @@ export class PomodoroService {
 
   set longBreakTime(value: number) {
     this._longBreakTime = value;
-    if(this.start1=='Start') {
+    if(this.start1=='Start' && this._currentTimer=='long-break') {
       this.setLongBreakTimer()
+      this.refresh('long-break')
     }
-    this.refresh('long-break')
+
   }
 
 }
