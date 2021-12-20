@@ -102,8 +102,8 @@ export class CollectionDetailsComponent implements OnInit {
     /*this.router.navigateByUrl("/test-mode/"+this.deckId);*/
     const dialogRef= this.dialog.open(GoToPractisePopupComponent,
       {
-        height: '450px',
-        width: '600px',
+        height: '50vh',
+        width: '30vw',
         data: {
           id: this.deckId
         }

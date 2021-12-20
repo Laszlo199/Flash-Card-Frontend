@@ -48,13 +48,27 @@ mat-button-toggle-group{
 
 .allCollectionsBtn{
   padding-top: 5px;
-  font-size: 20px;
+  cursor: pointer;
 }
 
 .profileOvBtn{
   padding-left: 30px;
   padding-top: 5px;
-  font-size: 20px;
+  cursor: pointer;
+}
+
+.allCollectionsBtn:hover {
+  color: black;
+}
+
+.profileOvBtn:hover{
+  color: black;
+}
+
+span {
+  color: black;
+  font-weight: normal;
+  font-size: 1rem;
 }
 
 .logoName{
@@ -67,6 +81,7 @@ mat-button-toggle-group{
   top: 0; /* Position the navbar-collections at the bottom of the page */
   left: 0;
   width: 100%; /* Full width */
+  background-color: #F5F6FA;
 }
 
 *. {

@@ -1,7 +1,9 @@
-<div class="containerForButton">
-    <div class="exit">
-      <h1 class="exit" (click)="Back()"><-Exit</h1>
-    </div>
+<app-navbar-collections></app-navbar-collections>
+
+<div class="background">
+
+  <h1 class="exit" (click)="Back()">Exit</h1>
+
 
 <div class="container">
   <div class="card" *ngIf="deck && cards">
@@ -17,25 +19,21 @@
   </div>
   </div>
 
-
-  <div class="idontKnow" (click)="idontKnow()">
-    <p>Don't know</p>
-  </div>
-
   <input class="textField" placeholder="Type the answer..." [(ngModel)]="answer">
 
 
-  <div class="checkButton" (click)="toggle()" (click)="checkAnswer()">
+  <div class="buttons">
+  <div class="checkButton btn" (click)="toggle()" (click)="checkAnswer()">
     <p>Check</p>
+  </div>
+  <div class="idontKnow btn" (click)="idontKnow()">
+    <p>Don't know</p>
+  </div>
   </div>
 
 </div>
 
-
-
-
 </div>
-
 
 
 

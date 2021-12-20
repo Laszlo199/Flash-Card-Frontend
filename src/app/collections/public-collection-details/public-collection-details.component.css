@@ -2,11 +2,14 @@
   margin: 0;
   padding: 0;
   background-color: #F5F6FA;
+  height: 100vh;
+  background-image: url("../../../assets/Images/blob-scene-haikei.svg");
+  background-size: cover;
 }
 
 .container {
   text-align: center;
-  margin-top: 10vh;
+  padding-top: 10vh;
 
   position: relative;
 }

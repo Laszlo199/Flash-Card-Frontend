@@ -7,26 +7,31 @@
 .container {
   height: 100vh;
   margin-inline: 0;
-  padding-inline: 20px;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
 }
 
 section{
   scroll-snap-align: start;
+  padding-inline: 20px;
 }
 
 .one {
   height: 100vh;
+  background-image: url("../../../assets/Images/layered-waves-haikei3.svg");
+  background-size: cover;
 }
 .two {
   height: 150vh;
+  background-image: url("../../../assets/Images/layered-waves-haikei2.svg");
+  background-size: cover;
 }
 
 .title-activity{
   text-align: center;
   font-size: 2rem;
   padding-top: 20vh;
+  color: black;
 }
 
 .title-collections {

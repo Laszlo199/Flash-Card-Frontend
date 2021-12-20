@@ -60,4 +60,9 @@ export class FlashcardsStudyingComponent implements OnInit {
   backToCollections() {
     this.router.navigateByUrl("/collections");
   }
+
+  leave() {
+    if(confirm("Are you sure you want to leave?") && this.deckId)
+      this.router.navigateByUrl("/collections/"+this.deckId);
+  }
 }

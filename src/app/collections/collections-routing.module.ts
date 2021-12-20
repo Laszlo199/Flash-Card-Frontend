@@ -8,15 +8,15 @@ import {PublicCollectionDetailsComponent} from "./public-collection-details/publ
 const routes: Routes = [
   {
     path: '',
-    component: CollectionsListComponent, canActivate:[AuthGuard]
+    component: CollectionsListComponent
   },
   {
     path: 'preview/:id',
-    component: PublicCollectionDetailsComponent, canActivate:[AuthGuard]
+    component: PublicCollectionDetailsComponent
   },
   {
     path: ':id',
-    component: CollectionDetailsComponent, canActivate:[AuthGuard]
+    component: CollectionDetailsComponent
   }
 ];
 
