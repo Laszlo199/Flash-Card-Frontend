@@ -5,6 +5,7 @@ import {DeckOverview} from "../shared/deckOverview";
 import {AttemptDto} from "../../test-mode/shared/dtos/attempt.dto";
 import {ActivityDto} from "../shared/activity.dto";
 import {Observable} from "rxjs";
+import {AuthService} from "../../auth/shared/auth.service";
 
 @Component({
   selector: 'app-main-overview',
@@ -12,7 +13,7 @@ import {Observable} from "rxjs";
   styleUrls: ['./main-overview.component.css']
 })
 export class MainOverviewComponent implements OnInit {
-  userId = 1;
+  userId: number | undefined;
   bestDecks: Array<DeckOverview> = [];
   okDecks: Array<DeckOverview> = [];
   badDecks: Array<DeckOverview> = [];
@@ -23,10 +24,11 @@ export class MainOverviewComponent implements OnInit {
 
   streak: number = 0;
 
-  constructor(private service: OverviewService) {
+  constructor(private service: OverviewService, private loginService: AuthService) {
   }
 
   ngOnInit(): void {
+    this.userId = this.loginService.getUserId();
     //get decks
     this.service.getDecksForUser(this.userId)
       .subscribe(decks => {
@@ -89,14 +91,14 @@ export class MainOverviewComponent implements OnInit {
   }
 
   previousActivities() {
-    if(this.currentPage>1) {
+    if(this.currentPage>1 && this.userId) {
       this.currentPage--;
       this.activities$ = this.service.getActivity(this.userId, this.currentPage, this.itemsPerPage);
     }
   }
 
   nextActivities() {
-    if(this.currentPage<5) {
+    if(this.currentPage<5 && this.userId) {
       this.currentPage++;
       this.activities$ = this.service.getActivity(this.userId, this.currentPage, this.itemsPerPage);
     }
