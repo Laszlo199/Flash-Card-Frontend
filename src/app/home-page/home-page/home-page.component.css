@@ -249,6 +249,7 @@ header::after {
 nav {
   display: flex;
   padding: 10px;
+  margin-block: auto;
 }
 
 .button-logIn {
@@ -258,19 +259,17 @@ nav {
 }
 
 .login-btn {
-  width: 200px;
+  width: 150px;
 }
 
 nav ul {
-  margin: 0;
-  padding: 0;
   list-style: none;
 }
 
 nav li {
   display: inline-block;
   margin-left: 70px;
-  padding-top: 23px;
+  padding-top:0;
 
   position: relative;
 }
