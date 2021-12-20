@@ -37,9 +37,22 @@ export class AuthService {
     )
   }
 
-  register(loginDto: LoginDto)
+  register(loginDto: LoginDto): Observable<TokenDto>
   {
-    return this._http.post(environment.api+'/api/Auth/Register',loginDto)
+    return this._http.post<TokenDto>(environment.api+'/api/Auth/Register',loginDto)
+      .pipe(
+        tap(token =>{
+          if(token && token.jwt){
+            localStorage.setItem(jwtToken, token.jwt);
+            localStorage.setItem(userId, token.userId.toString());
+            localStorage.setItem(email, loginDto.email.toString());
+            this.isLoggedIn$.next(token.jwt);
+            this.isLoggedIn = true;
+          }else {
+            this.logout();
+          }
+        })
+      )
   }
 
 

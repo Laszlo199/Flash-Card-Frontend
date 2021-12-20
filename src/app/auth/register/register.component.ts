@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
 import {LoginDto} from "../shared/login.dto";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -28,14 +29,16 @@ export class RegisterComponent implements OnInit {
   });
 
   constructor(private fb: FormBuilder,
-              private _auth: AuthService) { }
+              private _auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   signup() {
     const registerDto = this.registerForm.value as LoginDto;
-    this._auth.register(registerDto).subscribe();
+    this._auth.register(registerDto).subscribe(tokenDto=> {
+      this.router.navigateByUrl("collections")
+    });
   }
 
   get email() {return this.registerForm.get('email')}
