@@ -29,6 +29,10 @@
   cursor: pointer;
 }
 
+.settingsIcon:hover{
+  color: #3a3a3a;
+}
+
 .icon{
   font-size: 40px;
 }
