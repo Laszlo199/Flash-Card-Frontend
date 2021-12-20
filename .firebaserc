@@ -1,7 +1,5 @@
 {
   "projects": {
-    "default": "memorise-klk",
-    "deploy": "morizeea"
-  },
-  "targets": {}
+    "default": "memorise-klk"
+  }
 }
