@@ -1,19 +1,27 @@
-<app-navbar></app-navbar>
-<!--div class="navbar">
-  <a href=“#start”>Flash</a>
-  <div class="links">
-    <a href=“#features”>Features</a>
-    <a href=“#aboutus”>About us</a>
-    <a routerLink="/auth/register">Join us</a>
-  </div>
-  <a routerLink="/auth/login">Log in</a>
-</div-->
+<!--app-navbar></app-navbar-->
+
+<!--NAVBAR-->
+<div class="navbar">
+  <nav>
+    <h2 class="logo" (click)="home.scrollIntoView({ behavior: 'smooth', block: 'center' })">Memorise</h2>
+    <ul class="list">
+      <li><a (click)="aboutus.scrollIntoView({ behavior: 'smooth', block: 'center' })">About us </a></li>
+      <li><a (click)="features.scrollIntoView({ behavior: 'smooth', block: 'center' })">Features</a></li>
+      <li><a routerLink="/auth/register">Sign in</a></li>
+    </ul>
+    <div class="button-logIn">
+      <button routerLink="/auth/login" class="button-21 login-btn" role="button">Log in</button>
+    </div>
+
+  </nav>
+</div>
+
 
 <div class="background">
 <div class="main-container">
 
   <!--FIRST SECTION: HEADER & VIDEO-->
-  <section class="one">
+  <section class="one" #home>
   <div class="introduction-container">
 
     <div class="introduction-container-el header-text">
@@ -37,7 +45,7 @@
   </section>
 
   <!--SECTION: FEATURES-->
-  <section>
+  <section #features>
     <div class="features-container">
       <h2 class="header features-header">With Memorise you can...</h2>
       <div class="feature-el">
@@ -70,7 +78,7 @@
   </section>
 
   <!--THIRD SECTION: ABOUT US-->
-  <section class="three">
+  <section class="three" #aboutus>
   <div class="aboutus-container">
       <h1 class="header">About us</h1>
       <p class="aboutUsText">Our mission is to make the world a better place.

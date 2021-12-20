@@ -212,3 +212,98 @@ section {
 .button-21:focus:not(:active) {
   box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
 }
+
+
+
+
+/*NAV BAR*/
+
+.navbar {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 10vh;
+  position: fixed;
+
+  background: #4c32f0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: whitesmoke;
+  margin-block: auto;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+
+ul {
+  padding-left: 120px;
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+nav {
+  display: flex;
+  padding: 10px;
+}
+
+.button-logIn {
+  position: absolute;
+  top: 25px;
+  right: 100px;
+}
+
+.login-btn {
+  width: 200px;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 23px;
+
+  position: relative;
+}
+
+nav a {
+  color: #7b80f1;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: white;
+}
+
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: #C4BBF3;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+li a{
+  color: #C4BBF3;
+  cursor: pointer;
+}

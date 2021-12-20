@@ -15,5 +15,4 @@ export class HomePageComponent implements OnInit {
     if(this.loginService.isLoggedIn)
       this.router.navigateByUrl("/collections")
   }
-
 }

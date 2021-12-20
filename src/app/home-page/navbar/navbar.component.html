@@ -1,8 +1,6 @@
  <div class="container">
     <nav>
-      <div class="logo">
       <h2 class="logo">Memorise</h2>
-      </div>
       <ul class="list">
         <li><a routerLink="/home">Home</a></li>
         <li><a >About us </a></li>
@@ -10,10 +8,7 @@
         <li><a routerLink="/auth/register">Sign in</a></li>
       </ul>
       <div class="button-logIn">
-        <button routerLink="/auth/login" class="button-21" role="button" *ngIf="!jwt else logoutTemp"> Log in</button>
-        <ng-template  #logoutTemp>
-          <button class= "button-21"  [routerLink]="[]" (click)="logout()">Logout</button>
-        </ng-template>
+        <button routerLink="/auth/login" class="button-21" role="button"> Log in</button>
       </div>
 
     </nav>
