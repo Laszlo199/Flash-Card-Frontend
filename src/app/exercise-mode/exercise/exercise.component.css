@@ -1,101 +1,117 @@
-.container {
-  width: 400px;
-  height: 400px;
-  display: block;
+.background {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../../assets/Images/blob-scene-haikei-2.svg");
+  background-size: cover;
+
+  position: absolute;
+}
+
+.exit{
+  text-align:left;
   position: relative;
+  top: 4rem;
+  left: 1.5rem;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+
+.container {
+  width: 40vw;
+  height: 40vh;
+  display: block;
   perspective: 800px;
-  border-radius: 4px;
-  left: 40%;
-  top: 50%;
+  border-radius: 20px;
+  margin-inline: auto;
+  margin-top: 10vh;
 }
 
 .card {
   width: 100%;
   height: 100%;
-  position: absolute;
   transform-style: preserve-3d;
   transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border-radius: 6px;
+  border-radius: 20px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
 }
 
 .card .front,
 .card .back {
-  position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 6px;
-  background-color: dodgerblue;
-  color: #fff;
+  border-radius: 20px;
+
   display: grid;
   place-items: center;
+
+  font-size: 2rem;
+
+  position: absolute;
+}
+
+.card .front {
+  color: black;
+  background-color: white;
 }
 
 .back {
   transform: rotateY(180deg);
+  color: white;
 }
 
 .flipped {
   transform: rotateY(180deg);
 }
 
+.buttons {
+  margin-inline: auto;
+  font-size: 1rem;
+  margin-top: 5vh;
+  display: flex;
+  justify-content: space-between;
+}
+
 .checkButton {
-  position: absolute;
   background-color: mediumseagreen;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 10px;
-  border: 1px solid black;
-  border-radius: 8px;
-  width: 15%;
-  left: 34%;
-  top: 130%;
+  margin-left: 7vw;
 }
 .checkButton:hover {
   box-shadow: rgba(100, 76,0.5) 0 3px 8px;
 }
 .idontKnow{
-  position: absolute;
   background-color: indianred;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 10px;
-  border: 1px solid black;
-  border-radius: 8px;
-  width: 15%;
-  left: 130%;
-  top:43%;
+  margin-right: 7vw;
 }
 
 .idontKnow:hover {
   box-shadow: rgba(100, 76, 0.5) 0 3px 8px;
 }
 
+.btn {
+  display: inline-block;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  width: 15%;
+  cursor: pointer;
+}
+
 .textField{
   border-radius: 4px;
   border: 2px solid #ccc;
   padding: 12px 20px;
-  position: absolute;
-  width: 70%;
-  left: 10%;
-  top: 110%;
+
+  width: 90%;
+  font-size: 1rem;
+  margin-top: 5vh;
 }
 
-.exit{
-  text-align:left;
-  top: 1rem;
-  left: 1rem;
-}
 .feedback-bar{
   left: 34%;
   top: 150%;

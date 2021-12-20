@@ -69,7 +69,7 @@ export class ExerciseComponent implements OnInit {
             .subscribe(a=> {
               console.log(a);
             }, error => console.log(error))
-          await new Promise(f => setTimeout(f, 4000));
+          await new Promise(f => setTimeout(f, 2000));
           if (this.cards.length == 1){
             this.goBackToCollectionsById();
           }
@@ -96,7 +96,7 @@ export class ExerciseComponent implements OnInit {
 
           console.log('wrong');
           this.checked = true;
-          await new Promise(f => setTimeout(f, 4000));
+          await new Promise(f => setTimeout(f, 2000));
           this.hideAnswer();
           this.checked = false;
           this.toggle();
@@ -120,7 +120,7 @@ export class ExerciseComponent implements OnInit {
   async idontKnow() {
     this.checked = true;
     this.toggle();
-    await new Promise(f => setTimeout(f, 4000));
+    await new Promise(f => setTimeout(f, 2000));
     this.toggle();
     this.checked = false;
     this.skip();
