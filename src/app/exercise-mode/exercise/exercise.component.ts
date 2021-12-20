@@ -4,6 +4,7 @@ import {ExerciseService} from "../shared/exercise.service";
 import {exerciseCardsDto} from "../shared/exerciseCards.dto";
 import {exerciseDecksDto} from "../shared/exerciseDecks.dto";
 import {PostAttemptDto} from "../../test-mode/shared/dtos/post-attempt.dto";
+import {AuthService} from "../../auth/shared/auth.service";
 
 @Component({
   selector: 'app-exercise',
@@ -20,15 +21,16 @@ export class ExerciseComponent implements OnInit {
   answer: string | undefined;
   checked: boolean = false;
   answeredCorrectly: boolean | undefined;
+  private userId: number=0;
 
 
   constructor(private _service: ExerciseService,
-              private _router: Router, private _route: ActivatedRoute) {}
+              private _router: Router, private _route: ActivatedRoute, private loginService: AuthService) {}
 
   ngOnInit(): void {
     // @ts-ignore
     this.deckId = +this._route.snapshot.paramMap.get('id');
-    //this.userId = this.loginService.getUserId();// I need the user id but I dont have this function in this branch
+    this.userId = this.loginService.getUserId();// I need the user id but I dont have this function in this branch
     this.loadDeck()
   }
 
@@ -60,7 +62,7 @@ export class ExerciseComponent implements OnInit {
           this.answeredCorrectly = true;
           console.log('good');
           let attempt: PostAttemptDto = {
-            "userId": 1,//this.userId// I need the user id but I dont have this function in mine branches
+            "userId": this.userId,
             "cardId": this.cards[this.index].id,
             "wasCorrect": true,
             "date": new Date()
@@ -84,7 +86,7 @@ export class ExerciseComponent implements OnInit {
         } else {
           this.answeredCorrectly = false;
           let attempt: PostAttemptDto = {
-            "userId": 1, //this.userId// I need the user id but I dont have this function in this branch
+            "userId": this.userId,
             "cardId": this.cards[this.index].id,
             "wasCorrect": false,
             "date": new Date()
