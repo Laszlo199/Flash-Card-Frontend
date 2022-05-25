@@ -2,8 +2,13 @@
 
 3rd semester exam project for Computer Science program at Business Academy Southwest. Frontend of a website where users can create flashcards and study.
 
-<img width="1438" alt="Screenshot 2022-02-03 at 23 36 38" src="https://user-images.githubusercontent.com/71661786/152440805-30997966-52e4-4061-af68-13138bacb438.png">
-
+## Screenshots
+<img width="1552" alt="Screenshot 2022-05-25 at 14 22 33" src="https://user-images.githubusercontent.com/71661786/170261543-29a68ecd-ee42-4f27-8c65-b75bc2d124d9.png">
+<img width="1552" alt="Screenshot 2022-05-25 at 14 24 39" src="https://user-images.githubusercontent.com/71661786/170261551-e530e187-42d0-44a0-8ef6-24ad6754c1b1.png">
+<img width="1552" alt="Screenshot 2022-05-25 at 14 24 42" src="https://user-images.githubusercontent.com/71661786/170261563-fd570387-cfac-48f4-9799-853dfa7c2041.png">
+<img width="1552" alt="Screenshot 2022-05-25 at 14 24 55" src="https://user-images.githubusercontent.com/71661786/170261573-cfae583d-a5d1-45a5-b4c1-95cf4f7ac713.png">
+<img width="1552" alt="Screenshot 2022-05-25 at 14 25 01" src="https://user-images.githubusercontent.com/71661786/170261595-f94a6712-5926-459c-8ffc-15a0350b2af7.png">
+<img width="1552" alt="Screenshot 2022-05-25 at 14 25 18" src="https://user-images.githubusercontent.com/71661786/170261604-ee5341b8-d8d4-4e80-b79c-efca67855509.png">
 
 ## Features:
 - Users can create an account which is verified by an email and password
