@@ -4,11 +4,6 @@
 
 <img width="1438" alt="Screenshot 2022-02-03 at 23 36 38" src="https://user-images.githubusercontent.com/71661786/152440805-30997966-52e4-4061-af68-13138bacb438.png">
 
-https://morizeea.web.app/home<br> 
-Credentials to a sample account:<br>  
-normaluser<br> 
-password456<br> 
-
 
 ## Features:
 - Users can create an account which is verified by an email and password
